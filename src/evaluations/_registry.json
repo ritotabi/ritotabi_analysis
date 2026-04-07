@@ -158,6 +158,16 @@
       "evaluatedAt": "2026-04-07",
       "lang": "EN",
       "type": "ガイド"
+    },
+    "ishigaki_hotels_en": {
+      "file": "ishigaki_hotels_en.json",
+      "url": "/en/hotels/ishigaki-island/",
+      "title": "5 Best Ishigaki Hotels: Luxury to Downtown 2026（英語）",
+      "stream": "en_ishigaki",
+      "overall": 91,
+      "evaluatedAt": "2026-04-07",
+      "lang": "EN",
+      "type": "ホテル"
     }
   }
 }

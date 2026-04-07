@@ -26,20 +26,31 @@ const TableTab: React.FC<TableTabProps> = ({ data, streams, sum }) => {
           {data.map((row, i) => (
             <tr key={row.m} style={{ borderBottom: "1px solid #1e293b15", background: i % 2 === 0 ? "transparent" : "#0f172a50" }}>
               <td style={{ padding: "8px 16px", color: SLATE, fontWeight: 700 }}>{row.mp}</td>
-              <td style={{ padding: "8px 16px", textAlign: "right", fontSize: 12, fontWeight: 700, fontFamily: "monospace" }}>{row.s_total}</td>
+              <td style={{ padding: "8px 16px", textAlign: "right", fontFamily: "monospace" }}>
+                <div style={{ fontSize: 11, fontWeight: 700 }}>{row.s_total}</div>
+                {/* Total PV for this month could go here too if needed, but the user primarily wanted stream-wise PV. */}
+              </td>
               {streams.map((s) => (
-                <td key={s.key} style={{ padding: "8px 16px", textAlign: "right", color: s.color + "cc", fontFamily: "monospace" }}>{row[`s_rev_${s.key}`]}</td>
+                <td key={s.key} style={{ padding: "8px 16px", textAlign: "right", fontFamily: "monospace" }}>
+                  <div style={{ color: s.color + "cc", fontWeight: 700, fontSize: 11 }}>{row[`s_rev_${s.key}`]}</div>
+                  <div style={{ fontSize: 9, opacity: 0.6, color: s.color }}>{row[`s_pv_${s.key}`]}</div>
+                </td>
               ))}
               <td style={{ padding: "8px 16px", textAlign: "right", fontSize: 12, fontWeight: 700, color: SLATE, fontFamily: "monospace" }}>{row.s_cum}</td>
             </tr>
           ))}
           <tr style={{ background: "#0c1829", fontWeight: 700, borderTop: "2px solid #1e293b" }}>
             <td style={{ padding: "10px 16px", color: SLATE }}>合計</td>
-            <td style={{ padding: "10px 16px", textAlign: "right", fontSize: 13, color: SLATE, fontFamily: "monospace" }}>¥{sum.total.toLocaleString()}</td>
+            <td style={{ padding: "10px 16px", textAlign: "right", fontSize: 12, color: SLATE, fontFamily: "monospace" }}>
+              <div>¥{sum.total.toLocaleString()}</div>
+            </td>
             {streams.map((s) => (
-              <td key={s.key} style={{ padding: "10px 16px", textAlign: "right", color: s.color, fontFamily: "monospace" }}>¥{sum[s.key].toLocaleString()}</td>
+              <td key={s.key} style={{ padding: "10px 16px", textAlign: "right", fontSize: 11, color: s.color, fontFamily: "monospace" }}>
+                <div>¥{sum[s.key].toLocaleString()}</div>
+                <div style={{ fontSize: 10, opacity: 0.8 }}>{(sum[`pv_${s.key}`] || 0).toLocaleString()} PV</div>
+              </td>
             ))}
-            <td style={{ padding: "10px 16px", textAlign: "right", fontSize: 13, color: SLATE, fontFamily: "monospace" }}>¥{sum.total.toLocaleString()}</td>
+            <td style={{ padding: "10px 16px", textAlign: "right", fontSize: 12, color: SLATE, fontFamily: "monospace" }}>¥{sum.total.toLocaleString()}</td>
           </tr>
         </tbody>
       </table>

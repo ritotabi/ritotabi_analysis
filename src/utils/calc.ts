@@ -44,7 +44,9 @@ export function calcData(pvObj: BasePVRow[], streams: StreamDef[]): CalculatedRo
       const pv = row.pv[s.key] || 0;
       const rev = Math.round(pv * s.cvr * s.unit);
       res[`rev_${s.key}`] = rev;
+      res[`pv_${s.key}`] = pv;
       res[`s_rev_${s.key}`] = "¥" + rev.toLocaleString();
+      res[`s_pv_${s.key}`] = pv.toLocaleString() + " PV";
       res.total += rev;
       cum[s.key] += rev;
       res[`cum_${s.key}`] = cum[s.key];
@@ -60,11 +62,13 @@ export function calcData(pvObj: BasePVRow[], streams: StreamDef[]): CalculatedRo
 }
 
 export function sumRevDyn(data: CalculatedRow[], streams: StreamDef[]): Record<string, number> {
-  const res: Record<string, number> = { total: 0 };
+  const res: Record<string, number> = { total: 0, totalPv: 0 };
   streams.forEach((s) => {
     res[s.key] = data.reduce((a, r) => a + (r[`rev_${s.key}`] || 0), 0);
+    res[`pv_${s.key}`] = data.reduce((a, r) => a + (r[`pv_${s.key}`] || 0), 0);
   });
   res.total = streams.reduce((a, s) => a + (res[s.key] || 0), 0);
+  res.totalPv = streams.reduce((a, s) => a + (res[`pv_${s.key}`] || 0), 0);
   return res;
 }
 

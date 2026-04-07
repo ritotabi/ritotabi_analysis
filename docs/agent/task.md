@@ -1,14 +1,4 @@
-- [x] `src/evaluations/_registry.json` の更新
-    - [x] 新しいストリーム（12個）の定義追加
-    - [x] 既存の `r`, `ren` を使用している評価の更新
-- [x] `src/data/baseline-pv.ts` の更新
-    - [x] `r` を `jp_ishigaki`, `jp_miyako`, `jp_yoron`, `jp_kume`, `jp_aka`, `jp_other` に分割
-- [x] `src/data/streams.ts` の同期
-- [x] 各評価 JSON ファイルの `stream` キー更新
-    - [x] `ishigaki_en.json` -> `en_ishigaki`
-    - [x] `top_jp.json` -> `jp_other`
-- [x] `src/App.tsx` またはコンポーネントでの非表示ロジック実装
-    - [x] 評価が存在しないストリームをフィルタリングする処理の追加
-- [x] 動作確認
-    - [x] 石垣島（英語）と「その他」が表示されていること
-    - [x] それ以外の新エリア（宮古、与論、久米、阿嘉）が非表示であること
+- [x] 評価JSONの生成 (`ishigaki_hotels_en.json`)
+- [x] レジストリの更新 (`_registry.json`)
+- [x] 画面表示の確認
+- [x] Walkthroughの作成
