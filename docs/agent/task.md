@@ -1,9 +1,14 @@
-- [x] ページ内容の取得と分析
-- [x] 実装計画の作成と承認
-- [/] SKILL (`eval_spec.md`) の更新：アフィリエイト戦略の明文化
-- [ ] SKILL (`SKILL.md`) の更新：ストリーム自動判定ロジックの追加
-- [ ] `_registry.json` への新規ストリーム `ren` の追加
-- [ ] 石垣島評価データ `ishigaki_en.json` の生成と保存
-- [ ] `_registry.json` への石垣島データの登録
-- [ ] ドキュメントの `docs/agent` への保存
-- [ ] 最終確認（ダッシュボード表示確認）
+- [x] `src/evaluations/_registry.json` の更新
+    - [x] 新しいストリーム（12個）の定義追加
+    - [x] 既存の `r`, `ren` を使用している評価の更新
+- [x] `src/data/baseline-pv.ts` の更新
+    - [x] `r` を `jp_ishigaki`, `jp_miyako`, `jp_yoron`, `jp_kume`, `jp_aka`, `jp_other` に分割
+- [x] `src/data/streams.ts` の同期
+- [x] 各評価 JSON ファイルの `stream` キー更新
+    - [x] `ishigaki_en.json` -> `en_ishigaki`
+    - [x] `top_jp.json` -> `jp_other`
+- [x] `src/App.tsx` またはコンポーネントでの非表示ロジック実装
+    - [x] 評価が存在しないストリームをフィルタリングする処理の追加
+- [x] 動作確認
+    - [x] 石垣島（英語）と「その他」が表示されていること
+    - [x] それ以外の新エリア（宮古、与論、久米、阿嘉）が非表示であること

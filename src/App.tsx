@@ -47,6 +47,11 @@ const App: React.FC = () => {
     return <div style={{ background: "#080f1a", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", color: SLATE }}>Loading...</div>;
   }
 
+  // Filter streams to only show those with evaluations
+  const activeStreams = streams.filter(s => 
+    Object.values(evaluations).some(ev => ev.stream === s.key)
+  );
+
   // Derive PV and Revenue Data
   const baseData = calcData(BASE_PV_OBJ, streams);
   const baseSum = sumRevDyn(baseData, streams);
@@ -61,7 +66,7 @@ const App: React.FC = () => {
 
   return (
     <div className="app-container" style={{ minHeight: "100vh", background: "#080f1a", color: "#e2e8f0", paddingBottom: 60 }}>
-      <Header streamCount={streams.length} evalCount={Object.keys(evaluations).length} />
+      <Header streamCount={activeStreams.length} evalCount={Object.keys(evaluations).length} />
       
       <ModeBanner 
         scenario={scenario} 
@@ -95,9 +100,9 @@ const App: React.FC = () => {
       </div>
 
       <div style={{ padding: "18px 24px" }}>
-        {tab === "overview" && <OverviewTab streams={streams} sum={sum} baseSum={baseSum} evaluations={evaluations} />}
-        {tab === "chart" && <ChartTab data={data} streams={streams} />}
-        {tab === "table" && <TableTab data={data} streams={streams} sum={sum} />}
+        {tab === "overview" && <OverviewTab streams={activeStreams} sum={sum} baseSum={baseSum} evaluations={evaluations} />}
+        {tab === "chart" && <ChartTab data={data} streams={activeStreams} />}
+        {tab === "table" && <TableTab data={data} streams={activeStreams} sum={sum} />}
         {tab === "eval" && <EvalTab lastUpdated={registry.lastUpdated} evalCount={Object.keys(evaluations).length} />}
         {tab === "quality" && <QualityTab evaluations={Object.values(evaluations)} />}
       </div>

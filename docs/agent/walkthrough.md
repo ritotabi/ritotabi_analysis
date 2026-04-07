@@ -1,28 +1,31 @@
-# 石垣島・竹富島ガイド（英語版）のページ評価 完了報告
+# 日本エリア細分化と未評価エリア非表示化の完了
 
-https://ritotabi.com/en/destinations/ishigaki-island/ の評価を完了し、アフィリエイト戦略をSKILLに反映しました。
+日本列島（日本離島）の収益ストリームをエリア毎に分割し、言語別（日本語・英語）に集計・表示する対応が完了しました。
 
 ## 実施内容
 
-### 1. ページ評価・登録
-- **URL**: `/en/destinations/ishigaki-island/`
-- **収益ストリーム**: 新設した `ren` (日本離島 英語) を適用。
-- **評価結果**: Quality Score `81` (Originality 85, SEO 85)。
-- **主要な課題**: カルーセル構造化データの警告、および複数OTAボタンの不足を指摘。
+### 1. ストリーム定義の細分化
+`_registry.json` において、以下の12個の新しいストリームを定義しました。
+- **日本語**: 石垣島, 宮古島, 与論島, 久米島, 阿嘉島, その他
+- **英語**: Ishigaki, Miyako, Yoron, Kume, Aka, Other Japan
 
-### 2. SKILL (`page_evaluator`) のアップグレード
-- **アフィリエイト戦略の明文化**: `eval_spec.md` にエリア・言語別のルールを追加。
-- **自動化ロジックの追加**: `SKILL.md` にURL・言語から収益ストリーム（r/ren/cen/hen等）を自動判別するロジックを組み込みました。
+### 2. ベースラインPVの再配分
+`baseline-pv.ts` 内の従来の `r` (楽天 日本離島) のPVを、以下の比率で各エリアに分配しました。
+- 石垣島: 35% / 宮古島: 25% / 与論島: 10% / 久米島: 10% / 阿嘉島: 5% / その他: 15%
 
-### 3. レジストリ更新
-- `_registry.json` に新ストリーム `ren` (色: エメラルドグリーン) を追加し、石垣島の評価データを紐付けました。
+### 3. 未評価エリアの非表示ロジック
+`App.tsx` にフィルタリングロジックを追加し、**現在評価データが存在するストリームのみ**をダッシュボード（概要、グラフ、月次一覧）に表示するようにしました。
+- 現時点では「Ishigaki (EN)」と「その他 日本離島 (JP)」に関連する評価があるため、これらが表示されます。
+- 宮古島や与論島などは、今後ページ評価を追加することで自動的にダッシュボードに出現します。
 
-## 検証結果
-- `npm run dev` で起動中のダッシュボードにて、石垣島のデータが「日本離島 英語」枠で表示されていることを確認しました。
-- `ishigaki_en.json` のスキーマ整合性を確認しました。
+### 4. 既存データの移行
+- `ishigaki_en.json` のストリームを `en_ishigaki` に更新。
+- `top_jp.json` のストリームを `jp_other` に更新。
 
-## 作成・修正ファイル
-- [ishigaki_en.json](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/src/evaluations/ishigaki_en.json) [NEW]
-- [_registry.json](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/src/evaluations/_registry.json) [MODIFY]
-- [eval_spec.md](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/.agent/skills/page_evaluator/resources/eval_spec.md) [MODIFY]
-- [SKILL.md](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/.agent/skills/page_evaluator/SKILL.md) [MODIFY]
+## 確認方法
+
+- **概要タブ**: 「収益ストリーム」に `Ishigaki (EN)` と `その他 日本離島 (JP)` が表示され、他の未評価エリアが表示されていないことを確認。
+- **グラフ/一覧**: 同様に、評価済みのエリアのみが集計対象となっていることを確認。
+
+> [!TIP]
+> 新しいエリア（例：宮古島）の評価ファイルを作成し、`stream` に `jp_miyako` または `en_miyako` を指定して登録すれば、即座にダッシュボードに反映されます。

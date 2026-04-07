@@ -70,22 +70,38 @@ export function sumRevDyn(data: CalculatedRow[], streams: StreamDef[]): Record<s
 
 export function addEvalsToPv(
   basePvObj: BasePVRow[],
-  storedEvals: Record<string, { pp: number[]; pn: number[]; po: number[]; stream: string }>,
+  storedEvals: Record<string, any>,
   scenario: "pessimistic" | "normal" | "optimistic",
   streams: StreamDef[]
 ): BasePVRow[] {
   const additions: Record<string, number[]> = {};
   streams.forEach((s) => {
-    additions[s.key] = Array(24).fill(0);
+    additions[s.key] = Array(basePvObj.length).fill(0);
   });
+
   Object.values(storedEvals).forEach((ev) => {
     const arr =
       scenario === "pessimistic" ? ev.pp : scenario === "optimistic" ? ev.po : ev.pn;
-    if (!additions[ev.stream]) additions[ev.stream] = Array(24).fill(0);
-    arr.forEach((v, i) => {
-      additions[ev.stream][i] = (additions[ev.stream][i] || 0) + v;
-    });
+    const pubDate = ev.quality?.publishedDate;
+    if (!pubDate) return;
+
+    // Find start index in basePvObj (Format: e.g. "Apr'26")
+    const [y, m] = pubDate.split("-").map(Number);
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const targetM = months[m - 1] + "'" + String(y).slice(-2);
+    const startIdx = basePvObj.findIndex((row) => row.m === targetM);
+
+    if (startIdx === -1) return;
+
+    for (let i = startIdx; i < basePvObj.length; i++) {
+      const forecastIdx = i - startIdx;
+      // If array is shorter than timeline, sustain the last value
+      const val = forecastIdx < arr.length ? arr[forecastIdx] : arr[arr.length - 1];
+      if (!additions[ev.stream]) additions[ev.stream] = Array(basePvObj.length).fill(0);
+      additions[ev.stream][i] = (additions[ev.stream][i] || 0) + val;
+    }
   });
+
   return basePvObj.map((row, i) => {
     const newPv = { ...row.pv };
     Object.keys(additions).forEach((key) => {

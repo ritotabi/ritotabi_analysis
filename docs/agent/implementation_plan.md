@@ -1,28 +1,67 @@
-# 石垣島・竹富島ガイド（英語版）のページ評価実装計画
+# 日本エリアの細分化（エリア別集計）の実装計画
 
-https://ritotabi.com/en/destinations/ishigaki-island/ の評価結果をシステムに登録します。
+日本列島（日本離島）として一括で表示されていた収益ストリームを、エリア毎（石垣島、宮古島、与論島、久米島、阿嘉島）に細分化し、言語別（日本語・英語）に集計評価できるようにします。
 
-## ユーザーレビュー要求事項
+## ユーザーレビューが必要な事項
 
 > [!IMPORTANT]
-> 収益ストリームの選択について：ユーザー様からのフィードバックに基づき、日本エリアの英語ページには `ren`（日本離島 英語）という新しいストリームを定義します。
-> 構成：メイン Agoda / サブ1 Booking.com（Stay22経由）、サブ2 楽天。
-> 予測パラメータは、既存の英語ストリーム（cen/hen）に近い値（CVR 0.008, 単価 2000）を暫定的に設定します。
+> **ベースラインPVの配分比率（日本語）**
+> 現在の「楽天（日本離島）」のベースラインPVを以下の比率で仮配分します。実態に合わせて調整が必要な場合はお知らせください。
+> - 石垣島: 35%
+> - 宮古島: 25%
+> - 与論島: 10%
+> - 久米島: 10%
+> - 阿嘉島: 5%
+> - その他: 15%
+
+> [!NOTE]
+> **ストリームキーの命名ルール**
+> 日本語は `jp_[area]`, 英語は `en_[area]` という形式で統一します。
 
 ## 提案される変更
 
-### 評価データコンポーネント
-
-#### [NEW] [ishigaki_en.json](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/src/evaluations/ishigaki_en.json)
-- 指定されたURLの分析結果（スコア、チェックリスト、課題）を格納した新規JSONファイル。
-- 公開日（2026-04-06）に基づき、鮮度を `new` として評価。
+### データ定義とレジストリ
 
 #### [MODIFY] [_registry.json](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/src/evaluations/_registry.json)
-- 新しい収益ストリーム `ren`（日本離島 英語）を `streams` に追加します。
-- `ishigaki_en` を `evaluations` オブジェクトに追加し、`stream` を `ren` に設定します。
+- `streams` に以下の12個のストリームを定義（既存の `r`, `ren` は廃止）。
+    - 日本語: `jp_ishigaki`, `jp_miyako`, `jp_yoron`, `jp_kume`, `jp_aka`, `jp_other`
+    - 英語: `en_ishigaki`, `en_miyako`, `en_yoron`, `en_kume`, `en_aka`, `en_other`
+- 既存の評価（evaluations）の `stream` プロパティを新しいエリア・言語別キーに更新。
+
+#### [MODIFY] [baseline-pv.ts](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/src/data/baseline-pv.ts)
+- 各月の `pv` オブジェクトにおける `r` の値を、上記日本語エリア別の比率で分割して再割り当て。
+- 英語エリア別のベースラインは現状通り 0 または極小値から開始。
+
+#### [MODIFY] [streams.ts](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/src/data/streams.ts)
+- `DEFAULT_STREAMS` を `_registry.json` の新定義と同期。
+
+### 評価データファイル
+
+#### [MODIFY] [ishigaki_en.json](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/src/evaluations/ishigaki_en.json)
+- `stream` を `ren` から `en_ishigaki` に変更。
+
+#### [MODIFY] [top_jp.json](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/src/evaluations/top_jp.json)
+- `stream` を `r` から `jp_other` に変更。
+
+---
+
+## 修正後のストリーム構成（抜粋）
+
+| エリア | 日本語キー | 英語キー | 色 (案) |
+| :--- | :--- | :--- | :--- |
+| 石垣島 | `jp_ishigaki` | `en_ishigaki` | AMBER / EMERALD |
+| 宮古島 | `jp_miyako` | `en_miyako` | ORANGE / TEAL |
+| 与論島 | `jp_yoron` | `en_yoron` | ROSE / INDIGO |
+| 久米島 | `jp_kume` | `en_kume` | LIME / SKY |
+| 阿嘉島 | `jp_aka` | `en_aka` | RED / VIOLET |
+| その他 | `jp_other` | `en_other` | SLATE / GREY |
 
 ## 検証計画
 
-### 自動テスト / 手動検証
-- `npm run dev` で起動中のダッシュボードを確認し、石垣島のデータが表示され、収益予測が「公開直後」のカーブ（ほぼ0から開始）に沿っていることを確認します。
-- JSON のスキーマが適切であることを確認します。
+### 画面確認
+- 「概要」タブの「収益ストリーム」セクションに、細分化されたストリームが表示されていること。
+- 「グラフ」タブで、エリア別の推移が表示されていること。
+- 「評価済みPV蓄積」の各ページが正しいストリームに紐付いていること。
+
+### 自動テスト
+- `src/utils/calc.ts` のロジックが新しいキーで問題なく動作することを確認。
