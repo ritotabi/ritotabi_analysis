@@ -251,7 +251,7 @@ const QualityDetail: React.FC<QualityDetailProps> = ({ evaluation }) => {
       </div>
 
       {/* 追加チェックリスト (Vite版拡張機能) */}
-      {(q.seoChecklist || q.affiliateChecklist) && (
+      {(q.seoChecklist || q.affiliateChecklist || q.brandChecklist || q.categoryChecklist || q.techChecklist) && (
         <div style={{ borderTop: "1px solid #1e293b", paddingTop: 24, marginTop: 24 }}>
           <h3 style={{ color: SLATE, fontSize: 11, fontFamily: "monospace", letterSpacing: "0.12em", marginBottom: 16 }}>— 分析詳細（チェックリスト）</h3>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
@@ -287,6 +287,70 @@ const QualityDetail: React.FC<QualityDetailProps> = ({ evaluation }) => {
                       )}
                     </div>
                   ))}
+                </div>
+              </div>
+            )}
+            {q.brandChecklist && (
+              <div style={{ background: "#080f1a", padding: 16, borderRadius: 10, border: `1px solid ${VIOLET}30` }}>
+                <h4 style={{ fontSize: 11, color: VIOLET, marginBottom: 12, textTransform: "uppercase" }}>ブランド品質</h4>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "8px" }}>
+                  {Object.entries(q.brandChecklist).map(([key, val]) => {
+                    if (val === null) return null;
+                    const labels: Record<string, string> = {
+                      toneAndManner: "トーン＆マナー",
+                      firstPersonInsight: "一次情報の具体性",
+                      benefitUpfront: "冒頭の結論提示",
+                      personaDrivenPros: "ペルソナ形式のPros",
+                    };
+                    return (
+                      <div key={key} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 10.5 }}>
+                        <span style={{ color: val ? GRN : ROSE }}>{val ? "✓" : "×"}</span>
+                        <span style={{ color: val ? "#e2e8f0" : SLATE }}>{labels[key] || key}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+            {q.categoryChecklist && (
+              <div style={{ background: "#080f1a", padding: 16, borderRadius: 10, border: `1px solid ${ORANGE}30` }}>
+                <h4 style={{ fontSize: 11, color: ORANGE, marginBottom: 12, textTransform: "uppercase" }}>カテゴリ固有チェック</h4>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "8px" }}>
+                  {Object.entries(q.categoryChecklist).map(([key, val]) => {
+                    if (val === null) return null;
+                    const labels: Record<string, string> = {
+                      comparisonTable: "比較表の設置",
+                      affiliateMicroCopy: "マイクロコピー",
+                      courseSpecs: "コーススペック明記",
+                      runBadge: "実走評価バッジ",
+                    };
+                    return (
+                      <div key={key} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 10.5 }}>
+                        <span style={{ color: val ? GRN : ROSE }}>{val ? "✓" : "×"}</span>
+                        <span style={{ color: val ? "#e2e8f0" : SLATE }}>{labels[key] || key}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+            {q.techChecklist && (
+              <div style={{ background: "#080f1a", padding: 16, borderRadius: 10, border: "1px solid #1e293b50" }}>
+                <h4 style={{ fontSize: 11, color: SLATE, marginBottom: 12, textTransform: "uppercase" }}>技術実装</h4>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "8px" }}>
+                  {Object.entries(q.techChecklist).map(([key, val]) => {
+                    const labels: Record<string, string> = {
+                      nextImage: "Next.js Image使用",
+                      imageAlt: "画像alt属性",
+                      affiliateRel: "rel属性(sponsored)",
+                    };
+                    return (
+                      <div key={key} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 10.5 }}>
+                        <span style={{ color: val ? GRN : ROSE }}>{val ? "✓" : "×"}</span>
+                        <span style={{ color: val ? "#e2e8f0" : SLATE }}>{labels[key] || key}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}

@@ -1,5 +1,7 @@
-- [x] 評価結果のJSON作成 (`src/evaluations/ishigaki_running_en.json`)
-- [x] 評価レジストリの更新 (`src/evaluations/_registry.json`)
-- [x] ローカル環境での表示確認
-- [x] ドキュメント類の見直しと保存 (`docs/agent/`)
-- [x] 修正内容の確認 (Walkthrough) 作成
+# タスクリスト：評価スキルの修正と再評価
+
+- [ ] `eval_spec.md` の修正（アフィリエイト評価基準のページタイプ別分岐）
+- [ ] `SKILL.md` の修正（分析ロジックの改善とマイクロコピー検出強化）
+- [ ] ホイアン（Hoi An）ランニングページの再評価
+- [ ] アンバン（An Bang）ランニングページの再評価
+- [ ] 最終確認とレジストリ（`_registry.json`）の整合性チェック

@@ -54,6 +54,26 @@ export interface PageEvaluation {
       minClicks: number;
     };
 
+    brandChecklist?: {
+      toneAndManner: boolean;
+      firstPersonInsight: boolean;
+      benefitUpfront: boolean;
+      personaDrivenPros: boolean | null;
+    };
+
+    categoryChecklist?: {
+      comparisonTable: boolean | null;
+      affiliateMicroCopy: boolean | null;
+      courseSpecs: boolean | null;
+      runBadge: boolean | null;
+    };
+
+    techChecklist?: {
+      nextImage: boolean;
+      imageAlt: boolean;
+      affiliateRel: boolean;
+    };
+
     strengths: string[];
     issues: Array<{
       level: "高" | "中" | "低";
