@@ -1,42 +1,29 @@
-# 実装計画：非ホテルページ向けアフィリエイト評価基準の最適化
+# Con Dao英語版総合ガイドの再評価プラン
 
-## 背景と目的
-現在の `page_evaluator` スキルは、すべてのページに対して「複数OTA（Agoda, Booking, 楽天）の設置」を一律に「必須」として評価しています。しかし、ユーザーからの指摘通り、ランニングページやガイドページはホテル紹介が主目的ではなく、**「周辺ホテルへの適切な内部リンク（動線確保）」**が基本戦略となります。
+ユーザーによる改善報告（Meta Descriptionの最適化、ホテルセクションの追加）を受け、最新のページ品質を再評価し、評価データ（JSON）を更新します。
 
-この乖離により、アンバン等のランニングページが不当に低評価（65点）となっているため、ページタイプに応じた評価基準に修正し、再評価を行います。
+## ユーザーレビューが必要な項目
+特にありません。事実ベースでの評価更新となります。
 
-## ユーザー確認事項
-> [!IMPORTANT]
-> **評価基準の条件分岐**
-> - **ホテルページ**: 引き続き「複数OTA（Agoda / Booking / 楽天）」を必須とする。
-> - **ガイド・ランニングページ**: 周辺ホテルへの内部リンクと、リンク先の魅力を伝える「マイクロコピー（短文説明）」の有無を主評価とする。
+## 実施内容
 
-> [!NOTE]
-> **直接アフィリエイトリンクの扱い**
-> ガイド・ランニングページでの直接リンク（Stay22等）は「加点要素」とし、「必須要件」からは除外します。
+### 1. ページ品質の再評価
+- [x] Meta Descriptionの文字数確認 (148文字 / 推奨範囲内)
+- [x] ホテル推薦セクションの確認 (「Coming soon」が解消され、具体的なホテルとリンクが設置されていることを確認)
+- [x] 技術実装の確認 (hreflang, JSON-LD, canonical, Next.js Image等)
+- [x] ブランド品質の精読 (トーン＆マナー、一次情報の有無)
 
-## 提案する変更内容
+### 2. 評価データの更新
+#### [MODIFY] [guide_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analysis/src/evaluations/guide_en.json)
+- `overall` スコアを 95 -> 98 に引き上げ。
+- `SEO技術実装` スコアを 92 -> 98 に引き上げ（Meta不備解消）。
+- `アフィリエイト設計` スコアを 88 -> 96 に引き上げ（ホテルセクション充実）。
+- `issues` から解消済みの項目を削除。
+- 収益予測（PV）を Tier 1/2 の最新ベンチマークに基づき更新（`baseline_pv.json` 準拠）。
 
-### 1. 評価仕様書の修正
-#### [MODIFY] [eval_spec.md](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/.agent/skills/page_evaluator/resources/eval_spec.md)
-- 「2-3. アフィリエイト設計」の基準を更新。
-- ページタイプ（ホテル vs その他）による戦略の違いを明記。
+#### [MODIFY] [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analysis/src/evaluations/_registry.json)
+- `guide_en` の `overall` と `evaluatedAt` を更新。
 
-### 2. スキル定義の修正
-#### [MODIFY] [SKILL.md](file:///home/mune1/dev/ritotabi/eval_site/ritotabi_analysis/.agent/skills/page_evaluator/SKILL.md)
-- `type`（ホテル・ランニング・ガイド）に応じた評価の仕分けを指示に追加。
-- マイクロコピーがリンクテキスト内に含まれる場合も含め、正確に検出するよう指示を強化。
-
-### 3. 再評価の実行
-- 修正後のスキルを用いて、以下の2ページを再評価。
-    - `hoian_running_en.json` (ホイアン)
-    - `anbang_running_en.json` (アンバン)
-
-## 修正内容の確認（検証計画）
-### 自動テスト・確認
-- アンバン（マイクロコピーあり）のスコアがホイアン（なし）を上回ることを確認。
-- 非ホテルページにおいて「複数OTA未設置」が課題 (issues) として出力されないことを確認。
-- レジストリ (`_registry.json`) の数値と詳細 JSON が完全に一致することを確認。
-
----
-承認いただければ、SKILL の修正と再評価に着手します。
+## 検証計画
+- 更新後のJSONファイルが正しいスキーマを維持していること。
+- `_registry.json` との整合性が保たれていること。

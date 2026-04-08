@@ -1,7 +1,8 @@
-# タスクリスト：評価スキルの修正と再評価
-
-- [ ] `eval_spec.md` の修正（アフィリエイト評価基準のページタイプ別分岐）
-- [ ] `SKILL.md` の修正（分析ロジックの改善とマイクロコピー検出強化）
-- [ ] ホイアン（Hoi An）ランニングページの再評価
-- [ ] アンバン（An Bang）ランニングページの再評価
-- [ ] 最終確認とレジストリ（`_registry.json`）の整合性チェック
+- [x] 評価データの更新
+    - [x] `src/evaluations/guide_en.json` の更新
+    - [x] `src/evaluations/_registry.json` の更新
+- [x] ドキュメントの保存（docs/agent/）
+    - [x] `implementation_plan.md` の保存
+    - [x] `task.md` の保存
+    - [x] `walkthrough.md` の作成・保存
+- [x] 最終確認
