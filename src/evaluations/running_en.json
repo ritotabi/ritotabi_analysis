@@ -1,119 +1,79 @@
 {
   "id": "running_en",
   "url": "/en/destinations/con-dao-island/running/",
-  "evaluatedAt": "2026-04-05",
-  "evaluatedBy": "manual",
+  "evaluatedAt": "2026-04-09",
+  "evaluatedBy": "skill",
   "stream": "cen",
-  "sum": "コンダオ島ランニングコースガイドの英語版。ネイティブ品質の表現で魅せる。",
+  "sum": "コンダオ島ランニングコースガイドの英語版。実走調査に基づく詳細な情報と高品質なビジュアル、FAQの技術実装が完了している。",
   "ap": "悲観前提",
   "an": "通常前提",
   "ao": "楽観前提",
   "pp": [
-    0,
-    0,
-    2,
-    5,
-    10,
-    8,
-    12,
-    18,
-    25,
-    18,
-    22,
-    35,
-    50,
-    70,
-    60,
-    85,
-    100,
-    80,
-    95,
-    110,
-    120,
-    85,
-    100,
-    140
+    0, 0, 5, 12, 25, 20, 30, 45, 60, 45, 55, 80, 110, 150, 130, 180, 220, 170, 200, 240, 260, 180, 210, 280
   ],
   "pn": [
-    0,
-    1,
-    5,
-    15,
-    30,
-    25,
-    38,
-    55,
-    70,
-    52,
-    65,
-    100,
-    140,
-    200,
-    175,
-    260,
-    310,
-    240,
-    280,
-    330,
-    350,
-    260,
-    300,
-    410
+    0, 2, 12, 35, 65, 55, 85, 120, 160, 120, 145, 220, 300, 430, 380, 560, 680, 520, 600, 720, 780, 560, 650, 890
   ],
   "po": [
-    0,
-    2,
-    10,
-    30,
-    65,
-    55,
-    85,
-    120,
-    155,
-    115,
-    145,
-    220,
-    300,
-    430,
-    380,
-    560,
-    660,
-    520,
-    600,
-    700,
-    740,
-    560,
-    650,
-    870
+    0, 5, 25, 70, 140, 120, 180, 250, 330, 250, 300, 450, 650, 920, 810, 1100, 1350, 1050, 1220, 1480, 1580, 1150, 1320, 1820
   ],
-  "memo": "初期マイグレーションデータ。",
+  "memo": "2026-04-09再評価。FAQ JSON-LDの実装を確認。課題であったFAQの欠落が解消されたためスコアを引き上げ。",
   "quality": {
-    "title": "コンダオ島ランニングコース（英語）",
+    "title": "Con Dao Running Guide 2026: Coastal & Lake Routes | RITOTABI",
     "lang": "EN",
     "type": "ランニング",
-    "overall": 92,
+    "overall": 94,
     "publishedDate": "2026-04-03",
     "scores": {
       "コンテンツ独自性": 98,
       "写真・ビジュアル": 96,
-      "アフィリエイト設計": 76,
-      "内部リンク": 93,
-      "SEO技術実装": 89,
+      "アフィリエイト設計": 78,
+      "内部リンク": 94,
+      "SEO技術実装": 95,
       "ユーザー体験(UX)": 95,
       "英語品質": 96
     },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "new",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": true,
+      "minClicks": 2
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "categoryChecklist": {
+      "comparisonTable": null,
+      "affiliateMicroCopy": null,
+      "courseSpecs": true,
+      "runBadge": true
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
     "strengths": [
-      "没入感のある英語表現がネイティブレベル",
-      "各コース末にホテルカードを設置"
+      "実走調査に基づいた詳細なコーススペック（距離、路面状況）の明記",
+      "FAQ JSON-LDが正しく実装されており、検索エンジンへの情報伝達が最適化されている",
+      "没入感のある英語ライティングと高品質な独自写真の融合"
     ],
     "issues": [
       {
         "level": "中",
-        "text": "Stay22ウィジェットが未設置"
-      },
-      {
-        "level": "中",
-        "text": "FAQセクションが未設置"
+        "text": "コース紹介セクションにStay22マップ等の直接予約ウィジェットが未設置"
       }
     ]
   }

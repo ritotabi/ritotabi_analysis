@@ -1,8 +1,5 @@
-- [x] 評価データの更新
-    - [x] `src/evaluations/guide_en.json` の更新
-    - [x] `src/evaluations/_registry.json` の更新
-- [x] ドキュメントの保存（docs/agent/）
-    - [x] `implementation_plan.md` の保存
-    - [x] `task.md` の保存
-    - [x] `walkthrough.md` の作成・保存
+- [x] 内容の調査（Markdown取得、HTML解析）
+- [x] 画像枚数・SEOタグ・アフィリエイトリンクの技術確認
+- [x] 評価JSONの生成（ishigaki_hotels_en.json）
+- [x] _registry.json への追加・更新
 - [x] 最終確認

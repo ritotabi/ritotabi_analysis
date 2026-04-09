@@ -1,7 +1,7 @@
 {
   "id": "hoian_running_en",
   "url": "/en/destinations/hoian-old-town/running/",
-  "evaluatedAt": "2026-04-07",
+  "evaluatedAt": "2026-04-09",
   "evaluatedBy": "skill",
   "stream": "hen",
   "sum": "Hoi An Running Guide (EN)。世界遺産の旧市街と周辺の島々を巡る、極めて詳細な実地調査に基づくランニングガイド。",
@@ -11,25 +11,25 @@
   "pp": [ 0, 0, 3, 7, 15, 12, 18, 27, 37, 27, 33, 52, 75, 105, 90, 127, 150, 120, 142, 165, 180, 210, 210, 210 ],
   "pn": [ 0, 2, 8, 22, 45, 38, 57, 82, 105, 78, 97, 150, 210, 300, 262, 390, 465, 360, 420, 495, 525, 615, 615, 615 ],
   "po": [ 0, 4, 15, 45, 97, 82, 127, 180, 232, 172, 217, 330, 450, 645, 570, 840, 990, 780, 900, 1050, 1110, 1300, 1300, 1300 ],
-  "memo": "スキル修正後の再評価。コンテンツの独自性は非常に高いが、アフィリエイト設計（内部リンクのマイクロコピー欠落）とSEO技術実装（FAQ JSON-LD欠落）がアンバンに比べて課題として残っている。",
+  "memo": "FAQ JSON-LD実装確認後の最終評価。ホテル推薦箇所のマイクロコピー改善に加え、これまで未実装と判定していた FAQPage (JSON-LD) がメタデータとして正常に埋め込まれていることを確認（@graph構造内）。これによりSEO技術面での課題が解消され、インバウンド向けランニングコンテンツとして極めて完成度の高い状態にある。",
   "quality": {
-    "title": "Hoi An Running Guide: Thu Bon Riverside Routes | RITOTABI",
+    "title": "Hoi An Running Guide 2026: Old Town & Riverside | RITOTABI",
     "lang": "EN",
     "type": "ランニング",
-    "overall": 86,
+    "overall": 91,
     "publishedDate": "2026-04-05",
     "scores": {
       "コンテンツ独自性": 98,
       "写真・ビジュアル": 88,
-      "アフィリエイト設計": 72,
+      "アフィリエイト設計": 82,
       "内部リンク": 95,
-      "SEO技術実装": 70,
+      "SEO技術実装": 94,
       "ユーザー体験(UX)": 88,
       "英語品質": 97
     },
     "seoChecklist": {
       "hreflang": true,
-      "faq": false,
+      "faq": true,
       "keyword": true,
       "meta": true,
       "canonical": true,
@@ -38,24 +38,39 @@
     "freshness": "new",
     "affiliateChecklist": {
       "ctaPosition": true,
-      "microCopy": false,
+      "microCopy": true,
       "multipleOta": false,
       "minClicks": 2
     },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "categoryChecklist": {
+      "comparisonTable": null,
+      "affiliateMicroCopy": null,
+      "courseSpecs": true,
+      "runBadge": true
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
     "strengths": [
-      "「Cẩm Kim Bridge」の鉄板の振動や音、地元市場の活気など、ランニングを通じた極めて詳細な現場情報が記載されている",
-      "旧市街の混雑を避けるための具体的なアドバイスや虫除けの必要性など、実用的かつターゲットに寄り添った情報が充実している",
-      "情緒的な英語表現の質が高く、読者をホイアンの空気感に引き込む没入感がある"
+      "FAQPage (JSON-LD) がメタデータとして実装されており、検索結果でのリッチリザルト表示によるCTR向上が期待できる",
+      "ホテル推薦箇所に、ランナー視点での詳細なベネフィット（SPAでの回復、旧市街へのアクセス等）を伝えるマイクロコピーが追加されている",
+      "「Cẩm Kim Bridge」の鉄板の振動や音、地元市場の活気など、実走者にしか書けない極めて詳細な現場情報が英語で情緒的に表現されている"
     ],
     "issues": [
       {
-        "level": "中",
-        "text": "FAQセクションおよび構造化データ(JSON-LD)が未実装。リッチリザルト（検索画面でのQ&A表示）を逃しており、クリック率向上の余地がある。"
-      },
-      {
         "level": "低",
-        "text": "ホテル推薦リンクの「名前」だけでは読者がクリックする動機として弱いため、その宿がランナーにとってどう良いのかを示す「マイクロコピー」の追加が推奨される。"
+        "text": "meta description が189文字とやや長め（推奨120-150文字）。「collected firsthand」といった重要キーワードを維持しつつ、記述をわずかに整理する余地がある。"
       }
     ]
   }
 }
+
+

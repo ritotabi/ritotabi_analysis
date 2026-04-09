@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-07",
+  "lastUpdated": "2026-04-09",
   "streams": [
     { "key": "jp_ishigaki", "label": "石垣島 (日本語)", "color": "#f59e0b", "cvr": 0.0032, "unit": 750 },
     { "key": "jp_miyako", "label": "宮古島 (日本語)", "color": "#f97316", "cvr": 0.0032, "unit": 750 },
@@ -82,10 +82,10 @@
     "cham_en": {
       "file": "cham_en.json",
       "url": "/en/destinations/cham-island/",
-      "title": "Cham Island Travel Guide（英語）",
+      "title": "Cham Island Guide 2026: Hoi An's Hidden Treasure | RITOTABI",
       "stream": "hen",
-      "overall": 92,
-      "evaluatedAt": "2026-04-07",
+      "overall": 96,
+      "evaluatedAt": "2026-04-09",
       "lang": "EN",
       "type": "ガイド"
     },
@@ -104,8 +104,8 @@
       "url": "/en/destinations/con-dao-island/running/",
       "title": "コンダオ島ランニングコース（英語）",
       "stream": "cen",
-      "overall": 92,
-      "evaluatedAt": "2026-04-05",
+      "overall": 94,
+      "evaluatedAt": "2026-04-09",
       "lang": "EN",
       "type": "ランニング"
     },
@@ -132,10 +132,10 @@
     "hoian_running_en": {
       "file": "hoian_running_en.json",
       "url": "/en/destinations/hoian-old-town/running/",
-      "title": "Hoi An Running Guide（英語）",
+      "title": "Hoi An Running Guide 2026: Old Town & Riverside | RITOTABI",
       "stream": "hen",
-      "overall": 86,
-      "evaluatedAt": "2026-04-07",
+      "overall": 91,
+      "evaluatedAt": "2026-04-09",
       "lang": "EN",
       "type": "ランニング"
     },
@@ -152,20 +152,20 @@
     "ishigaki_en": {
       "file": "ishigaki_en.json",
       "url": "/en/destinations/ishigaki-island/",
-      "title": "Ishigaki & Taketomi Island Guide 2026（英語）",
+      "title": "Ishigaki Island Guide 2026: Beaches, Gourmet & Stays | RITOTABI",
       "stream": "en_ishigaki",
-      "overall": 81,
-      "evaluatedAt": "2026-04-07",
+      "overall": 85,
+      "evaluatedAt": "2026-04-09",
       "lang": "EN",
       "type": "ガイド"
     },
     "ishigaki_hotels_en": {
       "file": "ishigaki_hotels_en.json",
       "url": "/en/hotels/ishigaki-island/",
-      "title": "5 Best Ishigaki Hotels: Luxury to Downtown 2026（英語）",
+      "title": "5 Best Ishigaki Island Hotels 2026: Scenic Stays | RITOTABI",
       "stream": "en_ishigaki",
-      "overall": 91,
-      "evaluatedAt": "2026-04-07",
+      "overall": 92,
+      "evaluatedAt": "2026-04-09",
       "lang": "EN",
       "type": "ホテル"
     },
