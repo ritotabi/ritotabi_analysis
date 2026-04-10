@@ -1,0 +1,72 @@
+{
+  "id": "hotels_ishigaki-island",
+  "url": "https://ritotabi.com/hotels/ishigaki-island/",
+  "evaluatedAt": "2026-04-10",
+  "evaluatedBy": "skill",
+  "stream": "jp_ishigaki",
+  "sum": "石垣島ホテルガイド（日本語版）。実地調査に基づいた「冷蔵庫の静音性」や「駐車場の使いやすさ」など、宿泊者目線の極めて解像度の高い情報が提供されている。SEO技術実装も完璧であり、国内需要を取り込む強力なコンバージョン導線となっている。",
+  "ap": "悲観前提",
+  "an": "通常前提",
+  "ao": "楽観前提",
+  "pp": [ 0, 50, 150, 300, 500, 800, 1200, 1500, 1800, 2000, 2300, 2500, 2800, 3000, 3200, 3400, 3500, 3000, 3200, 3400, 3500, 3200, 3500, 3800 ],
+  "pn": [ 0, 100, 300, 600, 1000, 1500, 2200, 3000, 3800, 4500, 5200, 6000, 6800, 7500, 8000, 8500, 9000, 7500, 8000, 8500, 9000, 8000, 9000, 10000 ],
+  "po": [ 0, 200, 600, 1200, 2000, 3500, 5500, 8000, 11000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 38000, 42000, 46000, 50000, 45000, 52000, 60000 ],
+  "memo": "新規評価。2026/02/23公開の新規ページながら、既に検索エンジンへのインデックスが進んでいる。5軒の厳選ホテルに対し、それぞれ「なぜ選ぶべきか」をペルソナ（運転初心者、リピーター、ランナー等）に合わせて具体的に解説しており、非常に説得力が高い。楽天トラベルへの動線も整備されており、即戦力の収益化ページとして機能している。",
+  "quality": {
+    "title": "石垣島おすすめホテル5選｜エリア別失敗しない宿選び | RITOTABI",
+    "lang": "JP",
+    "type": "ホテル",
+    "overall": 92,
+    "publishedDate": "2026-02-23",
+    "scores": {
+      "コンテンツ独自性": 92,
+      "写真・ビジュアル": 90,
+      "アフィリエイト設計": 88,
+      "内部リンク": 95,
+      "SEO技術実装": 94,
+      "ユーザー体験(UX)": 90,
+      "英語品質": 0
+    },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "growing",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": false,
+      "minClicks": 1
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": true
+    },
+    "categoryChecklist": {
+      "comparisonTable": true,
+      "affiliateMicroCopy": true,
+      "courseSpecs": null,
+      "runBadge": null
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "strengths": [
+      "圧倒的な『現場感』のあるホテルレビュー：『冷蔵庫の仕切りによる静音性』や『駐車場の切り返しのしやすさ』など、実際に泊まり、運転した者でなければ書けない項目が評価基準に含まれている。",
+      "ランナーに寄り添った拠点提案：各ホテルからのランニングアクセスの良し悪しを『Runner's Review』として独立させ、ブランドターゲットである旅ランナーの需要を的確に捉えている。",
+      "完璧なSEO技術実装：canonical、hreflangの絶対パス化、 meta情報の整合性など、技術的な欠点が一切見当たらない。",
+      "戦略的な内部リンク設計：総合ガイドやランニングコースガイドへのスムーズな動線が確保されており、サイト回遊率の向上が期待できる。"
+    ],
+    "issues": [
+      { "level": "低", "text": "比較表のさらなる視覚化：現状でもリスト形式で見やすく整理されているが、上位表示をより確実にするため、将来的にHTMLテーブルによる一覧比較要素をさらに強化する余地がある。", "isSpeculation": false }
+    ]
+  }
+}

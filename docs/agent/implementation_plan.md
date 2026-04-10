@@ -1,36 +1,58 @@
-# 石垣島・竹富島ガイド（英語版）再評価の実装計画
+# 石垣島・竹富島ランニングコース ページ評価・収益予測 実装計画
 
-ユーザーによるページ改善（拠点セクション、FAQ、画像・コメントの拡充）を反映し、`page_evaluator` スキルに基づいて品質スコアと収益予測を更新します。
+石垣島・竹富島のランニングガイドページ（https://ritotabi.com/destinations/ishigaki-island/running/）の詳細な品質評価を実施し、分析データとして登録します。
 
-## ユーザーレビューが必要な項目
-> [!IMPORTANT]
-> スコアを 85点から 92点に引き上げます。特に「アフィリエイト設計（動線）」と「SEO技術（FAQ実装）」に大きな改善が見られました。
-> 拠点セクションの追加により、単なるスポット紹介から「旅の拠点選び」というコンバージョンに近い動線が構築されています。
+## ユーザーレビュー確認事項
 
-## 変更内容
+> [!NOTE]
+> 指定ページにおいて **FAQ JSON-LD (FAQPage)** がメタデータとして正しく実装されていることを確認しました。
+> ランニングページ固有のルール（視覚的セクションは任意）に基づき、`seoChecklist.faq` を `true` と判定し、SEOスコアを上方修正します。
 
-### 分析リポジトリ (ritotabi_analytics)
+## 提案事項
 
-#### [MODIFY] [ishigaki_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/ishigaki_en.json)
-- `evaluatedAt`: `2026-04-10` に更新。
-- `quality.overall`: `92` に更新。
-- `quality.scores`: 全体的に上方修正。
-  - アフィリエイト設計: 70 → 85 (拠点セクションによる動線強化)
-  - SEO技術実装: 82 → 92 (FAQ JSON-LDの実装確認)
-  - ユーザー体験(UX): 85 → 90 (滞在戦略の提示)
-- `quality.seoChecklist.faq`: `true` に変更。
-- `quality.strengths`: 拠点セクション（Base Camp）による意思決定サポートを追記。
-- `quality.issues`: FAQ欠落の課題を削除。複数OTAについては内部リンク強化により優先度を「低」に緩和。
-- `pp, pn, po`: 品質向上に伴い、成熟期のPV予測を上方修正。
+### 分析対象ページ
+- **URL**: `https://ritotabi.com/destinations/ishigaki-island/running/`
+- **タイトル**: 石垣島を走る｜サザンゲートと市街地を巡る実走ガイド
+- **主要コンテンツ**:
+  - 市街地〜灯台 (12km)
+  - サザンゲート〜南ぬ浜町 (5km)
+  - 竹富島一周 (6km)
+
+---
+
+### 分析データ (Analytics Data)
+
+#### [NEW] [jp_ishigaki_running.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/jp_ishigaki_running.json)
+- 評価ID: `jp_ishigaki_running`
+- 公開日: `2026-02-23`
+- 収益予測: Tier 3 (Niche) 基準（24ヶ月分）
+- 品質評価:
+  - コンテンツ独自性: 95 (実走による一次情報、Googleマップにない道の紹介)
+  - 写真・ビジュアル: 90 (独自写真18枚確認)
+  - アフィリエイト設計: 88 (ホテルへの導線とマイクロコピーが優秀)
+  - 内部リンク: 92 (メインガイドおよびホテルへの相互リンク)
+  - SEO技術実装: 92 (canonical, hreflang, FAQ-LD すべて良好)
+  - ユーザー体験(UX): 90 (自販機、トイレ、猫、灯台などの実用的な記述)
+  - ブランド品質: `toneAndManner`, `firstPersonInsight`, `benefitUpfront` すべて `true`
 
 #### [MODIFY] [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
-- 石垣島英語版のエントリを最新に更新。
+- 新規評価データ `jp_ishigaki_running` をリストに追加。
 
-## 修正内容の確認
+---
+
+## オープンクエスチョン
+
+> [!IMPORTANT]
+> 「公開非 2026/02/23」との指示がありましたが、指定URLは現在公開状態でした。
+> JSON内の `publishedDate` は `2026-02-23` として扱いますが、もし別の意図がありましたらご指摘ください。
+
+---
+
+## 検証プラン
 
 ### 自動テスト
-- `npm run lint` を実行し、JSONおよびコードにエラーがないか確認。
+- `npm run build` (プロジェクト全体の型定義整合性確認)
+- `node -e "JSON.parse(require('fs').readFileSync('src/evaluations/jp_ishigaki_running.json'))"` (JSON構文チェック)
 
 ### 手動確認
-- 生成されたJSONの `pp, pn, po` 配列が24ヶ月分正しく並んでいるか目視確認。
-- 事実に基づかない推測表現（「〜と思われる」等）が排除されているか確認。
+- 生成されたJSONの内容が `eval_spec.md` のルーブリックに合致しているか再確認。

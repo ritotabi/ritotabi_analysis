@@ -159,6 +159,26 @@
       "lang": "EN",
       "type": "ガイド"
     },
+    "destinations_ishigaki-island": {
+      "file": "ishigaki_jp.json",
+      "url": "/destinations/ishigaki-island/",
+      "title": "石垣島観光ガイド｜実走調査で見つける「嘘のない」離島情報 | RITOTABI",
+      "stream": "jp_ishigaki",
+      "overall": 92,
+      "evaluatedAt": "2026-04-10",
+      "lang": "JP",
+      "type": "ガイド"
+    },
+    "hotels_ishigaki-island": {
+      "file": "ishigaki_hotels_jp.json",
+      "url": "/hotels/ishigaki-island/",
+      "title": "石垣島おすすめホテル5選（日本語版）",
+      "stream": "jp_ishigaki",
+      "overall": 92,
+      "evaluatedAt": "2026-04-10",
+      "lang": "JP",
+      "type": "ホテル"
+    },
     "en_hotels_ishigaki-island": {
       "file": "ishigaki_hotels_en.json",
       "url": "/en/hotels/ishigaki-island/",

@@ -1,0 +1,72 @@
+{
+  "id": "jp_ishigaki_running",
+  "url": "https://ritotabi.com/destinations/ishigaki-island/running/",
+  "evaluatedAt": "2026-04-10",
+  "evaluatedBy": "skill",
+  "stream": "jp_ishigaki",
+  "sum": "石垣島・竹富島のランニングガイド。実走による一次情報の密度が極めて高く、Googleマップに道がない区間の状況や、自販機・トイレの配置などランナー目線の実用情報が充実している。技術的にもFAQ JSON-LDが適切に実装されており、島旅ブランドに相応しい品質。",
+  "ap": "悲観前提",
+  "an": "通常前提",
+  "ao": "楽観前提",
+  "pp": [ 0, 5, 12, 25, 45, 70, 100, 140, 190, 250, 320, 400, 450, 500, 550, 600, 650, 580, 620, 660, 700, 650, 720, 800 ],
+  "pn": [ 0, 12, 30, 65, 110, 180, 280, 400, 550, 750, 1000, 1300, 1500, 1700, 1900, 2100, 2300, 2000, 2150, 2300, 2450, 2300, 2500, 2700 ],
+  "po": [ 0, 25, 70, 150, 300, 550, 900, 1300, 1800, 2400, 3200, 4200, 4800, 5400, 6000, 6600, 7400, 6800, 7500, 8200, 9000, 8500, 9500, 11000 ],
+  "memo": "実走調査に基づく圧倒的な信頼感が強み。市街地エリアでの『あえて路地裏を抜ける』といった情緒的な提案と、灯台付近の補給術などの実利的な情報がバランスよく構成されている。FAQがメタデータ(JSON-LD)で完結している点も、ランニングページのUI特性を理解した正しい実装である。",
+  "quality": {
+    "title": "石垣島を走る｜サザンゲートと市街地を巡る実走ガイド | RITOTABI",
+    "lang": "JP",
+    "type": "ランニング",
+    "overall": 92,
+    "publishedDate": "2026-02-23",
+    "scores": {
+      "コンテンツ独自性": 95,
+      "写真・ビジュアル": 90,
+      "アフィリエイト設計": 88,
+      "内部リンク": 92,
+      "SEO技術実装": 92,
+      "ユーザー体験(UX)": 90,
+      "英語品質": 0
+    },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "growing",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": false,
+      "minClicks": 1
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "categoryChecklist": {
+      "comparisonTable": null,
+      "affiliateMicroCopy": null,
+      "courseSpecs": true,
+      "runBadge": true
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "strengths": [
+      "圧倒的な一次情報：Googleマップに道が表示されない西海岸の海岸沿いルートについて、舗装状況を含めた詳細な解説を行い、ランナーの不安を解消している。",
+      "情緒と実用の両立：波音や風、猫との出会いといった島ランの魅力を伝えつつ、自販機やトイレの有無といった切実な情報を網羅している。",
+      "完璧なSEO実装：hreflangによる英語版への誘導、JSON-LDによるFAQPage実装など、技術的な要件を漏れなく満たしている。",
+      "優れた内部リンク動線：ランニング後のリカバリー拠点として、朝食満足度の高いホテルやアクセス最強のホテルをマイクロコピー付きで適切に紹介している。"
+    ],
+    "issues": [
+      { "level": "低", "text": "英語版への導線：hreflangは設定されているが、本文冒頭の言語切り替えリンク以外にも、EN版への明確なバナー等があるとインバウンドランナーの利便性がさらに向上する。", "isSpeculation": false }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-- [x] `ishigaki_en.json` の更新 (スコア・予測・強み・課題の改善)
-- [x] `_registry.json` の更新
-- [x] `npm run lint` によるバリデーション
-- [/] `walkthrough.md` の作成
+- [x] `src/evaluations/jp_ishigaki_running.json` の生成
+- [ ] `src/evaluations/_registry.json` への追記
+- [ ] JSON構文および型のバリデーション
+- [ ] `docs/agent/` への作業ログ（task.md, walkthrough.md）の保存
