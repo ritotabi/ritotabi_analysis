@@ -1,52 +1,36 @@
-# 月間PVの実績値（Actual）取り込みと評価への活用
+# 石垣島・竹富島ガイド（英語版）再評価の実装計画
 
-ユーザーがGoogle Analytics（GA4）等から取得した実績PVをシステムに取り込み、現在の予測値（Forecast）と突き合わせて表示・分析できるようにします。
+ユーザーによるページ改善（拠点セクション、FAQ、画像・コメントの拡充）を反映し、`page_evaluator` スキルに基づいて品質スコアと収益予測を更新します。
 
-## ユーザーへの確認事項
-
+## ユーザーレビューが必要な項目
 > [!IMPORTANT]
-> 実績値の取り込み方法について、まずは以下のような**手動入力（TSファイルへの記述）**をベースとした基盤作成を提案しますが、よろしいでしょうか？
-> 
-> 1. `src/data/actual-pv.ts` というファイルを用意し、そこに月ごとの実数値を書き込む。
-> 2. システムがその値を読み込み、予測値との比較（「実績」と「予測」の乖離など）を自動計算する。
-> 
-> ※ Google Analytics APIを用いた完全自動取得も可能ですが、これにはGoogle Cloudでのプロジェクト作成や認証情報（JSON）の発行など、ユーザー側での環境構築が必要になります。まずは「実績値を表示できる器」を先に作ることをお勧めします。
+> スコアを 85点から 92点に引き上げます。特に「アフィリエイト設計（動線）」と「SEO技術（FAQ実装）」に大きな改善が見られました。
+> 拠点セクションの追加により、単なるスポット紹介から「旅の拠点選び」というコンバージョンに近い動線が構築されています。
 
-## 提案する変更点
+## 変更内容
 
-### 1. データ構造の拡張
+### 分析リポジトリ (ritotabi_analytics)
 
-#### [NEW] [actual-pv.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/data/actual-pv.ts)
-- 月ごとの実績PVを保持するオブジェクトを定義します。
-- `baseline-pv.ts` と同じフォーマット、または日付をキーとしたシンプルな構造を採用します。
+#### [MODIFY] [ishigaki_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/ishigaki_en.json)
+- `evaluatedAt`: `2026-04-10` に更新。
+- `quality.overall`: `92` に更新。
+- `quality.scores`: 全体的に上方修正。
+  - アフィリエイト設計: 70 → 85 (拠点セクションによる動線強化)
+  - SEO技術実装: 82 → 92 (FAQ JSON-LDの実装確認)
+  - ユーザー体験(UX): 85 → 90 (滞在戦略の提示)
+- `quality.seoChecklist.faq`: `true` に変更。
+- `quality.strengths`: 拠点セクション（Base Camp）による意思決定サポートを追記。
+- `quality.issues`: FAQ欠落の課題を削除。複数OTAについては内部リンク強化により優先度を「低」に緩和。
+- `pp, pn, po`: 品質向上に伴い、成熟期のPV予測を上方修正。
 
-#### [MODIFY] [calc.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/utils/calc.ts)
-- `CalculatedRow` インターフェースを拡張し、`actualTotal` や `isActual`（その月が実績期間かどうか）を追加します。
-- 計算ロジックの中で、実績値がある月は実績値を優先し、予測値との差分（Variance）を算出するようにします。
+#### [MODIFY] [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
+- 石垣島英語版のエントリを最新に更新。
 
-### 2. UIの更新
-
-#### [MODIFY] [ChartTab.tsx](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/components/ChartTab.tsx)
-- Rechartsのグラフに「実績値」のプロットを追加します。
-- 実績期間は「実線」、将来の予測期間は「点線」や透過度の変更などで視覚的に区別します。
-
-#### [MODIFY] [TableTab.tsx](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/components/TableTab.tsx)
-- 表の中に「実績値」列を追加。
-- 予測（Target）との達成率や乖離を表示し、評価のフィードバックに使えるようにします。
-
-#### [MODIFY] [App.tsx](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/App.tsx)
-- 新しく作成する `actual-pv.ts` をインポートし、計算エンジンに渡すようにします。
-
-## 開封の質問
-
-> [!NOTE]
-> 1. Google Analyticsから実績値を取得する際、どの期間（月単位、日単位など）で比較したいなどのご希望はありますか？
-> 2. 現在の予測値（`baseline-pv.ts`）は2026年4月から始まっていますが、過去の実績値も遡って表示したいでしょうか？
-
-## 検証計画
+## 修正内容の確認
 
 ### 自動テスト
-- `calc.ts` のロジックに対して、実績値が含まれる場合の合計値や乖離計算が正しいかテストします。
+- `npm run lint` を実行し、JSONおよびコードにエラーがないか確認。
 
 ### 手動確認
-- `actual-pv.ts` にダミーの実績データを入力し、グラフと表に正しく反映される（実績と予測が併記される）ことをブラウザで確認します。
+- 生成されたJSONの `pp, pn, po` 配列が24ヶ月分正しく並んでいるか目視確認。
+- 事実に基づかない推測表現（「〜と思われる」等）が排除されているか確認。

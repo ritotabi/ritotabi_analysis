@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-09",
+  "lastUpdated": "2026-04-10",
   "streams": [
     { "key": "jp_ishigaki", "label": "石垣島 (日本語)", "color": "#f59e0b", "cvr": 0.0032, "unit": 750 },
     { "key": "jp_miyako", "label": "宮古島 (日本語)", "color": "#f97316", "cvr": 0.0032, "unit": 750 },
@@ -154,8 +154,8 @@
       "url": "/en/destinations/ishigaki-island/",
       "title": "Ishigaki Island Guide 2026: Beaches, Gourmet & Stays | RITOTABI",
       "stream": "en_ishigaki",
-      "overall": 85,
-      "evaluatedAt": "2026-04-09",
+      "overall": 92,
+      "evaluatedAt": "2026-04-10",
       "lang": "EN",
       "type": "ガイド"
     },
