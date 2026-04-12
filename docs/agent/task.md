@@ -1,8 +1,6 @@
-- [x] ページ詳細分析 (Research)
-- [x] 評価データの生成
-    - [x] スコアリングの確定
-    - [x] 24ヶ月PV予測の生成
-- [x] ファイルの登録
-    - [x] `src/evaluations/miyako_running_en.json` の作成
-    - [x] `src/evaluations/_registry.json` の更新
-- [x] 最終確認 (Validation)
+- [x] miyako_guide_en.json の修正（逆転現象の解消、統計ベースの再計算）
+- [x] miyako_running_en.json の修正（スケールエラーの解消、ニッチ需要基準への調整）
+- [x] miyako_beaches_en.json の修正（成長カーブの平滑化）
+- [x] miyako_hotels_en.json の修正（シナリオ別分散の付与）
+- [x] 全ファイルの整合性検証（pp <= pn <= po、単調増加）
+- [x] walkthrough.md の作成

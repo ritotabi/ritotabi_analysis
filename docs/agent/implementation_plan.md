@@ -1,36 +1,46 @@
-# 宮古島ランニングガイド (EN) の品質評価と収益予測
+# 宮古島評価データのPV予測値修正プラン
 
-宮古島のランニングコースガイドページ（英語）について、情報の鮮度、独自性、技術的SEO、およびアフィリエイト動線の観点から評価を行い、今後24ヶ月の収益（PV）予測データを生成・登録します。
+宮古島（英語版）の評価データにおいて、PV予測値（pp, pn, po）に異常な数値や不整合（Pessimistic が Normal より高い、特定ページで過大な数値等）が確認されたため、統計データおよび評価仕様に基づき修正を行います。
 
-## ユーザーレビュー必須項目
+## ユーザーレビューが必要な事項
 
 > [!IMPORTANT]
-> **技術的な修正が必要な点（課題）**
-> 1. `hreflang` や `canonical` が絶対パスではなく相対パスで記述されています。
-> 2. ランニングコース独自の「実走評価バッジ（S/A/B）」がページ内で視覚的に確認できません（JSON-LDや本文内のメタ情報としての欠落）。
-> 3. 公開日がユーザー指定（2026/4/12）とJSON-LD内の `datePublished` (2026/02/20) で乖離があります。今回は指定日（4/12）を基準に評価します。
+> - `miyako_running_en.json`（ランニングページ）の楽観予測（po）が **71,420 PV/月** という非現実的な数値になっていました。これは宮古島の海外旅行者数（月間約1.6万人）を大幅に上回っており、明らかな過大評価です。これを **1,500〜2,500 PV/月** 程度（Tier 3 基準）に下方修正します。
+> - `miyako_guide_en.json`（総合ガイド）で **pp (悲観) > pn (通常)** となっていた逆転現象を解消し、統計に基づいた適切な成長カーブに再設定します。
+> - 各ページの成長カーブ（月次推移）において、不自然な凹凸を滑らかにし、検索エンジンのインデックス進行を模した現実的な曲線に変更します。
 
-## 実施内容
+## 調査結果と異常内容のまとめ
 
-### 1. ページ詳細分析
-- [x] コンテンツ精読と独自性の確認
-- [x] ビジュアル要素（独自写真枚数）の集計
-- [x] テクニカルSEO（タグ、JSON-LD）の整合性チェック
-- [x] アフィリエイト・内部リンク動線の確認
+| ファイル名 | 異常内容 | 修正方針 |
+| :--- | :--- | :--- |
+| `miyako_running_en.json` | `pn`が極端に低く(35)、`po`が極端に高い(71,420)。 | Tier 3 (100〜1,500 PV) 基準で再計算。 |
+| `miyako_guide_en.json` | `pp` (16,000) > `pn` (8,700) の逆転。 | Tier 1 基準（成熟期 ~10,000 PV）で再設定。 |
+| `miyako_beaches_en.json` | 成長カーブが非単調（増減が不自然）。 | SEOインデックスを考慮した滑らかな成長曲線へ修正。 |
+| `miyako_hotels_en.json` | `pp`, `pn`, `po` がすべて同一値。 | シナリオ別の分散（±30~50%）を付与。 |
 
-### 2. 評価データの生成
-- `eval_spec.md` (v2.0) および `market_data.md` に基づき、スコアリングを行います。
-- 宮古島（Tier 1 / 主役級）の市場規模と、英語ページ（インバウンド）のポテンシャルを考慮した24ヶ月のPV予測を算出します。
-- `stream` は `en_miyako` を適用します。
+## 修正内容
 
-### 3. ファイルの登録
-- `[NEW]` [miyako_running_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/miyako_running_en.json)
-- `[MODIFY]` [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
+### [evaluations](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations)
 
-## オープンクエスチョン
-- 特になし。現状の事実に基づき評価を完了させます。
+#### [MODIFY] [miyako_guide_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/miyako_guide_en.json)
+- `pp`, `pn`, `po` の値を市場規模（石垣島の約85%）に合わせて再計算。
+- 成熱期 (Month 24) の pn を 8,700 -> 10,000 前後に調整し、pp をその 1/2 程度に設定。
 
-## 検証計画
-### 自動テスト / 検証
-- 生成したJSONのスキーマが `eval_spec.md` の要求に合致しているか確認します。
-- `_registry.json` への追記が既存のJSON構造を破壊していないかバリデーションします。
+#### [MODIFY] [miyako_running_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/miyako_running_en.json)
+- スケールエラー（pn が小さすぎ、po が大きすぎ）を修正。
+- ニッチ需要としての妥当な数値（成熟期 pn: 1,200, po: 2,500 程度）に調整。
+
+#### [MODIFY] [miyako_beaches_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/miyako_beaches_en.json)
+- 月ごとの変動（不自然な起伏）をフラット化。
+
+#### [MODIFY] [miyako_hotels_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/miyako_hotels_en.json)
+- シナリオ別の期待値に差分を設け、現状（すべて同じ）から分散を付与。
+
+## 検証プラン
+
+### 自動テスト
+- 修正後の各 JSON が、`pp <= pn <= po` の不等式を満たしているか確認。
+- 成長カーブが（成熟期まで）単調増加しているか確認。
+
+### 目視確認
+- 石垣島の評価データ（`ishigaki_en.json`）と比較し、市場規模の比率（約0.85倍程度）として妥当なレンジに収まっているか確認。
