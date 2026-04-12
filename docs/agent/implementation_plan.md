@@ -1,29 +1,36 @@
-# SKILLへの評価ロジック・統計データの組み込み計画
+# 宮古島ランニングガイド (EN) の品質評価と収益予測
 
-今回定義した「市場規模 × 競合難易度」に基づくPV予測ロジックを `page_evaluator` スキルに統合し、今後の評価作業で高い精度を維持できるようにします。
+宮古島のランニングコースガイドページ（英語）について、情報の鮮度、独自性、技術的SEO、およびアフィリエイト動線の観点から評価を行い、今後24ヶ月の収益（PV）予測データを生成・登録します。
 
-## 変更の目的
-これまでの評価はエージェントの一般的な知識や限定的な基準に基づいていましたが、今回の石垣島やホイアンの統計情報、および競合性を考慮した「妥当な予測係数」をスキル内に明文化することで、誰が（あるいはどのエージェントが）実行しても一貫した予測を出せるようにします。
+## ユーザーレビュー必須項目
 
-## 提案される変更
+> [!IMPORTANT]
+> **技術的な修正が必要な点（課題）**
+> 1. `hreflang` や `canonical` が絶対パスではなく相対パスで記述されています。
+> 2. ランニングコース独自の「実走評価バッジ（S/A/B）」がページ内で視覚的に確認できません（JSON-LDや本文内のメタ情報としての欠落）。
+> 3. 公開日がユーザー指定（2026/4/12）とJSON-LD内の `datePublished` (2026/02/20) で乖離があります。今回は指定日（4/12）を基準に評価します。
 
-### [Component Name] `page_evaluator` スキル
+## 実施内容
 
-#### [MODIFY] [SKILL.md](file:///home/mune1/dev/ritotabi/ritotabi_analytics/.agent/skills/page_evaluator/SKILL.md)
-- `Step 2: ページ分析` において、`resources/market_data.md` を参照してシミュレーション値を算出するよう、指示文を強化します。
+### 1. ページ詳細分析
+- [x] コンテンツ精読と独自性の確認
+- [x] ビジュアル要素（独自写真枚数）の集計
+- [x] テクニカルSEO（タグ、JSON-LD）の整合性チェック
+- [x] アフィリエイト・内部リンク動線の確認
 
-#### [MODIFY] [eval_spec.md](file:///home/mune1/dev/ritotabi/ritotabi_analytics/.agent/skills/page_evaluator/resources/eval_spec.md)
-- PV予測（pp, pn, po）の算出ロジックとして、「ベースラインに対する期待貢献度」と「市場浸透率（Penetration Rate）」の概念を追記します。
+### 2. 評価データの生成
+- `eval_spec.md` (v2.0) および `market_data.md` に基づき、スコアリングを行います。
+- 宮古島（Tier 1 / 主役級）の市場規模と、英語ページ（インバウンド）のポテンシャルを考慮した24ヶ月のPV予測を算出します。
+- `stream` は `en_miyako` を適用します。
 
-#### [MODIFY] [baseline_pv.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/.agent/skills/page_evaluator/resources/baseline_pv.json)
-- 今回修正した `src/data/baseline-pv.ts` と内容を同期させ、最新のベースラインをスキルが把握できるようにします。
+### 3. ファイルの登録
+- `[NEW]` [miyako_running_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/miyako_running_en.json)
+- `[MODIFY]` [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
 
-#### [MODIFY] [streams.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/.agent/skills/page_evaluator/resources/streams.json)
-- `jp_ishigaki`, `en_ishigaki` 等の実際のストリームキーを含むよう、最新のレジストリと同期させます。
+## オープンクエスチョン
+- 特になし。現状の事実に基づき評価を完了させます。
 
-#### [NEW] [market_data.md](file:///home/mune1/dev/ritotabi/ritotabi_analytics/.agent/skills/page_evaluator/resources/market_data.md)
-- 石垣島、宮古島、ホイアン、コンダオ島の観光統計（入域数、日英比率）を記録し、評価の根拠として利用可能にします。
-
-## 検証プラン
-
-- スキルを適用して、テスト的に石垣島の評価値を再算出させ、今回修正した数値と矛盾がないかを確認します。
+## 検証計画
+### 自動テスト / 検証
+- 生成したJSONのスキーマが `eval_spec.md` の要求に合致しているか確認します。
+- `_registry.json` への追記が既存のJSON構造を破壊していないかバリデーションします。

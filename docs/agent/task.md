@@ -1,6 +1,8 @@
-- [x] 指標事項の調査と原因特定
-- [x] implementation_plan.md の作成
-- [x] ユーザー承認
-- [x] baseline-pv.ts の修正
-- [x] 評価ファイルの再検証と修正（石垣島EN, コンダオEN）
-- [x] walkthrough.md の作成
+- [x] ページ詳細分析 (Research)
+- [x] 評価データの生成
+    - [x] スコアリングの確定
+    - [x] 24ヶ月PV予測の生成
+- [x] ファイルの登録
+    - [x] `src/evaluations/miyako_running_en.json` の作成
+    - [x] `src/evaluations/_registry.json` の更新
+- [x] 最終確認 (Validation)

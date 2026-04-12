@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-10",
+  "lastUpdated": "2026-04-12",
   "streams": [
     { "key": "jp_ishigaki", "label": "石垣島 (日本語)", "color": "#f59e0b", "cvr": 0.0032, "unit": 750 },
     { "key": "en_ishigaki", "label": "石垣島 (英語)", "color": "#10b981", "cvr": 0.008, "unit": 2000 },
@@ -207,6 +207,46 @@
       "overall": 92,
       "evaluatedAt": "2026-04-10",
       "lang": "JP",
+      "type": "ランニング"
+    },
+    "en_hotels_miyako-island": {
+      "file": "miyako_hotels_en.json",
+      "url": "/en/hotels/miyako-island/",
+      "title": "Best Hotels in Miyako Island: 9 Expertly Curated Luxury & Budget Stays | RITOTABI",
+      "stream": "en_miyako",
+      "overall": 94,
+      "evaluatedAt": "2026-04-12",
+      "lang": "EN",
+      "type": "ホテル"
+    },
+    "en_destinations_miyako-island": {
+      "file": "miyako_guide_en.json",
+      "url": "/en/destinations/miyako-island/",
+      "title": "Miyako Island Complete Guide: Field-Tested & Honest Report | RITOTABI",
+      "stream": "en_miyako",
+      "overall": 94,
+      "evaluatedAt": "2026-04-12",
+      "lang": "EN",
+      "type": "ガイド"
+    },
+    "en_destinations_miyako-island_beaches": {
+      "file": "miyako_beaches_en.json",
+      "url": "/en/destinations/miyako-island/beaches/",
+      "title": "Miyako Island Hidden Beach Guide | From 17END to Secret Spots | RITOTABI",
+      "stream": "en_miyako",
+      "overall": 96,
+      "evaluatedAt": "2026-04-12",
+      "lang": "EN",
+      "type": "ガイド"
+    },
+    "en_destinations_miyako-island_running": {
+      "file": "miyako_running_en.json",
+      "url": "/en/destinations/miyako-island/running/",
+      "title": "Miyako Island Running | Kurima, Ikema & 17END Course Guide | RITOTABI",
+      "stream": "en_miyako",
+      "overall": 84,
+      "evaluatedAt": "2026-04-12",
+      "lang": "EN",
       "type": "ランニング"
     }
   }

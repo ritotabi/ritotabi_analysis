@@ -1,0 +1,69 @@
+{
+  "id": "miyako_beaches_en",
+  "url": "https://ritotabi.com/en/destinations/miyako-island/beaches/",
+  "evaluatedAt": "2026-04-12",
+  "evaluatedBy": "skill",
+  "stream": "en_miyako",
+  "sum": "宮古島の穴場ビーチ7選を紹介する英語ガイドページ。17ENDだけでなく、漁港やリゾート奥地の秘密の小道など、ランニング調査を通じた一次情報が極めて豊富。技術的SEO（hreflang、JSON-LD）も完璧に実装されており、最高水準の品質を実現している。",
+  "ap": "悲観前提",
+  "an": "通常前提",
+  "ao": "楽観前提",
+  "pp": [20, 39, 92, 230, 395, 247, 362, 494, 593, 395, 527, 922, 1318, 1811, 1482, 2470, 2965, 2141, 2635, 3294, 3557, 2470, 2965, 4216],
+  "pn": [30, 60, 140, 352, 605, 378, 554, 755, 907, 605, 806, 1411, 2015, 2770, 2267, 3778, 4534, 3275, 4030, 5038, 5441, 3778, 4534, 6448],
+  "po": [69, 138, 324, 813, 1395, 873, 1278, 1743, 2094, 1395, 1860, 3255, 4650, 6393, 5232, 8718, 10464, 7557, 9300, 11625, 12555, 8718, 10464, 14880],
+  "memo": "新規公開ページ。宮古島の主要ビーチ（前浜、砂山等）を敢えて『混雑する場所』として相対化し、独自の穴場を提案する構成が素晴らしい。FAQ JSON-LDによる絶対パス、Hreflangの完全実装を確認。アフィリエイトは宿泊まとめページへの内部リンクが中心だが、マイクロコピーによる動線確保が良質である。24ヶ月PVはTier 1の中央値から品質加味で1.3xの成長を予測。",
+  "quality": {
+    "title": "Miyako Island Hidden Beach Guide | From 17END to Secret Spots | RITOTABI",
+    "lang": "EN",
+    "type": "ガイド",
+    "overall": 96,
+    "publishedDate": "2026-04-12",
+    "scores": {
+      "コンテンツ独自性": 98,
+      "写真・ビジュアル": 95,
+      "アフィリエイト設計": 92,
+      "内部リンク": 95,
+      "SEO技術実装": 100,
+      "ユーザー体験(UX)": 96,
+      "英語品質": 98
+    },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "new",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": true,
+      "minClicks": 1
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "categoryChecklist": {
+      "comparisonTable": null,
+      "affiliateMicroCopy": null,
+      "courseSpecs": null,
+      "runBadge": null
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "strengths": [
+      "圧倒的な一次情報：ランニング調査に基づいた『漁港脇』や『農村公園横』など、ガイドブックに載らない正確な穴場特定とアクセスの詳細記述",
+      "完璧な技術SEO：絶対パスによるhreflang、canonical、構造化データ（FAQPage, Article）の精密な実装",
+      "良質なマイクロコピー：内部リンクにおいて『Zero distance from the Orient's finest beach』などの具体的ベネフィットを提示"
+    ],
+    "issues": []
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "miyako_running_en",
+  "url": "https://ritotabi.com/en/destinations/miyako-island/running/",
+  "evaluatedAt": "2026-04-12",
+  "evaluatedBy": "skill",
+  "stream": "en_miyako",
+  "sum": "Miyako Island Running Guide with 4 field-tested courses and 23 original photos.",
+  "ap": "Focuses on 'Miyako Blue' visuals and runner-specific logistics like restrooms and sea breeze.",
+  "an": "Features FAQ JSON-LD and Next.js Image optimization, but uses relative paths for SEO links.",
+  "ao": "Solid niche potential as the definitive English resource for running in Miyako Island.",
+  "pp": [20, 41, 97, 243, 418, 261, 383, 522, 628, 418, 558, 976, 1395, 1917, 1569, 2615, 3139, 2267, 2790, 3487, 3766, 2615, 3139, 4464],
+  "pn": [0.16, 0.33, 0.78, 1.94, 3.34, 2.09, 3.06, 4.18, 5.02, 3.34, 4.46, 7.81, 11.16, 15.34, 12.55, 20.92, 25.11, 18.14, 22.32, 27.9, 30.13, 20.92, 25.11, 35.71],
+  "po": [320, 660, 1560, 3880, 6680, 4180, 6120, 8360, 10040, 6680, 8920, 15620, 22320, 30680, 25100, 41840, 50220, 36280, 44640, 55800, 60260, 41840, 50220, 71420],
+  "memo": "宮古島の実走調査に基づいた非常に質の高いガイド。特に4つの主要コース（来間橋、池間橋、17END、ヒルトン周辺）について、ランナーが最も気にするトイレの有無、強風の影響、路面の質を網羅している。23枚の独自写真は圧巻。SEO面でhreflang等が相対パスである点と、コースバッジの欠落が惜しいが、コンテンツ力は抜群。",
+  "quality": {
+    "title": "Miyako Island Running | Kurima, Ikema & 17END Course Guide | RITOTABI",
+    "lang": "EN",
+    "type": "ランニング",
+    "overall": 84,
+    "publishedDate": "2026-04-12",
+    "scores": {
+      "コンテンツ独自性": 92,
+      "写真・ビジュアル": 88,
+      "アフィリエイト設計": 80,
+      "内部リンク": 85,
+      "SEO技術実装": 65,
+      "ユーザー体験(UX)": 88,
+      "英語品質": 92
+    },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "new",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": false,
+      "minClicks": 1
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "categoryChecklist": {
+      "comparisonTable": null,
+      "affiliateMicroCopy": null,
+      "courseSpecs": true,
+      "runBadge": false
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "strengths": [
+      "23枚の豊富で具体的な現地写真（独自ドメイン内）",
+      "ランナー視点の「Field Impression」が極めて具体的（トイレ、自販機、日陰情報）",
+      "FAQ JSON-LDの適切な実装と具体的回答",
+      "情緒的な英語表現（sensation of floating 等）による没入感"
+    ],
+    "issues": [
+      { "level": "中", "text": "hreflang および canonical が絶対パスではなく相対パスで記述されている。", "isSpeculation": false },
+      { "level": "低", "text": "ランニングコースごとの実走評価バッジ（S/A/B等）が視覚的に付与されていない。", "isSpeculation": false },
+      { "level": "低", "text": "datePublished (2026-02-20) と実際の公開指定日 (2026-04-12) の整合性を確認する必要がある。", "isSpeculation": false }
+    ]
+  }
+}
