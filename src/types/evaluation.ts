@@ -66,6 +66,12 @@ export interface PageEvaluation {
       affiliateMicroCopy: boolean | null;
       courseSpecs: boolean | null;
       runBadge: boolean | null;
+      runningCvr?: {
+        internalHotelLinks: number;
+        directAffiliateLinks: number;
+        hotelCtaPerCourse: number;
+        runnerPersonaMatch: boolean;
+      } | null;
     };
 
     techChecklist?: {

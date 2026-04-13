@@ -7,6 +7,7 @@ export const VIOLET = "#8b5cf6";
 export const GRN = "#4ade80";
 export const ORANGE = "#fb923c";
 export const PINK = "#ec4899";
+export const YELLOW = "#eab308";
 
 export const COLOR_POOL = [
   ROSE,

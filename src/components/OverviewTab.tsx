@@ -1,5 +1,5 @@
 import React from "react";
-import { PINK, TEAL, SLATE, GRN } from "../utils/colors";
+import { PINK, TEAL, SLATE, GRN, YELLOW } from "../utils/colors";
 import type { StreamDef } from "../utils/calc";
 import type { PageEvaluation } from "../types/evaluation";
 
@@ -27,7 +27,7 @@ const OverviewTab: React.FC<OverviewTabProps> = ({ streams, sum, evaluations }) 
                 <p style={{ color: s.color, fontWeight: 700, fontSize: 12, margin: 0 }}>{s.label}</p>
               </div>
               <p style={{ color: "#e2e8f0", fontSize: 18, fontWeight: 700, margin: "0 0 2px", fontFamily: "monospace" }}>{"¥" + streamSum.toLocaleString()}</p>
-              <p style={{ color: "#475569", fontSize: 11, margin: "0 0 6px" }}>24ヶ月累計</p>
+              <p style={{ color: s.color, fontSize: 11, margin: "0 0 6px", fontWeight: 700 }}>機会損失: ¥{((sum[`pot_${s.key}`] || 0) - streamSum).toLocaleString()}</p>
               <div style={{ display: "flex", gap: 8 }}>
                 <span style={{ fontSize: 10, color: s.color, border: `1px solid ${s.color}40`, borderRadius: 4, padding: "1px 7px", fontFamily: "monospace" }}>CVR {(s.cvr * 100).toFixed(2)}%</span>
                 <span style={{ fontSize: 10, color: s.color, border: `1px solid ${s.color}40`, borderRadius: 4, padding: "1px 7px", fontFamily: "monospace" }}>単価 ¥{s.unit.toLocaleString()}</span>
@@ -37,9 +37,20 @@ const OverviewTab: React.FC<OverviewTabProps> = ({ streams, sum, evaluations }) 
         })}
         <div style={{ background: "linear-gradient(135deg, rgba(45,212,191, 0.08), rgba(236,72,153, 0.06))", border: `1px solid ${TEAL}40`, borderLeft: `3px solid ${TEAL}`, borderRadius: 8, padding: "12px 16px" }}>
           <p style={{ color: TEAL, fontWeight: 700, fontSize: 12, marginBottom: 6 }}>合計（{streams.length}軸）</p>
-          <p style={{ color: TEAL, fontSize: 22, fontWeight: 700, margin: "0 0 4px", fontFamily: "monospace" }}>{"¥" + sum.total.toLocaleString()}</p>
-          <p style={{ color: "#475569", fontSize: 11, margin: "0 0 8px" }}>24ヶ月累計</p>
-          <p style={{ color: GRN, fontSize: 12, fontWeight: 700, fontFamily: "monospace" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 4 }}>
+            <div>
+              <p style={{ color: TEAL, fontSize: 22, fontWeight: 700, margin: 0, fontFamily: "monospace" }}>{"¥" + sum.total.toLocaleString()}</p>
+              <p style={{ color: "#475569", fontSize: 10, margin: 0 }}>現状の予測収益 (24M)</p>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <p style={{ color: YELLOW, fontSize: 16, fontWeight: 700, margin: 0, fontFamily: "monospace" }}>{"¥" + (sum.potTotal || 0).toLocaleString()}</p>
+              <p style={{ color: "#475569", fontSize: 10, margin: 0 }}>最大ポテンシャル</p>
+            </div>
+          </div>
+          <p style={{ color: PINK, fontSize: 11, fontWeight: 700, margin: "0 0 8px", fontFamily: "monospace" }}>
+            Revenue Gap: -¥{((sum.potTotal || 0) - sum.total).toLocaleString()}
+          </p>
+          <p style={{ color: GRN, fontSize: 11, fontWeight: 700, fontFamily: "monospace" }}>
             v6比 +¥{(sum.total - V6_STD).toLocaleString()}（+{Math.round(((sum.total - V6_STD) / V6_STD) * 100)}%）
           </p>
         </div>

@@ -1,8 +1,6 @@
-- [x] `miyako_running_en.json` の更新
-    - [x] `evaluatedAt` の更新
-    - [x] 各種スコアの調整
-    - [x] チェックリストの更新
-    - [x] PV予測（pp, pn, po）の修正
-    - [x] 強みと課題の更新
-- [x] `_registry.json` の更新
-- [x] 最終検証
+- [x] `src/types/evaluation.ts` の型定義更新 (runningCvr, potRev 追加)
+- [x] `eval_spec.md` の評価基準更新 (ランニングページ用CVR要因追加)
+- [x] `SKILL.md` の分析手順とスキーマ更新
+- [x] `calc.ts` の計算ロジック刷新 (品質スコア連動型CVRへの変更)
+- [x] `OverviewTab.tsx` などUIの更新 (最大ポテンシャル収益の表示)
+- [x] 既存のランニングページ評価ファイル (`miyako_running_en.json`) で動作確認
