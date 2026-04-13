@@ -1,106 +1,37 @@
 {
   "id": "ishigaki_running_en",
   "url": "https://ritotabi.com/en/destinations/ishigaki-island/running/",
-  "evaluatedAt": "2026-04-07",
+  "evaluatedAt": "2026-04-13",
   "evaluatedBy": "skill",
   "stream": "en_ishigaki",
-  "sum": "8,245",
-  "ap": "2,061",
-  "an": "4,123",
-  "ao": "10,306",
+  "sum": "20,436",
+  "ap": "10,218",
+  "an": "20,436",
+  "ao": "51,090",
   "pp": [
-    0,
-    10,
-    13,
-    63,
-    122,
-    75,
-    198,
-    210,
-    281,
-    204,
-    240,
-    357,
-    348,
-    579,
-    293,
-    630,
-    608,
-    225,
-    405,
-    338,
-    383,
-    248,
-    270,
-    383
+    0, 78, 78, 336, 486, 240, 540, 450, 510, 330, 360, 510, 480, 780, 390, 840, 810, 300, 540, 450, 510, 330, 360, 510
   ],
   "pn": [
-    0,
-    20,
-    26,
-    112,
-    203,
-    125,
-    315,
-    338,
-    468,
-    341,
-    408,
-    612,
-    600,
-    1001,
-    507,
-    1092,
-    1053,
-    390,
-    702,
-    585,
-    663,
-    429,
-    468,
-    663
+    0, 156, 156, 672, 972, 480, 1080, 900, 1020, 660, 720, 1020, 960, 1560, 780, 1680, 1620, 600, 1080, 900, 1020, 660, 720, 1020
   ],
   "po": [
-    0,
-    33,
-    46,
-    210,
-    405,
-    250,
-    675,
-    750,
-    1063,
-    798,
-    960,
-    1488,
-    1480,
-    2496,
-    1268,
-    2730,
-    2633,
-    975,
-    1755,
-    1463,
-    1658,
-    1073,
-    1170,
-    1658
+    0, 390, 390, 1680, 2430, 1200, 2700, 2250, 2550, 1650, 1800, 2550, 2400, 3900, 1950, 4200, 4050, 1500, 2700, 2250, 2550, 1650, 1800, 2550
   ],
-  "memo": "実地調査に基づいた高い専門性と、ランナーが必要とする細かな利便情報（トイレ・自販機の場所等）が網羅されており、ガイドとして非常に質が高い。石垣島エリア×英語の戦略に適合したアフィリエイト配置と、FAQ JSON-LDの実装も確認済み。公開直後のため、成長カーブはTier 3の基準に依拠しつつ、エリアの強さを考慮して成熟期をやや高めに設定。 (2026-04-13: 季節性バイアス適用済みモデルで再計算)",
+  "memo": "実地調査に基づいた極めて高い専門性と、ランナーが必要とする細かな利便情報が網羅されている。最新の評価基準に従い、季節性モデルを適用して予測値を更新。直接のアフィリエイトリンクは存在しないが、文脈に適合した内部ホテルページへの誘導が3箇所あり、高いCVRが期待できる。技術的にも絶対パスのCanonicalやFAQ JSON-LDが正しく実装されていることを確認。(2026-04-13: 季節性バイアス・ブランド品質・カテゴリ固有チェックを適用)",
   "quality": {
-    "title": "Ishigaki & Taketomi Island Running Guide: Scenic Coastal & Cat Routes 2026 | RITOTABI",
+    "title": "Ishigaki & Taketomi Island Running Guide: Scenic Coastal & Cat Routes | RITOTABI",
     "lang": "EN",
     "type": "ランニング",
-    "overall": 91,
+    "overall": 94,
     "publishedDate": "2026-04-05",
     "scores": {
-      "コンテンツ独自性": 90,
-      "写真・ビジュアル": 85,
-      "アフィリエイト設計": 95,
-      "内部リンク": 90,
-      "SEO技術実装": 95,
-      "ユーザー体験(UX)": 92,
-      "英語品質": 90
+      "コンテンツ独自性": 95,
+      "写真・ビジュアル": 88,
+      "アフィリエイト設計": 92,
+      "内部リンク": 95,
+      "SEO技術実装": 98,
+      "ユーザー体験(UX)": 94,
+      "英語品質": 92
     },
     "seoChecklist": {
       "hreflang": true,
@@ -115,18 +46,51 @@
       "ctaPosition": true,
       "microCopy": true,
       "multipleOta": true,
+      "priceVisible": false,
+      "socialProof": false,
+      "mobileStickyCta": false,
+      "carRentalLink": false,
+      "activityLink": true,
+      "urgencySignals": 0,
       "minClicks": 2
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "categoryChecklist": {
+      "comparisonTable": null,
+      "affiliateMicroCopy": null,
+      "courseSpecs": true,
+      "runBadge": false,
+      "runningCvr": {
+        "internalHotelLinks": 3,
+        "directAffiliateLinks": 0,
+        "hotelCtaPerCourse": 1,
+        "runnerPersonaMatch": true
+      }
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
     },
     "strengths": [
       "実際に走行したランナーの視点による詳細なルート案内（Runner's Voice）",
-      "独自ドメイン内のオリジナル写真（18枚）が豊富に使用されており、現地感が極めて高い",
-      "Googleマップに記載のない舗装道の存在など、実体験に基づいた情報の信頼性",
-      "石垣島×英語向けの複数OTA戦略（Agoda, Booking, Rakuten）を網羅したリンク設計"
+      "「猫の島」や「Googleマップにない舗装道」など二次情報では得られない一次情報の宝庫",
+      "独自ドメイン内のオリジナル写真（18枚）による圧倒的な現地感",
+      "絶対パスを用いたCanonical、FAQ JSON-LD、Next.js最適化などの高い技術品質"
     ],
     "issues": [
       {
         "level": "低",
-        "text": "コース全容を俯瞰できる簡易的な図解やマップがあれば、よりUXが向上する懸念がある。"
+        "text": "コースの起伏について、高低差グラフなどの視覚的なスペック情報が加わるとランナーにとってさらに有益。"
+      },
+      {
+        "level": "中",
+        "text": "現在の構成では外部OTAへの直接リンクがないため、宿泊予約に至るまでに1クリック多くなる（内部ホテルページを経由）。"
       }
     ],
     "seasonalRisk": "台風リスク (9月)"

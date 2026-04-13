@@ -1,49 +1,34 @@
-# 収益予測ロジックの高度化：品質スコア連動型CVRモデルの導入計画
+# 実装計画：石垣島ランニングページ（英語版）の再評価
 
-ご指摘の通り、「品質スコアが収益（金額）に反映されない」という現状の課題を解決するため、品質スコアに基づいてCVRを動的に補正するロジックを導入します。これにより、単なるPV予測ではなく、「改善によってどれだけ収益が増えるか」を可視化します。
+石垣島ランニングページ（[Ishigaki & Taketomi Running Guide](https://ritotabi.com/en/destinations/ishigaki-island/running/)）の品質評価を、最新の評価仕様（v2.0）および市場データに基づき再定義します。
 
-## User Review Required
+## ユーザーレビューが必要な事項
 
-> [!IMPORTANT]
-> 収益の計算式が以下のように変更されます。
-> *   **現状予測**: `PV × 単価 × ストリームCVR × (品質スコア / 100)`
-> *   **最大ポテンシャル**: `PV × 単価 × ストリームCVR × 1.0` (スコア100の場合)
+> [!NOTE]
+> 収益予測（PVモデル）において、最新の季節性バイアス係数を適用し、石垣島の実績シェアに基づいた保守的かつ現実的な数値にアップデートします。
 
-これにより、品質スコアが低いページの収益予測値は従来より低く算出されますが、同時に「改善による伸び代（Gap）」が明確になります。
+## 提案される変更
 
-## Proposed Changes
+### 評価データの更新
 
-### 1. データ構造の定義
-#### [MODIFY] [evaluation.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/types/evaluation.ts)
-*   `PageEvaluation['quality']['categoryChecklist']` にランニングページ専用の CVR 指標を追加 (前回の計画通り)。
-*   `BasePVRow` および `CalculatedRow` に、最大ポテンシャル収益を保持する `potRev` プロパティを追加。
+#### [MODIFY] [ishigaki_running_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/ishigaki_running_en.json)
+- **品質スコアの刷新**:
+  - `brandChecklist`: 現場の質感描写（体験ベースの記述）を評価し、全項目 `true` と判定。
+  - `categoryChecklist`: ランニング特有の指標（距離の明記、内部リンク数、直接リンクなし等）を反映。
+  - `techChecklist`: Next.js `<Image>` の使用と絶対パス canonical の実装を確認済みとして反映。
+- **収益予測の再計算**:
+  - 石垣島観光客数（インバウンド約20万人）と、国内ガイドに対する英語版の期待シェア（1/4）をベースに算出。
+  - `market_data.md` の沖縄エリア季節性係数（4月: 0.8, 5月: 1.3 等）を公開月（4月）から24ヶ月分適用。
+- **メモの更新**: 評価の根拠となった具体的な事実（画像18枚、直接リンクなし、内部リンク3件等）を記載。
 
-### 2. 計算ロジックの刷新
-#### [MODIFY] [calc.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/utils/calc.ts)
-*   `addEvalsToPv` 関数を更新し、ページごとの品質スコア（`quality.overall`）を取得して、以下の2種類の収益を月別に集計するように変更します。
-    1.  `rev`: スコア補正後の予測収益
-    2.  `potRev`: スコア100とした場合の最大ポテンシャル収益
+#### [MODIFY] [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
+- `ishigaki_running_en` の `sum` 値を再計算後の合計値に同期。
 
-### 3. UIの改善（可視化）
-#### [MODIFY] [OverviewTab.tsx](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/components/OverviewTab.tsx)
-*   現状の予測収益の横に、最大ポテンシャル収益と「改善による機会損失（Revenue Gap）」を表示します。
+## 確認計画
 
-### 4. 評価仕様とスキルの更新
-#### [MODIFY] [eval_spec.md](file:///home/mune1/dev/ritotabi/ritotabi_analytics/.agent/skills/page_evaluator/resources/eval_spec.md)
-#### [MODIFY] [SKILL.md](file:///home/mune1/dev/ritotabi/ritotabi_analytics/.agent/skills/page_evaluator/SKILL.md)
-*   ランニングページ特有のCVR評価要因（直接リンク、ペルソナ適合性など）を、品質スコアの算出に明確に組み込むよう基準を更新します。
+### 自動テスト
+- `src/evaluations/ishigaki_running_en.json` の JSON スキーマが正しいか確認。
+- `pp`, `pn`, `po` の配列要素数が24個であることを確認。
 
----
-
-## Open Questions
-
-> [!TIP]
-> 「最大金額」の定義として、現在のストリームCVR（平均的な値）を100点満点時の値とするか、あるいは100点満点時はさらに上のCVRを目指す設定にするか、どちらがブランドの成長イメージに近いでしょうか？（今回はシンプルに「ストリームCVR = スコア100」として実装予定です）
-
-## Verification Plan
-
-### Automated Tests
-*   `calc.ts` の計算ロジックにおいて、スコア50のページがスコア100の半分として計算されることを確認する。
-
-### Manual Verification
-*   ランニングページに直接アフィリエイトリンクを追加し、スコアを上げた際に予測収益が増加し、「潜在的な伸び代（Gap）」が減少することを確認する。
+### 手動確認
+- 算出されたPV予測値が `eval_spec.md` の Tier 基準（成熟期 100 - 1,500 PV）内に収まっているか確認。
