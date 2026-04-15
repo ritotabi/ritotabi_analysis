@@ -1,51 +1,33 @@
-# 奄美大島ホテルガイドの品質評価と収益予測
+# 収益ストリームへの奄美大島追加
 
-[https://ritotabi.com/hotels/amami-island/](https://ritotabi.com/hotels/amami-island/) の品質評価を実施し、24ヶ月間の収益予測を生成します。
+奄美大島の収益を「その他」から分離し、個別のストリームとして管理するための修正を行います。
 
-## ページ分析結果（事実ベース）
+## ユーザーレビューが必要な事項
 
-- **タイトル**: 奄美大島ホテルの真実｜北部・南部エリア別徹底比較 | RITOTABI
-- **タイプ**: ホテル
-- **公開日**: 2026/02/18
-- **コンテンツ**:
-  - 実地調査に基づく独自写真（`/images/destinations/amami-island/`）を確認。
-  - ランナー向けレビュー（Runner's Review）が全ホテルに記載されており、独自性が高い。
-  - 比較表（Comparison Table）セクションを確認。
-  - アフィリエイト: 楽天トラベルのリンクを確認。 rel="noopener sponsored" 設定済み。
-  - マイクロコピー: 「🧖 サウナ付き大浴場で旅の疲れをリセット。最新の空室状況を今すぐ確認」などの具体的なベネフィット提示あり。
-  - 社会且証明: OTAスコア（4.6等）が明記されている。
-- **技術実装**:
-  - `_next/image` の使用を確認。
-  - `JSON-LD` (FAQPage) の実装を確認。
+- **カラー選定**: `jp_amami` に `PINK` (#ec4899) を割り当て、`en_amami` に `SLATE` (#64748b) を割り当てる予定です。既存の色との調和を考慮しています。
 
-## 評価案 (スコア概要)
+## 提案される変更
 
-1. **コンテンツ独自性**: 15/15 (ランナー目線の具体的レビューと独自写真)
-2. **写真・ビジュアル**: 14/15 (独自写真はあるが、OTA引用画像も混在)
-3. **アフィリエイト設計**: 13/15 (マイクロコピーは優秀だが、楽天以外のOTAリンクが見当たらない)
-4. **内部リンク**: 14/15 (総合ガイドへの適切な導線)
-5. **SEO技術実装**: 15/15 (JSON-LD, meta, title-h1整合性良好)
-6. **ユーザー体験(UX)**: 14/15 (エリア分けと比較表で分かりやすい)
-7. **英語品質**: N/A (日本語ページ)
+### [データ定義]
 
-**合計暫定スコア**: 85/90 (94.4%) -> 約94点
+#### [MODIFY] [streams.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/data/streams.ts)
+- `jp_amami` (奄美大島 日本語) と `en_amami` (奄美大島 英語) を追加します。
+- 数値設定（CVR/Unit）は他の日本離島（与論島等）と同等を暫定値として設定します。
 
-## 実施内容
+### [レジストリ・評価データ]
 
-### 1. 評価JSONの作成
-`src/evaluations/hotels_amami-island.json` を新規作成します。
-- `market_data.md` および `eval_spec.md` に基づき、`jp_other` ストリームの統計データから24ヶ月の収益予測（pp, pn, po）を算出します。
-- 公開日（2026/02/18）から鮮度（freshness）を判定。
+#### [MODIFY] [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
+- `streams` 配列に奄美大島の定義を追加します。
+- `evaluations` セクションの奄美大島関連ページ（`destinations_amami-island`, `hotels_amami-island`）の `stream` を `jp_other` から `jp_amami` に変更します。
 
-### 2. レジストリの更新
-`src/evaluations/_registry.json` に新しいエントリを追加します。
+#### [MODIFY] [amami_guide_jp.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/amami_guide_jp.json)
+- `stream` フィールドを `jp_amami` に更新します。
+
+#### [MODIFY] [hotels_amami-island.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/hotels_amami-island.json)
+- `stream` フィールドを `jp_amami` に更新します。
 
 ## 検証プラン
 
-### 自動テスト
-- `npm run build` で静的生成に問題がないか確認。
-- JSONスキーマに誤りがないか確認。
-
-### 手動検証
-- 生成されたJSONの内容が `eval_spec.md` の基準に合致しているか再確認。
-- 収益予測のグラフが論理的であることを確認。
+### 手動確認
+- ダッシュボードの収益ストリーム一覧に「奄美大島」が表示されていることを確認。
+- 奄美大島のページの収益計算が、新しく定義されたストリーム（`jp_amami`）に基づいて行われていることを確認。

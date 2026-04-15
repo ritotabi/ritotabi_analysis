@@ -12,6 +12,8 @@ export const DEFAULT_STREAMS: StreamDef[] = [
   { key: "en_kume", label: "久米島 (英語)", color: "#0ea5e9", cvr: 0.008, unit: 2000 },
   { key: "jp_aka", label: "阿嘉島 (日本語)", color: "#ef4444", cvr: 0.0032, unit: 750 },
   { key: "en_aka", label: "阿嘉島 (英語)", color: VIOLET, cvr: 0.008, unit: 2000 },
+  { key: "jp_amami", label: "奄美大島 (日本語)", color: "#f472b6", cvr: 0.0032, unit: 750 },
+  { key: "en_amami", label: "奄美大島 (英語)", color: "#818cf8", cvr: 0.008, unit: 2000 },
   { key: "jp_other", label: "その他 日本 (日本語)", color: SLATE, cvr: 0.0032, unit: 750 },
   { key: "en_other", label: "その他 日本 (英語)", color: "#94a3b8", cvr: 0.008, unit: 2000 },
   { key: "cjp", label: "コンダオ (日本語)", color: VIOLET, cvr: 0.0035, unit: 1500 },

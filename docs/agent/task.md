@@ -1,6 +1,6 @@
-- [x] `task.md` の作成（プロジェクト内およびシステム）
-- [/] 収益予測（24ヶ月分）の算出
-- [ ] `src/evaluations/hotels_amami-island.json` の作成
-- [ ] `src/evaluations/_registry.json` の更新
-- [ ] ビルドおよび整合性の検証
-- [ ] `walkthrough.md` の作成
+- [x] `src/data/streams.ts` に奄美大島の実装を追加
+- [x] `src/evaluations/_registry.json` の `streams` を更新
+- [x] `src/evaluations/_registry.json` の評価データの `stream` を更新
+- [x] `src/evaluations/amami_guide_jp.json` の `stream` を更新
+- [x] `src/evaluations/hotels_amami-island.json` の `stream` を更新
+- [x] 表示の確認と整合性の検証
