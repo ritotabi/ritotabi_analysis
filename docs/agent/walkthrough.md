@@ -1,29 +1,31 @@
-# An Bang Running Guide (EN) 再評価完了
+# 修正内容の確認 (Walkthrough) - 2026年3月実績データの合算
 
-`https://ritotabi.com/en/destinations/an-bang/running/` の品質再評価および収益予測の更新を完了しました。
+2026年3月のGoogle (GA4) 実績とBingの実績を合算し、システム全体の実績データを更新しました。
 
-## 実施内容
+## 変更内容
 
-### 1. 最新評価仕様（v2.0）への適合
-評価 JSON スキーマを最新化し、以下のチェックリスト項目を事実に基づき精査しました：
-- **Brand Quality**: 五感に訴える描写（米の香り、砂の質感）や一次情報（牛の糞、小さな虫）の有無を確認。
-- **Category Specific**: ランニングコースのスペック（距離・路面）および実走バッジが正しく設定されていることを確認。
-- **Tech Implementation**: Next.js `<Image>` の使用、具体的かつ適切な `alt` 属性、絶対パスによる SEO タグの整合性を確認。
+### データの合算とファイル整理
+- `src/data/actual_dl/202603.csv` を `202603_google.csv` にリネームしました。
+- GoogleとBingのデータをページパス単位で合算した新しい `202603.csv` を生成しました。
+  - **合算ルール**: `表示回数 (PV) = Google Views + Bing Clicks` として集計。
+  - BingのURLをパス名に変換し、GA4のデータと突合して加算を行いました。
 
-### 2. 季節性バイアスを適用した収益予測
-ホイアンエリアの観光統計および季節性変動係数を適用し、24ヶ月分の PV 予測を再計算しました：
-- **Normal Peak**: 約 600 - 800 PV/月
-- **Annual Normal Total**: 約 3,552 PV
-- **Risk Index**: 10月の洪水リスクをモデルに反映。
+### 実績TSファイルの更新
+- [actual-pv.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/data/actual-pv.ts) の3月分の数値を合算後の値に更新しました。
 
-### 3. スコア更新
-- **Overall Score**: 92 → **95**
-- コンテンツの独自性と SEO 技術実装の完璧さを評価し、スコアを引き上げました。
-
-## 修正ファイル
-- [anbang_running_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/anbang_running_en.json)
-- [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
+#### 数値の変化（合計PV）
+| カテゴリ (Stream) | 旧数値 (Googleのみ) | 新数値 (Google + Bing) | 増分 (Bing Clicks) |
+| :--- | :---: | :---: | :---: |
+| 与論島 (jp_yoron) | 296 | 303 | +7 |
+| 宮古島 (jp_miyako) | 313 | 314 | +1 |
+| 阿嘉島 (jp_aka) | 51 | 55 | +4 |
+| その他 (jp_other) | 449 | 450 | +1 |
 
 ## 検証結果
-- `src/evaluations/anbang_running_en.json` が最新のスキーマに準拠していることを確認。
-- `_registry.json` のエントリが正しく更新され、管理画面に反映可能な状態であることを確認。
+
+- 合算スクリプトを実行し、BingのCSV（合計13クリック）が正しく各エリアのPVに加算されていることをログレベルで確認しました。
+- 生成された `202603.csv` の整合性が保たれていることを確認しました。
+
+## ユーザーへのお願い
+- ダッシュボードを表示し、3月の実績PVがわずかに増加していることをご確認ください。
+- 今回作成した合算スクリプトは [merge_actuals.mjs](file:///home/mune1/.gemini/antigravity/brain/55e64f4a-7fd9-49ca-847e-4b91395dae25/scratch/merge_actuals.mjs) に保存されています。今後の実績更新時の参考にしてください。

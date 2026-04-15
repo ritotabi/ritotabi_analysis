@@ -1,5 +1,8 @@
-- [x] 収益予測（PV）の再計算（スクリプト使用）
-- [x] `anbang_running_en.json` の作成・保存
-- [x] `_registry.json` の更新
-- [ ] ローカル環境での表示確認
-- [x] 完了報告（Walkthrough作成）
+# タスクリスト: 実績データの2項目（PV/Click）対応
+
+- [ ] `calc.ts` の拡張（型定義と計算ロジック）
+- [ ] `merge_actuals.mjs` の修正（Views/Clicksの両対応）
+- [ ] 合算スクリプトの再実行と集計値取得
+- [ ] `actual-pv.ts` の更新
+- [ ] UIコンポーネントの修正（実績表示の追加）
+- [ ] 最終確認

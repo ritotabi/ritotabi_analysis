@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-13",
+  "lastUpdated": "2026-04-15",
   "streams": [
     { "key": "jp_ishigaki", "label": "石垣島 (日本語)", "color": "#f59e0b", "cvr": 0.0032, "unit": 750 },
     { "key": "en_ishigaki", "label": "石垣島 (英語)", "color": "#10b981", "cvr": 0.008, "unit": 2000 },
@@ -247,6 +247,86 @@
       "overall": 92,
       "evaluatedAt": "2026-04-13",
       "lang": "EN",
+      "type": "ランニング"
+    },
+    "hotels_miyako-island": {
+      "file": "miyako_hotels_jp.json",
+      "url": "/hotels/miyako-island/",
+      "title": "宮古島のおすすめホテル：失敗しない「ラグジュアリー～コスパ」厳選9宿 | RITOTABI",
+      "stream": "jp_miyako",
+      "overall": 96,
+      "evaluatedAt": "2026-04-14",
+      "lang": "JP",
+      "type": "ホテル"
+    },
+    "destinations_miyako-island_beaches": {
+      "file": "destinations_miyako-island_beaches.json",
+      "url": "/destinations/miyako-island/beaches/",
+      "title": "宮古島ビーチガイド｜17ENDから穴場まで絶景を探す | RITOTABI",
+      "stream": "jp_miyako",
+      "overall": 94,
+      "evaluatedAt": "2026-04-14",
+      "lang": "JP",
+      "type": "ガイド"
+    },
+    "destinations_miyako-island": {
+      "file": "miyako_guide_jp.json",
+      "url": "/destinations/miyako-island/",
+      "title": "宮古島観光完全ガイド：自分の足で稼いだ「嘘のない」実録レポート | RITOTABI",
+      "stream": "jp_miyako",
+      "overall": 94,
+      "evaluatedAt": "2026-04-14",
+      "lang": "JP",
+      "type": "ガイド"
+    },
+    "destinations_miyako-island_running": {
+      "file": "miyako_running_jp.json",
+      "url": "/destinations/miyako-island/running/",
+      "title": "宮古島ランニング｜来間・池間大橋＆17END 実走検証 | RITOTABI",
+      "stream": "jp_miyako",
+      "overall": 95,
+      "evaluatedAt": "2026-04-14",
+      "lang": "JP",
+      "type": "ランニング"
+    },
+    "hotels_yoron-island": {
+      "file": "yoron_hotels_jp.json",
+      "url": "/hotels/yoron-island/",
+      "title": "与論島のおすすめホテル：失敗しない「リゾート～隠れ家」厳選5宿 | RITOTABI",
+      "stream": "jp_yoron",
+      "overall": 94,
+      "evaluatedAt": "2026-04-15",
+      "lang": "JP",
+      "type": "ホテル"
+    },
+    "destinations_yoron-island_beaches": {
+      "file": "jp_yoron_beaches.json",
+      "url": "/destinations/yoron-island/beaches/",
+      "title": "与論島ビーチガイド｜透明度抜群の海と静寂の穴場探し | RITOTABI",
+      "stream": "jp_yoron",
+      "overall": 94,
+      "evaluatedAt": "2026-04-15",
+      "lang": "JP",
+      "type": "ガイド"
+    },
+    "destinations_yoron-island": {
+      "file": "yoron_guide_jp.json",
+      "url": "/destinations/yoron-island/",
+      "title": "与論島観光ガイド2026｜ヨロンブルーと最高の宿探し | RITOTABI",
+      "stream": "jp_yoron",
+      "overall": 91,
+      "evaluatedAt": "2026-04-15",
+      "lang": "JP",
+      "type": "ガイド"
+    },
+    "destinations_yoron-island_running": {
+      "file": "yoron_running_jp.json",
+      "url": "/destinations/yoron-island/running/",
+      "title": "与論島ランニング｜ヨロンブルーを望む絶景実走コース | RITOTABI",
+      "stream": "jp_yoron",
+      "overall": 95,
+      "evaluatedAt": "2026-04-15",
+      "lang": "JP",
       "type": "ランニング"
     }
   }

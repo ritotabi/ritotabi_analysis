@@ -1,0 +1,94 @@
+{
+  "id": "destinations_miyako-island",
+  "url": "/destinations/miyako-island/",
+  "evaluatedAt": "2026-04-14",
+  "evaluatedBy": "skill",
+  "stream": "jp_miyako",
+  "sum": "宮古島（Tier 1）の基幹ガイド。実地調査に基づく圧倒的な一次情報と、完璧なクラスター構造を備える。",
+  "ap": "ランナー視点での「橋の風圧」や「路面の質感」まで踏み込んだ、模倣困難な独自コンテンツ。",
+  "an": "28枚の高品質な独自写真と、構造化データ（FAQ）を駆使した高いSEOポテンシャル。",
+  "ao": "夏場の観光ピークに向けた爆発的なPV成長が期待できる、ドメイン最重要資産の一つ。",
+  "pp": [
+    25, 220, 580, 1850, 1750, 6200, 8400, 4000, 8800, 8000, 9800, 6800,
+    7600, 11200, 10800, 18000, 9200, 20100, 19600, 7400, 13400, 11300, 12900, 8500
+  ],
+  "pn": [
+    50, 450, 1200, 3800, 3600, 12800, 17200, 8200, 18000, 16400, 20200, 14000,
+    15600, 23000, 22200, 37000, 18900, 41400, 40400, 15200, 27600, 23300, 26700, 17500
+  ],
+  "po": [
+    120, 1000, 2800, 8800, 8300, 29800, 40200, 19100, 42000, 38200, 47100, 32600,
+    36400, 53600, 51700, 86300, 44000, 96500, 94200, 35400, 64400, 54300, 62200, 40800
+  ],
+  "memo": "宮古島の総合ガイド（日本語版）。2026年2月公開。既にFAQスキーマが検出されており、インデックスが進むにつれてGW（5月）および夏季（7-8月）に大きなPV獲得が見込まれる。英語ページとの相互リンク（hreflang）も設定済み。実走データに基づく権威性が、他メディアとの差別化要因となっている。",
+  "quality": {
+    "title": "宮古島観光完全ガイド：自分の足で稼いだ「嘘のない」実録レポート | RITOTABI",
+    "lang": "JP",
+    "type": "ガイド",
+    "overall": 94,
+    "publishedDate": "2026-02-18",
+    "scores": {
+      "コンテンツ独自性": 95,
+      "写真・ビジュアル": 92,
+      "アフィリエイト設計": 85,
+      "内部リンク": 98,
+      "SEO技術実装": 94,
+      "ユーザー体験(UX)": 94
+    },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "growing",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": false,
+      "priceVisible": false,
+      "socialProof": false,
+      "mobileStickyCta": true,
+      "carRentalLink": true,
+      "activityLink": true,
+      "urgencySignals": 0,
+      "minClicks": 1
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "categoryChecklist": {
+      "comparisonTable": null,
+      "affiliateMicroCopy": null,
+      "courseSpecs": null,
+      "runBadge": null
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "strengths": [
+      "「自分の足で稼いだ」というコンセプトを体現する、ランニング実走データ（勾配・風圧）の統合",
+      "28枚に及ぶ独自ドメイン内の最新実写WebP画像（2023年11月調査分）",
+      "宮古島を「市街地」と「リゾート」に分け、旅の目的に応じた適切なエリア選択を促す高いUX",
+      "FAQ Page構造化データの2箇所検出による、検索結果での占有率向上への期待"
+    ],
+    "issues": [
+      {
+        "level": "中",
+        "text": "ガイドページからホテル個別紹介セクションへの導線が内部リンクのみとなっており、直接のアフィリエイト制約機会が制限されている（クラスター構造上は正解だが、単体ページ収益性は抑えめ）。"
+      },
+      {
+        "level": "低",
+        "text": "宮古島まもる君への言及など独自性は高いが、主要交差点のマップピンなどがあるとさらに利便性が高まる。"
+      }
+    ],
+    "seasonalRisk": "台風リスク (9月)"
+  }
+}

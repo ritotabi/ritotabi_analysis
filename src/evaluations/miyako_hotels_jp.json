@@ -1,0 +1,76 @@
+{
+  "id": "miyako_hotels_jp",
+  "url": "/hotels/miyako-island/",
+  "evaluatedAt": "2026-04-14",
+  "evaluatedBy": "skill",
+  "stream": "jp_miyako",
+  "sum": "96",
+  "ap": "88",
+  "an": "92",
+  "ao": "95",
+  "pp": [0, 20, 50, 105, 245, 610, 1050, 650, 960, 1300, 1570, 1050, 1400, 2450, 3500, 4800, 3900, 6500, 7800, 5600, 7000, 8700, 9500, 6500],
+  "pn": [0, 30, 75, 150, 350, 875, 1500, 940, 1375, 1875, 2250, 1500, 2000, 3500, 5000, 6875, 5625, 9375, 11250, 8125, 10000, 12500, 13500, 9375],
+  "po": [0, 40, 100, 200, 450, 1100, 2000, 1200, 1800, 2500, 3000, 2000, 2600, 4500, 6500, 8900, 7300, 12100, 14600, 10500, 13000, 16200, 17500, 12100],
+  "memo": "宮古島のホテルをラグジュアリーからコスパまで網羅した最高品質のガイドページ。実走調査に基づく具体的アドバイスに加え、比較表での価格・スコア明記により利便性が極めて高い。",
+  "quality": {
+    "title": "宮古島のおすすめホテル：失敗しない「ラグジュアリー～コスパ」厳選9宿 | RITOTABI",
+    "lang": "JP",
+    "type": "ホテル",
+    "overall": 96,
+    "publishedDate": "2026-02-18",
+    "scores": {
+      "コンテンツ独自性": 95,
+      "写真・ビジュアル": 92,
+      "アフィリエイト設計": 90,
+      "内部リンク": 94,
+      "SEO技術実装": 92,
+      "ユーザー体験(UX)": 96
+    },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "growing",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": false,
+      "priceVisible": true,
+      "socialProof": true,
+      "mobileStickyCta": true,
+      "carRentalLink": false,
+      "activityLink": false,
+      "urgencySignals": 0,
+      "minClicks": 1
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": true
+    },
+    "categoryChecklist": {
+      "comparisonTable": true,
+      "affiliateMicroCopy": true,
+      "courseSpecs": null,
+      "runBadge": null,
+      "runningCvr": null
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "strengths": [
+      "実走調査に基づいた圧倒的な「一次情報」の質（Runner's Review、駐車場のコツ、周辺の買い出し情報など）",
+      "読者の予算・目的に合わせた「ラグジュアリー・リゾート・シティホテル」のバランス良い選定",
+      "比較表における最安値表示とOTAクチコミスコアの明記による、高い利便性と信頼性の両立",
+      "導入文で読者の不安を解消し、結論を提示するベネフィット・アップフロントな構成"
+    ],
+    "issues": []
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "yoron_guide_jp",
+  "url": "https://ritotabi.com/destinations/yoron-island/",
+  "evaluatedAt": "2026-04-15",
+  "evaluatedBy": "skill",
+  "stream": "jp_yoron",
+  "sum": "与論島総合ガイド：ヨロンブルーと一次情報を融合させた高品質な離島ガイド",
+  "ap": "91",
+  "an": "88",
+  "ao": "94",
+  "pp": [17, 64, 195, 195, 840, 1350, 750, 1800, 1800, 2295, 1595, 1800, 2550, 2400, 3900, 1950, 4200, 4050, 1500, 2700, 2250, 2550, 1650, 1800],
+  "pn": [0, 0, 0, 0, 0, 0, 1, 3, 5, 8, 10, 12, 15, 18, 22, 25, 28, 30, 32, 35, 38, 40, 42, 45],
+  "po": [0, 0, 0, 1, 2, 4, 3, 6, 6, 8, 5, 6, 9, 8, 13, 7, 14, 13, 5, 9, 7, 8, 5, 6],
+  "memo": "与論島を実際に走行・調査した一次情報が中心となっており、読者の没入感が高い。特にビドウ遊歩道や隠れビーチの描写は独自性が強く、ブランド品質を満たしている。SEO面でタイトルとH1の不一致、および日英切替タグの欠落が確認されるため、技術的な修正でさらなる評価向上が見込める。",
+  "quality": {
+    "title": "与論島観光ガイド2026｜ヨロンブルーと最高の宿探し | RITOTABI",
+    "lang": "JP",
+    "type": "ガイド",
+    "overall": 91,
+    "publishedDate": "2026-03-05",
+    "scores": {
+      "コンテンツ独自性": 95,
+      "写真・ビジュアル": 92,
+      "アフィリエイト設計": 82,
+      "内部リンク": 95,
+      "SEO技術実装": 85,
+      "ユーザー体験(UX)": 95
+    },
+    "seoChecklist": {
+      "hreflang": false,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "growing",
+    "seasonalRisk": "9月の台風による交通遮断リスク、および百合ヶ浜出現の大潮・干潮タイミングへの依存性",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": false,
+      "multipleOta": true,
+      "priceVisible": false,
+      "socialProof": false,
+      "mobileStickyCta": false,
+      "carRentalLink": true,
+      "activityLink": true,
+      "urgencySignals": 0,
+      "minClicks": 2
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "strengths": [
+      "実際に走り回って調査したことが伝わる高い一次情報量",
+      "RAW HTMLにて34枚の画像を検出し、ヨロンブルーの視覚訴求が強力",
+      "地図、アクセス、注意点（現金、百合ヶ浜）など実用情報の網羅性が高い"
+    ],
+    "issues": [
+      { "level": "中", "text": "Meta TitleとH1が一致していない（タイトルは『宿探し』、H1は『完全ガイド』）" },
+      { "level": "中", "text": "言語切替（hreflang）タグが設定されていない" },
+      { "level": "低", "text": "案内されるリンク先にホテル予約へのベネフィットを伝えるマイクロコピーが不足している" }
+    ]
+  }
+}

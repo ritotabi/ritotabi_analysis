@@ -1,31 +1,49 @@
-# An Bang Running Guide (EN) 再評価
+# 実績データへの「クリック数」追加とUI表示の拡張
 
-## 概要
-`https://ritotabi.com/en/destinations/an-bang/running/` の品質評価および収益予測を、最新の評価仕様（v2.0）および季節性バイアスモデルに基づいて更新します。以前の評価から、ブランド品質チェックリスト、カテゴリ固有チェックリスト（ランニング）、および技術実装チェックリストの項目を精査し、より詳細な評価データに更新します。
+GoogleとBingから取得した実績データにおいて、「表示回数（Views）」に加えて「クリック数（Clicks）」も管理・表示できるように拡張します。
 
-## ユーザーレビュー必須事項
-> [!NOTE]
-> 特になし。既存の評価（92点）をベースに、最新のチェックリスト項目を埋める形での更新となります。
+## ユーザーレビューが必要な項目
 
-## 提案される変更点
+> [!IMPORTANT]
+> **「クリック数」の定義について**
+> 以下のように定義して合算することを提案します：
+> - **表示回数 (Views)**: Google Views (GA4表示回数) + Bing Impressions (検索結果への表示)
+> - **クリック数 (Clicks)**: Google Active Users (GA4訪問者数) + Bing Clicks (検索からの流入)
+>
+> Google (GA4) には「検索クリック数」という概念が直接含まれないため、サイトへの訪問が発生した「アクティブ ユーザー」をクリック数と同等の指標として扱います。これでよろしいでしょうか。
 
-### 評価データ (JSON)
+## 提案される変更
 
-#### [MODIFY] [anbang_running_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/anbang_running_en.json)
-- `evaluatedAt` を `2026-04-13` に更新。
-- `brandChecklist`、`categoryChecklist`、`techChecklist` を新規仕様に基づき追加。
-- 季節性バイアスモデルを適用した 24ヶ月分の PV 予測（pp, pn, po）を再計算。
-- 強み(strengths)と課題(issues)を、最新の事実（画像枚数、マイクロコピーの具体性など）に基づいて記述。
+### 1. データ構造の拡張
 
-#### [MODIFY] [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
-- `anbang_running_en` のエントリを最新の評価データ（sum, ap, an, ao 等）で更新。
+#### [MODIFY] [calc.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/utils/calc.ts)
+- `BasePVRow` に `clicks?: Record<string, number>` プロパティを追加。
 
-## オープンな質問
-- なし。
+#### [MODIFY] [actual-pv.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/data/actual-pv.ts)
+- 3月の実績データに `clicks` 情報を追加。
 
-## 確認計画
+### 2. 合算プロセスの改善
 
-### 修正内容の確認
-- JSON ファイルが最新のスキーマに準拠しているか。
-- `src/evaluations/_registry.json` に正しく反映されているか。
-- `npm run dev` でローカルサーバーを起動し、評価一覧画面で数値が正しく更新されていることを確認する。
+#### [MODIFY] [merge_actuals.mjs](file:///home/mune1/.gemini/antigravity/brain/55e64f4a-7fd9-49ca-847e-4b91395dae25/scratch/merge_actuals.mjs)
+- `views` と `clicks` を独立して集計し、合算後のCSVおよび `actual-pv.ts` 用の数値を算出するように修正。
+
+### 3. UI（ダッシュボード）の表示
+
+#### [MODIFY] [Header.tsx](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/components/Header.tsx) (または OverviewTab)
+- ダッシュボードの上部に「3月実績: ○○ PV / ○○ Clicks」といった表示を追加し、パッと見て実績がわかるようにします。
+
+## 修正計画
+
+1. **スクリプト修正**: `merge_actuals.mjs` を更新し、Views/Clicksの両対応にする。
+2. **集計実行**: 更新された `202603_google.csv` を使って再度合算を実行。
+3. **コード修正**: `calc.ts` で型と計算ロジックを拡張。
+4. **データ反映**: `actual-pv.ts` を新しい集計値で更新。
+5. **UI反映**: Reactコンポーネントを修正して実績値を表示。
+
+## 検証計画
+
+### 自動確認
+- スクリプトの出力ログが、各ソースの Views/Clicks 合計と一致することを確認。
+
+### 手動確認
+- ブラウザ上のダッシュボードで、実績のPV数とクリック数が正しく2項目表示されていることを確認。

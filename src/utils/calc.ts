@@ -219,12 +219,33 @@ export function addEvalsToPv(
     const [y, m] = pubDate.split("-").map(Number);
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const targetM = months[m - 1] + "'" + String(y).slice(-2);
-    const startIdx = basePvObj.findIndex((row) => row.m === targetM);
+    
+    let startIdx = basePvObj.findIndex((row) => row.m === targetM);
+    let forecastOffset = 0;
 
-    if (startIdx === -1) return;
+    if (startIdx === -1) {
+      // 公開月がダッシュボードの開始月より前の場合の処理
+      const firstDashboardM = basePvObj[0].m; // 例: "Mar'26"
+      const [firstMName, firstYYear] = firstDashboardM.split("'");
+      const firstMonthNum = months.indexOf(firstMName) + 1;
+      const firstYearNum = 2000 + Number(firstYYear);
+      
+      const dashboardStartSerial = firstYearNum * 12 + firstMonthNum;
+      const pubSerial = y * 12 + m;
+      
+      if (pubSerial < dashboardStartSerial) {
+        // ダッシュボード開始点 (i=0) における予測データのインデックスを算出
+        forecastOffset = dashboardStartSerial - pubSerial;
+        startIdx = 0;
+      } else {
+        // 未来の公開予定などの場合（現状は対象外）
+        return;
+      }
+    }
 
     for (let i = startIdx; i < basePvObj.length; i++) {
-      const forecastIdx = i - startIdx;
+      const forecastIdx = i - startIdx + forecastOffset;
+      if (forecastIdx < 0) continue;
       const val = forecastIdx < arr.length ? arr[forecastIdx] : arr[arr.length - 1];
       
       if (!additions[ev.stream]) {
