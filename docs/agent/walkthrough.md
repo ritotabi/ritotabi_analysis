@@ -1,31 +1,28 @@
-# 修正内容の確認 (Walkthrough) - 2026年3月実績データの合算
+# 奄美大島ホテルガイド評価完了報告
 
-2026年3月のGoogle (GA4) 実績とBingの実績を合算し、システム全体の実績データを更新しました。
+奄美大島ホテルガイド（`https://ritotabi.com/hotels/amami-island/`）の品質評価および収益予測データの作成が完了しました。
 
-## 変更内容
+## 実施内容
 
-### データの合算とファイル整理
-- `src/data/actual_dl/202603.csv` を `202603_google.csv` にリネームしました。
-- GoogleとBingのデータをページパス単位で合算した新しい `202603.csv` を生成しました。
-  - **合算ルール**: `表示回数 (PV) = Google Views + Bing Clicks` として集計。
-  - BingのURLをパス名に変換し、GA4のデータと突合して加算を行いました。
+### 1. ページ詳細分析とスコアリング
+- **総合スコア**: **94 / 100**
+- **主な評価ポイント**:
+  - 全ホテルに網羅された「Runner's Review」による圧倒的な一次情報の価値。
+  - 独自写真の活用と、エリア別比較表による高いユーザー利便性。
+  - SEO技術面（JSON-LD, meta, タイトル整合性）の完璧な実装。
 
-### 実績TSファイルの更新
-- [actual-pv.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/data/actual-pv.ts) の3月分の数値を合算後の値に更新しました。
+### 2. 収益予測の生成
+- `market_data.md` に基づき、奄美大島の市場規模と `jp_other` ストリームのベースラインを掛け合わせ、24ヶ月間のPV予測を算出しました。
+- 季節変動（9月の台風リスク、5・7・8月の繁忙期）を反映しています。
 
-#### 数値の変化（合計PV）
-| カテゴリ (Stream) | 旧数値 (Googleのみ) | 新数値 (Google + Bing) | 増分 (Bing Clicks) |
-| :--- | :---: | :---: | :---: |
-| 与論島 (jp_yoron) | 296 | 303 | +7 |
-| 宮古島 (jp_miyako) | 313 | 314 | +1 |
-| 阿嘉島 (jp_aka) | 51 | 55 | +4 |
-| その他 (jp_other) | 449 | 450 | +1 |
+### 3. データ統合
+- [hotels_amami-island.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/hotels_amami-island.json) を新規作成。
+- [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json) を更新し、ダッシュボードへの紐付けを完了。
 
 ## 検証結果
+- JSONフォーマットの整合性とレジストリのリファレンスが正しいことを確認しました。
+- 既存の奄美大島総合ガイドとの整合性（ID体系・ストリーム設定）を維持しています。
 
-- 合算スクリプトを実行し、BingのCSV（合計13クリック）が正しく各エリアのPVに加算されていることをログレベルで確認しました。
-- 生成された `202603.csv` の整合性が保たれていることを確認しました。
-
-## ユーザーへのお願い
-- ダッシュボードを表示し、3月の実績PVがわずかに増加していることをご確認ください。
-- 今回作成した合算スクリプトは [merge_actuals.mjs](file:///home/mune1/.gemini/antigravity/brain/55e64f4a-7fd9-49ca-847e-4b91395dae25/scratch/merge_actuals.mjs) に保存されています。今後の実績更新時の参考にしてください。
+## 今後の改善提案
+- **複数OTAの導入**: 現在楽天トラベルのみとなっているため、Agodaやじゃらんのリンクを追加することで更なる収益向上が見込めます。
+- **レンタカー導線**: 島内の移動に必須となるレンタカー予約への内部リンク設置を推奨します。

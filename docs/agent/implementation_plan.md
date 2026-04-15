@@ -1,49 +1,51 @@
-# 実績データへの「クリック数」追加とUI表示の拡張
+# 奄美大島ホテルガイドの品質評価と収益予測
 
-GoogleとBingから取得した実績データにおいて、「表示回数（Views）」に加えて「クリック数（Clicks）」も管理・表示できるように拡張します。
+[https://ritotabi.com/hotels/amami-island/](https://ritotabi.com/hotels/amami-island/) の品質評価を実施し、24ヶ月間の収益予測を生成します。
 
-## ユーザーレビューが必要な項目
+## ページ分析結果（事実ベース）
 
-> [!IMPORTANT]
-> **「クリック数」の定義について**
-> 以下のように定義して合算することを提案します：
-> - **表示回数 (Views)**: Google Views (GA4表示回数) + Bing Impressions (検索結果への表示)
-> - **クリック数 (Clicks)**: Google Active Users (GA4訪問者数) + Bing Clicks (検索からの流入)
->
-> Google (GA4) には「検索クリック数」という概念が直接含まれないため、サイトへの訪問が発生した「アクティブ ユーザー」をクリック数と同等の指標として扱います。これでよろしいでしょうか。
+- **タイトル**: 奄美大島ホテルの真実｜北部・南部エリア別徹底比較 | RITOTABI
+- **タイプ**: ホテル
+- **公開日**: 2026/02/18
+- **コンテンツ**:
+  - 実地調査に基づく独自写真（`/images/destinations/amami-island/`）を確認。
+  - ランナー向けレビュー（Runner's Review）が全ホテルに記載されており、独自性が高い。
+  - 比較表（Comparison Table）セクションを確認。
+  - アフィリエイト: 楽天トラベルのリンクを確認。 rel="noopener sponsored" 設定済み。
+  - マイクロコピー: 「🧖 サウナ付き大浴場で旅の疲れをリセット。最新の空室状況を今すぐ確認」などの具体的なベネフィット提示あり。
+  - 社会且証明: OTAスコア（4.6等）が明記されている。
+- **技術実装**:
+  - `_next/image` の使用を確認。
+  - `JSON-LD` (FAQPage) の実装を確認。
 
-## 提案される変更
+## 評価案 (スコア概要)
 
-### 1. データ構造の拡張
+1. **コンテンツ独自性**: 15/15 (ランナー目線の具体的レビューと独自写真)
+2. **写真・ビジュアル**: 14/15 (独自写真はあるが、OTA引用画像も混在)
+3. **アフィリエイト設計**: 13/15 (マイクロコピーは優秀だが、楽天以外のOTAリンクが見当たらない)
+4. **内部リンク**: 14/15 (総合ガイドへの適切な導線)
+5. **SEO技術実装**: 15/15 (JSON-LD, meta, title-h1整合性良好)
+6. **ユーザー体験(UX)**: 14/15 (エリア分けと比較表で分かりやすい)
+7. **英語品質**: N/A (日本語ページ)
 
-#### [MODIFY] [calc.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/utils/calc.ts)
-- `BasePVRow` に `clicks?: Record<string, number>` プロパティを追加。
+**合計暫定スコア**: 85/90 (94.4%) -> 約94点
 
-#### [MODIFY] [actual-pv.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/data/actual-pv.ts)
-- 3月の実績データに `clicks` 情報を追加。
+## 実施内容
 
-### 2. 合算プロセスの改善
+### 1. 評価JSONの作成
+`src/evaluations/hotels_amami-island.json` を新規作成します。
+- `market_data.md` および `eval_spec.md` に基づき、`jp_other` ストリームの統計データから24ヶ月の収益予測（pp, pn, po）を算出します。
+- 公開日（2026/02/18）から鮮度（freshness）を判定。
 
-#### [MODIFY] [merge_actuals.mjs](file:///home/mune1/.gemini/antigravity/brain/55e64f4a-7fd9-49ca-847e-4b91395dae25/scratch/merge_actuals.mjs)
-- `views` と `clicks` を独立して集計し、合算後のCSVおよび `actual-pv.ts` 用の数値を算出するように修正。
+### 2. レジストリの更新
+`src/evaluations/_registry.json` に新しいエントリを追加します。
 
-### 3. UI（ダッシュボード）の表示
+## 検証プラン
 
-#### [MODIFY] [Header.tsx](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/components/Header.tsx) (または OverviewTab)
-- ダッシュボードの上部に「3月実績: ○○ PV / ○○ Clicks」といった表示を追加し、パッと見て実績がわかるようにします。
+### 自動テスト
+- `npm run build` で静的生成に問題がないか確認。
+- JSONスキーマに誤りがないか確認。
 
-## 修正計画
-
-1. **スクリプト修正**: `merge_actuals.mjs` を更新し、Views/Clicksの両対応にする。
-2. **集計実行**: 更新された `202603_google.csv` を使って再度合算を実行。
-3. **コード修正**: `calc.ts` で型と計算ロジックを拡張。
-4. **データ反映**: `actual-pv.ts` を新しい集計値で更新。
-5. **UI反映**: Reactコンポーネントを修正して実績値を表示。
-
-## 検証計画
-
-### 自動確認
-- スクリプトの出力ログが、各ソースの Views/Clicks 合計と一致することを確認。
-
-### 手動確認
-- ブラウザ上のダッシュボードで、実績のPV数とクリック数が正しく2項目表示されていることを確認。
+### 手動検証
+- 生成されたJSONの内容が `eval_spec.md` の基準に合致しているか再確認。
+- 収益予測のグラフが論理的であることを確認。

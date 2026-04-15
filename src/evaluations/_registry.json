@@ -328,6 +328,26 @@
       "evaluatedAt": "2026-04-15",
       "lang": "JP",
       "type": "ランニング"
+    },
+    "destinations_amami-island": {
+      "file": "amami_guide_jp.json",
+      "url": "/destinations/amami-island/",
+      "title": "奄美大島観光ガイド2026｜土盛海岸と絶品グルメ | RITOTABI",
+      "stream": "jp_other",
+      "overall": 92,
+      "evaluatedAt": "2026-04-15",
+      "lang": "JP",
+      "type": "ガイド"
+    },
+    "hotels_amami-island": {
+      "file": "hotels_amami-island.json",
+      "url": "/hotels/amami-island/",
+      "title": "奄美大島ホテルの真実｜北部・南部エリア別徹底比較 | RITOTABI",
+      "stream": "jp_other",
+      "overall": 94,
+      "evaluatedAt": "2026-04-15",
+      "lang": "JP",
+      "type": "ホテル"
     }
   }
 }
