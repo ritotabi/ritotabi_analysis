@@ -1,6 +1,8 @@
-- [x] `src/data/streams.ts` に奄美大島の実装を追加
-- [x] `src/evaluations/_registry.json` の `streams` を更新
-- [x] `src/evaluations/_registry.json` の評価データの `stream` を更新
-- [x] `src/evaluations/amami_guide_jp.json` の `stream` を更新
-- [x] `src/evaluations/hotels_amami-island.json` の `stream` を更新
-- [x] 表示の確認と整合性の検証
+- [x] 久米島ホテルページの評価JSON (`kume_hotels_jp.json`) の作成
+- [x] 評価レジストリ (`_registry.json`) の更新
+- [x] 内容の最終確認と完了報告
+
+## Walkthrough
+- 久米島ホテルページの評価JSON (`kume_hotels_jp.json`) を作成しました。
+- 評価レジストリ (`_registry.json`) に新しい評価データを登録しました。
+- 全てのタスクが完了しました。

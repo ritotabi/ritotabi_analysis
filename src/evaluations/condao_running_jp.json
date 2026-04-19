@@ -1,121 +1,86 @@
 {
-  "id": "condao_running_jp",
-  "url": "/destinations/con-dao-island/running/",
-  "evaluatedAt": "2026-04-04",
-  "evaluatedBy": "manual",
+  "id": "destinations_con-dao-island_running",
+  "url": "https://ritotabi.com/destinations/con-dao-island/running/",
+  "evaluatedAt": "2026-04-19",
+  "evaluatedBy": "skill",
   "stream": "cjp",
-  "sum": "コンダオ島ランニングコースガイド。実走レポートによる圧倒的な一次情報。",
-  "ap": "悲観前提",
-  "an": "通常前提",
-  "ao": "楽観前提",
-  "pp": [
-    4,
-    8,
-    15,
-    24,
-    39,
-    28,
-    34,
-    33,
-    34,
-    30,
-    37,
-    70,
-    156,
-    228,
-    194,
-    258,
-    286,
-    195,
-    188,
-    168,
-    153,
-    129,
-    156,
-    245
-  ],
-  "pn": [
-    6,
-    20,
-    38,
-    72,
-    110,
-    80,
-    96,
-    96,
-    100,
-    90,
-    114,
-    196,
-    480,
-    715,
-    600,
-    840,
-    935,
-    650,
-    600,
-    540,
-    475,
-    420,
-    492,
-    770
-  ],
-  "po": [
-    6,
-    33,
-    69,
-    144,
-    220,
-    170,
-    200,
-    192,
-    200,
-    180,
-    228,
-    392,
-    840,
-    1235,
-    1063,
-    1440,
-    1540,
-    1100,
-    1040,
-    900,
-    800,
-    720,
-    840,
-    1260
-  ],
-  "memo": "初期マイグレーションデータ。 (2026-04-13: 季節性バイアス適用済みモデルで再計算)",
+  "sum": "コンダオ島の静寂と歴史を感じるランニング体験を、実走調査に基づき詳細にレポートした高品質なガイド。一次情報の密度が非常に高い。",
+  "ap": "紹介されている3つのホテルへの導線が適切に配置されており、マイクロコピーも整備されている。直接アフィリエイトリンクへの切り替えでさらにCVR向上が見込める。",
+  "an": "ニッチな拠点（Tier 3）かつ低競合エリアのため、浸透率は高い。キーワード「コンダオ ランニング」での独占を狙える。",
+  "ao": "FAQの技術実装は完了しているが、視覚的な『実走バッジ』の設置があれば、さらにランナーへの信頼性が高まる。",
+  "pp": [0, 10, 28, 70, 120, 160, 192, 220, 336, 393, 515, 960, 1060, 1040, 1017, 950, 880, 716, 547, 463, 566, 576, 683, 1190],
+  "pn": [0, 8, 22, 56, 96, 128, 153, 176, 268, 314, 412, 768, 848, 832, 813, 760, 704, 572, 437, 370, 452, 460, 546, 952],
+  "po": [0, 13, 36, 91, 156, 208, 249, 286, 436, 510, 669, 1248, 1378, 1352, 1322, 1235, 1144, 930, 711, 601, 735, 748, 887, 1547],
+  "memo": "前回の評価（91点）から、コンテンツの具体性とSEO実装の整合性を再確認し、スコアを上方修正。特にRunner's Voiceの一次情報価値を高く評価した。",
   "quality": {
-    "title": "コンダオ島ランニングコース（日本語）",
+    "title": "コンダオ島を走る｜絶壁シーサイドと湖畔を巡る実走ガイド | RITOTABI",
     "lang": "JP",
     "type": "ランニング",
-    "overall": 91,
-    "publishedDate": "2026-03-26",
+    "overall": 96,
+    "publishedDate": "2026-04-04",
     "scores": {
       "コンテンツ独自性": 98,
-      "写真・ビジュアル": 96,
-      "アフィリエイト設計": 75,
-      "内部リンク": 92,
-      "SEO技術実装": 88,
-      "ユーザー体験(UX)": 94,
-      "英語品質": null
+      "写真・ビジュアル": 92,
+      "アフィリエイト設計": 88,
+      "内部リンク": 95,
+      "SEO技術実装": 96,
+      "ユーザー体験(UX)": 94
     },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "growing",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": true,
+      "priceVisible": false,
+      "socialProof": false,
+      "mobileStickyCta": true,
+      "carRentalLink": false,
+      "activityLink": false,
+      "urgencySignals": 0,
+      "minClicks": 2
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "categoryChecklist": {
+      "comparisonTable": null,
+      "affiliateMicroCopy": null,
+      "courseSpecs": true,
+      "runBadge": true,
+      "runningCvr": {
+        "internalHotelLinks": 3,
+        "directAffiliateLinks": 0,
+        "hotelCtaPerCourse": 1.5,
+        "runnerPersonaMatch": true
+      }
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "seasonalRisk": "11-2月：強風による高速船の欠航リスクあり",
     "strengths": [
-      "各コース4枚以上の自撮り現地写真",
-      "Runner's Voice（実走インプレ）が各コース3項目"
+      "実走調査に基づいた圧倒的なリアリティ（路面の質感、虫対策など）",
+      "コンダオ特有の『静寂』をマインドフルネスと結びつけた独自の切り口",
+      "ホテルガイドへの適切な回遊動線設計"
     ],
     "issues": [
       {
-        "level": "中",
-        "text": "Stay22ウィジェットが未設置"
-      },
-      {
-        "level": "中",
-        "text": "FAQセクションが未設置"
+        "level": "低",
+        "text": "ホテル価格の目安や具体的な社会的証明（OTAスコア等）の記載があれば、より送客効率が高まる。"
       }
-    ],
-    "seasonalRisk": "強風・波高リスク (11月-2月)"
+    ]
   }
 }

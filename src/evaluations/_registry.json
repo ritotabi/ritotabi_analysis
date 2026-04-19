@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-15",
+  "lastUpdated": "2026-04-19",
   "streams": [
     { "key": "jp_ishigaki", "label": "石垣島 (日本語)", "color": "#f59e0b", "cvr": 0.0032, "unit": 750 },
     { "key": "en_ishigaki", "label": "石垣島 (英語)", "color": "#10b981", "cvr": 0.008, "unit": 2000 },
@@ -94,10 +94,10 @@
     "destinations_con-dao-island_running": {
       "file": "condao_running_jp.json",
       "url": "/destinations/con-dao-island/running/",
-      "title": "コンダオ島ランニングコース（日本語）",
+      "title": "コンダオ島を走る｜絶壁シーサイドと湖畔を巡る実走ガイド | RITOTABI",
       "stream": "cjp",
-      "overall": 91,
-      "evaluatedAt": "2026-04-04",
+      "overall": 96,
+      "evaluatedAt": "2026-04-19",
       "lang": "JP",
       "type": "ランニング"
     },
@@ -266,8 +266,8 @@
       "url": "/destinations/miyako-island/beaches/",
       "title": "宮古島ビーチガイド｜17ENDから穴場まで絶景を探す | RITOTABI",
       "stream": "jp_miyako",
-      "overall": 94,
-      "evaluatedAt": "2026-04-14",
+      "overall": 96,
+      "evaluatedAt": "2026-04-19",
       "lang": "JP",
       "type": "ガイド"
     },
@@ -348,6 +348,26 @@
       "stream": "jp_amami",
       "overall": 94,
       "evaluatedAt": "2026-04-15",
+      "lang": "JP",
+      "type": "ホテル"
+    },
+    "destinations_kume-island": {
+      "file": "jp_kume_guide.json",
+      "url": "/destinations/kume-island/",
+      "title": "久米島観光ガイド｜実走調査で見つける「嘘のない」離島情報 | RITOTABI",
+      "stream": "jp_kume",
+      "overall": 82,
+      "evaluatedAt": "2026-04-19",
+      "lang": "JP",
+      "type": "ガイド"
+    },
+    "hotels_kume-island": {
+      "file": "kume_hotels_jp.json",
+      "url": "/hotels/kume-island/",
+      "title": "久米島ホテル実録：現地調査で選ぶおすすめ3宿 | RITOTABI",
+      "stream": "jp_kume",
+      "overall": 89,
+      "evaluatedAt": "2026-04-19",
       "lang": "JP",
       "type": "ホテル"
     }

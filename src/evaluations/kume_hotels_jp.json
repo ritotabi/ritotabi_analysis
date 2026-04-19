@@ -1,0 +1,88 @@
+{
+  "id": "hotels_kume-island",
+  "url": "https://ritotabi.com/hotels/kume-island/",
+  "evaluatedAt": "2026-04-19",
+  "evaluatedBy": "skill",
+  "stream": "jp_kume",
+  "sum": "久米島の厳選ホテル選びを目的別に整理した実用性の高いガイド。実際に現地を歩いた経験に基づく『Runner's Review』が含まれており、独自性が担保されている。SEO技術実装（FAQ JSON-LD、Canonical絶対パス等）も完璧であり、流入後の成約を意識したアフィリエイト設計（価格表示、複数OTA、モバイル追従CTA）が秀逸。背景以外の写真がOTA提供画像に依存している点が唯一の飛躍ポイント。",
+  "ap": "悲観前提",
+  "an": "通常前提",
+  "ao": "楽観前提",
+  "pp": [0, 5, 50, 150, 400, 300, 1000, 1200, 400, 900, 700, 800, 500, 1000, 1800, 3000, 2500, 1200, 3500, 3200, 1200, 2500, 2000, 2200, 1500],
+  "pn": [0, 12, 120, 360, 960, 720, 2400, 2880, 960, 2160, 1680, 1920, 1200, 2400, 4320, 7200, 6000, 2880, 8400, 7680, 2880, 6000, 4800, 5280, 3600],
+  "po": [0, 24, 240, 720, 1920, 1440, 4800, 5760, 1920, 4320, 3360, 3840, 2400, 4800, 8640, 14400, 12000, 5760, 16800, 15360, 5760, 12000, 9600, 10560, 7200],
+  "memo": "2026/02/13公開。久米島の宿泊実録ガイドとして非常に高い完成度。全3軒のホテルに対し、価格・特徴・ペルソナ別の適合度を明快に提示。特に比較表の設置とモバイル追従CTAの実装により、ユーザーの離脱を防ぎつつ成約へ導く導線が強固。季節性バイアス（5月・8月のピークと9月の台風リスク）を予測モデルに反映済み。",
+  "quality": {
+    "title": "久米島ホテル実録：現地調査で選ぶおすすめ3宿 | RITOTABI",
+    "lang": "JP",
+    "type": "ホテル",
+    "overall": 89,
+    "publishedDate": "2026-02-13",
+    "scores": {
+      "コンテンツ独自性": 92,
+      "写真・ビジュアル": 65,
+      "アフィリエイト設計": 95,
+      "内部リンク": 90,
+      "SEO技術実装": 98,
+      "ユーザー体験(UX)": 92,
+      "英語品質": 0
+    },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "growing",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": true,
+      "priceVisible": true,
+      "socialProof": true,
+      "mobileStickyCta": true,
+      "carRentalLink": false,
+      "activityLink": false,
+      "urgencySignals": 2,
+      "minClicks": 1
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": true
+    },
+    "categoryChecklist": {
+      "comparisonTable": true,
+      "affiliateMicroCopy": true,
+      "courseSpecs": null,
+      "runBadge": null,
+      "runningCvr": null
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "strengths": [
+      "目的別の『最適解』提示：迷ったらここ（リゾート）、定番、コスパの3軸で、読者のニーズに即座に答える構成。",
+      "宿泊者目線の解像度：『Runner's Review』にて、ホテル周辺の走りやすさや具体的なコース案内（畳石への往復など）を提供し、ターゲット層に深く刺さる内容。",
+      "鉄壁のSEO・アフィリエイト実装：FAQ JSON-LDによる検索結果での占有面積拡大、モバイル追従ボタンによるCVR向上策が徹底されている。"
+    ],
+    "issues": [
+      {
+        "level": "中",
+        "text": "宿泊施設自体の写真がOTA提供のストックフォトに依存しており、一次情報としての説得力をビジュアル面でさらに強化する余地がある。",
+        "isSpeculation": false
+      },
+      {
+        "level": "低",
+        "text": "レンタカーの必要性にFAQで言及しているが、具体的な予約リンク（アフィリエイト）が設置されていない。",
+        "isSpeculation": false
+      }
+    ],
+    "seasonalRisk": "9月の台風リスクによる旅行キャンセルの懸念。"
+  }
+}

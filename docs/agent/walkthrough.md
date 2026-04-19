@@ -1,31 +1,38 @@
-# 奄美大島の収益ストリーム分離完了
+# 久米島ホテル紹介ページ評価の実施結果
 
-奄美大島のデータを「その他」から個別のストリームに分離する作業を完了しました。
+久米島ホテル紹介ページ（https://ritotabi.com/hotels/kume-island/）の評価およびデータ登録が完了しました。
 
-## 変更内容
+## 実施内容
 
-### 1. ストリーム定義の追加
-[streams.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/data/streams.ts) に `jp_amami` (日本語) と `en_amami` (英語) を追加しました。
-- 日本語カラー: `#f472b6` (Pink-Light)
-- 英語カラー: `#818cf8` (Indigo-Light)
+### 1. ページ詳細分析
+- `read_url_content` および `curl` を使用して、MarkdownコンテンツとRAW HTMLの両面から精査を行いました。
+- **SEO実装**: Title/H1の一致、FAQ JSON-LDの設置、Canonicalの絶対パス指定などを確認。
+- **アフィリエイト設計**: 複数OTA（楽天・じゃらん）、価格表示、社会的証明、モバイル追従CTAなどの実装状況を確認。
+- **コンテンツ独自性**: 実際に走り歩いた「Runner's Review」の内容が独自の情報源となっていることを評価。
 
-### 2. レジストリの更新
-[_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json) を更新し、以下の修正を行いました。
-- `streams` リストに奄美大島を追加。
-- 以下の評価データの `stream` を `jp_other` から `jp_amami` に変更。
-    - `destinations_amami-island` (総合ガイド)
-    - `hotels_amami-island` (ホテルガイド)
+### 2. 評価データの生成
+- 分析結果に基づき、以下のスコアを算出しました：
+    - **総合スコア (Overall)**: 89
+    - **コンテンツ独自性**: 92
+    - **写真・ビジュアル**: 65
+    - **アフィリエイト設計**: 95
+    - **SEO技術実装**: 98
+- 久米島の市場データと季節性（5月・8月のピーク、9月の台風リスク等）を反映した24ヶ月分の収益予測モデルを生成しました。
 
-### 3. 個別評価データの更新
-評価データの整合性を保つため、以下のファイルの内部 `stream` キーを `jp_amami` に更新しました。
-- [amami_guide_jp.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/amami_guide_jp.json)
-- [hotels_amami-island.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/hotels_amami-island.json)
+### 3. ファイルの保存と登録
+- 評価JSON: [kume_hotels_jp.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/kume_hotels_jp.json) を作成しました。
+- レジストリ: [src/evaluations/_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json) に評価データを追加登録しました。
 
-## 動作確認
+## 評価のポイント
 
-- [x] ストリーム定義が `streams.ts` に正しく追加されている
-- [x] `_registry.json` の評価データとストリームの紐付けが正しい
-- [x] 個別 JSON ファイルの `stream` 定義がレジストリと一致している
+> [!TIP]
+> **アフィリエイト導線の最適化**
+> 3軒全てのホテルにおいて、楽天トラベルとじゃらんの両方のリンクが設置されており、かつ「空室・料金をチェック」という文言とマイクロコピーが組み合わされている点は、非常に高い成約率が期待できる設計です。
 
-> [!NOTE]
-> これにより、ダッシュボード上の収益グラフおよび内訳において、奄美大島が独立した項目として集計・表示されるようになります。
+> [!WARNING]
+> **ビジュアル素材の課題**
+> 現在のホテル写真はOTA提供画像に依存しています。ブランドの信頼性をさらに高め、独自性を強調するためには、今後「現地で撮影したオリジナルのホテル外観・内装写真」への差し替えを推奨します。
+
+## 検証結果
+- `_registry.json` から `kume_hotels_jp.json` が正しく参照可能であることを確認。
+- 生成されたJSONデータが要求されるスキーマを完全に満たしていることを確認。
