@@ -1,31 +1,26 @@
-# 石垣島・竹富島総合ガイド（英語版）再評価レポート
+# 修正内容の確認 (Walkthrough) - 石垣島ホテルページ（英語版）再評価
 
-## 評価概要
-- **対象URL**: https://ritotabi.com/en/destinations/ishigaki-island/
-- **評価日**: 2026-04-22
-- **総合スコア**: 93
+石垣島ホテルページ（[https://ritotabi.com/en/hotels/ishigaki-island/](https://ritotabi.com/en/hotels/ishigaki-island/)）のソースコード分析に基づく再評価が完了しました。
 
-## 主な確認事項
+## 実施内容
 
-### 1. 技術実装の検証 (Fact-check)
-`curl` を用いた RAW HTML レベルでの検証結果：
-- **H1タグ**: 1件確認。適切に設定されています。
-- **FAQPage JSON-LD**: 1件確認。構造化データが正しく実装されています。
-- **アフィリエイト属性**: 21件の `rel="noopener sponsored"` を確認。セキュリティとSEOの両立がなされています。
-- **画像アセット**: 総数28枚。うち19枚が独自ドメイン内の写真であり、一次情報の豊富さを裏付けています。
+### 1. ソースコード精査
+- `page.tsx`, `HeroSection.tsx`, `HotelDetailsSection.tsx` を直接参照し、以下の事実を確認しました。
+    - **SEO**: Meta Title と H1 の文言が一致していない（Meta: 5 Best..., H1: Choosing a Hotel...）。
+    - **技術実装**: `FAQPage`, `ItemList`, `Article` の各JSON-LDが正しく実装されている。
+    - **一次情報**: 冷蔵庫の動作音や駐車場の切り返しスペースなど、宿泊体験に基づく独自のTipsが豊富に含まれている。
 
-### 2. コンテンツ品質の評価
-- **独自性 (95点)**: 川平湾の無料駐車場情報や竹富島のランチ難民対策など、実地調査に基づいた「旅の質を変える」記述が優秀です。
-- **UX/戦略 (90点)**: 'Base Camp' セクションにおいて、滞在拠点を選ぶ際の明確なロジックが提示されており、ユーザーの意思決定を強力にサポートしています。
-- **英語品質 (92点)**: 'Silver path leading into the sea' などの叙情的な表現が、専門性と情緒的価値を両立させています。
+### 2. 評価データの更新
+- **JSON**: [ishigaki_hotels_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/ishigaki_hotels_en.json)
+    - `overall` スコアを 93 に設定（SEO不一致による減点を反映）。
+    - `publishedDate` を事実に基づき 2026-02-17 に修正。
+    - `freshness` を `growing` に更新。
+    - 収益予測（PV）を石垣インバウンドの季節性と最新の成長モデルで再計算。
 
-### 3. 改善の余地 (Issues)
-- **レンタカー導線**: 本文中で『Essential』と言及しているものの、アフィリエイトリンクが未設置であり、収益化の機会損失が生じています。
-- **社会的証明**: ホテル紹介において OTA のクチコミスコアを併記することで、さらなる信頼性向上が期待できます。
+### 3. レジストリの更新
+- **Registry**: [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
+    - 評価スコアと最新評価日（2026-04-23）を反映しました。
 
-## 変更履歴
-- `src/evaluations/ishigaki_en.json`: 最新の評価内容で更新。
-- `src/evaluations/_registry.json`: 評価日を `2026-04-22` に更新。
-
----
-作業完了しました。コミットおよびプッシュはユーザー側で実行してください。
+## 検証結果
+- JSONスキーマに準拠したデータ生成を確認。
+- `page.tsx` 内の `datePublished` および `dateModified` との整合性を確保。

@@ -1,37 +1,31 @@
 {
-  "id": "ishigaki_running_en",
+  "id": "en_destinations_ishigaki-island_running",
   "url": "https://ritotabi.com/en/destinations/ishigaki-island/running/",
-  "evaluatedAt": "2026-04-13",
+  "evaluatedAt": "2026-04-22",
   "evaluatedBy": "skill",
   "stream": "en_ishigaki",
-  "sum": "20,436",
-  "ap": "10,218",
-  "an": "20,436",
-  "ao": "51,090",
-  "pp": [
-    0, 78, 78, 336, 486, 240, 540, 450, 510, 330, 360, 510, 480, 780, 390, 840, 810, 300, 540, 450, 510, 330, 360, 510
-  ],
-  "pn": [
-    0, 156, 156, 672, 972, 480, 1080, 900, 1020, 660, 720, 1020, 960, 1560, 780, 1680, 1620, 600, 1080, 900, 1020, 660, 720, 1020
-  ],
-  "po": [
-    0, 390, 390, 1680, 2430, 1200, 2700, 2250, 2550, 1650, 1800, 2550, 2400, 3900, 1950, 4200, 4050, 1500, 2700, 2250, 2550, 1650, 1800, 2550
-  ],
-  "memo": "実地調査に基づいた極めて高い専門性と、ランナーが必要とする細かな利便情報が網羅されている。最新の評価基準に従い、季節性モデルを適用して予測値を更新。直接のアフィリエイトリンクは存在しないが、文脈に適合した内部ホテルページへの誘導が3箇所あり、高いCVRが期待できる。技術的にも絶対パスのCanonicalやFAQ JSON-LDが正しく実装されていることを確認。(2026-04-13: 季節性バイアス・ブランド品質・カテゴリ固有チェックを適用)",
+  "sum": "石垣島ENランニングページ。実走調査に基づいた圧倒的な情報量に加え、各コースカード末尾に NearbySpotOptimizer を通じたホテル予約導線が完璧に統合されている。ガイドとしての信頼性とアフィリエイト収益性が極めて高いレベルで両立された理想的なページ設計。",
+  "ap": "2026-02-21",
+  "an": "2026-04-09",
+  "ao": "2026-04-22",
+  "pp": [0, 60, 240, 400, 910, 585, 1680, 1890, 800, 1530, 1350, 1615, 1100, 120, 510, 960, 1690, 1170, 2940, 2835, 1400, 2430, 2025, 2380],
+  "pn": [0, 15, 65, 110, 250, 160, 460, 515, 220, 420, 370, 440, 300, 33, 140, 263, 463, 320, 805, 775, 385, 665, 555, 650],
+  "po": [0, 1, 4, 6, 14, 9, 26, 29, 12, 23, 21, 25, 17, 2, 8, 15, 26, 18, 45, 44, 22, 38, 31, 37],
+  "memo": "前回の過度なホテルページ基準の評価を撤回し、ガイドページとしての最適解を再評価。各コース詳細を読み終えた位置に NearbySpotOptimizer が配置され、そこで内部リンクとOTA直予約ボタンが提示される設計は、ユーザーの検索意図（ランニング情報）を妨げずに収益化へ繋げる非常に優れたUXである。コンテンツの独自性と収益導線のバランスにおいて、RITOTABIのベンチマークとなるページと言える。",
   "quality": {
-    "title": "Ishigaki & Taketomi Island Running Guide: Scenic Coastal & Cat Routes | RITOTABI",
+    "title": "Ishigaki & Taketomi Running Guide: Coastal & Cat Routes | RITOTABI",
     "lang": "EN",
     "type": "ランニング",
     "overall": 94,
-    "publishedDate": "2026-04-05",
+    "publishedDate": "2026-02-21",
     "scores": {
-      "コンテンツ独自性": 95,
-      "写真・ビジュアル": 88,
-      "アフィリエイト設計": 92,
-      "内部リンク": 95,
-      "SEO技術実装": 98,
-      "ユーザー体験(UX)": 94,
-      "英語品質": 92
+      "コンテンツ独自性": 92,
+      "写真・ビジュアル": 72,
+      "アフィリエイト設計": 88,
+      "内部リンク": 82,
+      "SEO技術実装": 94,
+      "ユーザー体験(UX)": 95,
+      "英語品質": 93
     },
     "seoChecklist": {
       "hreflang": true,
@@ -41,18 +35,18 @@
       "canonical": true,
       "ogp": true
     },
-    "freshness": "new",
+    "freshness": "growing",
     "affiliateChecklist": {
       "ctaPosition": true,
       "microCopy": true,
       "multipleOta": true,
-      "priceVisible": false,
+      "priceVisible": true,
       "socialProof": false,
       "mobileStickyCta": false,
       "carRentalLink": false,
-      "activityLink": true,
+      "activityLink": false,
       "urgencySignals": 0,
-      "minClicks": 2
+      "minClicks": 1
     },
     "brandChecklist": {
       "toneAndManner": true,
@@ -64,11 +58,11 @@
       "comparisonTable": null,
       "affiliateMicroCopy": null,
       "courseSpecs": true,
-      "runBadge": false,
+      "runBadge": true,
       "runningCvr": {
-        "internalHotelLinks": 3,
-        "directAffiliateLinks": 0,
-        "hotelCtaPerCourse": 1,
+        "internalHotelLinks": 7,
+        "directAffiliateLinks": 7,
+        "hotelCtaPerCourse": 2.33,
         "runnerPersonaMatch": true
       }
     },
@@ -78,21 +72,25 @@
       "affiliateRel": true
     },
     "strengths": [
-      "実際に走行したランナーの視点による詳細なルート案内（Runner's Voice）",
-      "「猫の島」や「Googleマップにない舗装道」など二次情報では得られない一次情報の宝庫",
-      "独自ドメイン内のオリジナル写真（18枚）による圧倒的な現地感",
-      "絶対パスを用いたCanonical、FAQ JSON-LD、Next.js最適化などの高い技術品質"
+      "各コース紹介（WritersRunMemo）の直後に、そのコースに最適なホテルを提案する NearbySpotOptimizer が統合されており、読者が情報を得た直後に予約サイト（楽天/Agoda等）へ直接アクセスできる極めて合理的な導線設計",
+      "NearbySpotCard において、予約ボタン（Check Availability）が内部リンクとは別に明示されており、1クリックでOTAへ遷移できるアフィリエイトフレンドリーな実装",
+      "WritersRunMemo の質が極めて高く、自販機の具体的な場所や、Google Mapsに載っていない舗装状況など、ランナーにとっての死活問題に先回りして回答している",
+      "FAQPage JSON-LD を通じて、検索結果画面（SERP）でのリッチリザルト表示を狙える構造化データが完璧に実装されている",
+      "IshigakiRunningHero および Intro において、実走調査（Personally Scouted）であることを強調し、E-E-A-T（経験・専門性）を強く打ち出している"
     ],
     "issues": [
       {
-        "level": "低",
-        "text": "コースの起伏について、高低差グラフなどの視覚的なスペック情報が加わるとランナーにとってさらに有益。"
+        "level": "中",
+        "text": "コース2（Southern Gate Bridge）のメイン画像がコース1と重複している。橋の上からのパノラマビューなど、コースの魅力を象徴する独自画像への差し替えが望ましい"
       },
       {
-        "level": "中",
-        "text": "現在の構成では外部OTAへの直接リンクがないため、宿泊予約に至るまでに1クリック多くなる（内部ホテルページを経由）。"
+        "level": "低",
+        "text": "レンタカーやアクティビティへの導線を追加することで、ランニング後の観光プランも含めた包括的な旅の提案と収益多角化が可能になる"
+      },
+      {
+        "level": "低",
+        "text": "meta title と H1 の文言に若干の乖離がある。SEOとコピーライティングのバランスとしては許容範囲だが、ブラッシュアップの余地あり"
       }
-    ],
-    "seasonalRisk": "台風リスク (9月)"
+    ]
   }
 }
