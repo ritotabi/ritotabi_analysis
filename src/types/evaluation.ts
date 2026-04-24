@@ -34,6 +34,7 @@ export interface PageEvaluation {
       "SEO技術実装": number;
       "ユーザー体験(UX)": number;
       "英語品質": number | null;
+      "キーワード獲得可能性": number | null;
     };
 
     seoChecklist?: {
@@ -46,6 +47,9 @@ export interface PageEvaluation {
     };
 
     freshness?: "new" | "growing" | "indexing" | "mature";
+
+    // 競合サイトとの相対的な品質水準
+    competitorBenchmark?: "above" | "equal" | "below";
 
     affiliateChecklist?: {
       ctaPosition: boolean;

@@ -187,6 +187,16 @@ export function sumRevDyn(data: CalculatedRow[], streams: StreamDef[]): Record<s
   return res;
 }
 
+function getPageTypeCvrMultiplier(type: string): number {
+  switch (type) {
+    case "ホテル":    return 1.0;
+    case "ガイド":    return 0.5;
+    case "ランニング": return 0.3;
+    case "トップ":    return 0.2;
+    default:          return 0.5;
+  }
+}
+
 export function addEvalsToPv(
   basePvObj: BasePVRow[],
   storedEvals: Record<string, any>,
@@ -211,6 +221,8 @@ export function addEvalsToPv(
 
     // 品質補正係数 (0.0 - 1.0)
     const qualityMul = (ev.quality?.overall || 0) / 100;
+    // ページタイプ別CVR補正: ホテル1.0 / ガイド0.5 / ランニング0.3 / トップ0.2
+    const pageTypeMul = getPageTypeCvrMultiplier(ev.quality?.type || "");
     const sDef = streams.find(s => s.key === ev.stream);
     const streamCvr = sDef?.cvr || 0;
     const streamUnit = sDef?.unit || 0;
@@ -255,8 +267,8 @@ export function addEvalsToPv(
       }
       
       additions[ev.stream][i] += val;
-      // 品質スコアに基づいた収益予測
-      revAdditions[ev.stream][i] += Math.round(val * streamCvr * streamUnit * qualityMul);
+      // 品質スコア × ページタイプ補正に基づいた収益予測
+      revAdditions[ev.stream][i] += Math.round(val * streamCvr * streamUnit * qualityMul * pageTypeMul);
       // スコア100とした場合の最大ポテンシャル
       potAdditions[ev.stream][i] += Math.round(val * streamCvr * streamUnit);
     }

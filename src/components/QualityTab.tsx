@@ -9,7 +9,7 @@ interface QualityTabProps {
   streams: { key: string; label: string; color: string }[];
 }
 
-const AXES = ["コンテンツ独自性", "写真・ビジュアル", "アフィリエイト設計", "内部リンク", "SEO技術実装", "ユーザー体験(UX)", "英語品質"] as const;
+const AXES = ["コンテンツ独自性", "写真・ビジュアル", "アフィリエイト設計", "内部リンク", "SEO技術実装", "ユーザー体験(UX)", "英語品質", "キーワード獲得可能性"] as const;
 
 const QualityTab: React.FC<QualityTabProps> = ({ evaluations, streams }) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -147,6 +147,7 @@ const QualityTab: React.FC<QualityTabProps> = ({ evaluations, streams }) => {
                       {AXES.map((ax) => {
                         const v = (q.scores as any)[ax];
                         if (v === null || v === undefined) return null;
+                        if (ax === "英語品質" && q.lang === "JP") return null;
                         const c = scoreColor(v);
                         return (
                           <div key={ax} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "2px 0" }}>
@@ -212,6 +213,16 @@ const QualityDetail: React.FC<QualityDetailProps> = ({ evaluation }) => {
                 公開{daysSince}日（{q.publishedDate}）
               </span>
             )}
+            {q.competitorBenchmark && (
+              <span style={{
+                fontSize: 10,
+                color: q.competitorBenchmark === "above" ? GRN : q.competitorBenchmark === "equal" ? AMBER : ROSE,
+                border: `1px solid ${(q.competitorBenchmark === "above" ? GRN : q.competitorBenchmark === "equal" ? AMBER : ROSE)}40`,
+                borderRadius: 4, padding: "1px 7px", fontFamily: "monospace"
+              }}>
+                競合比: {q.competitorBenchmark === "above" ? "上回る" : q.competitorBenchmark === "equal" ? "同水準" : "下回る"}
+              </span>
+            )}
           </div>
           <h2 style={{ fontSize: 17, fontWeight: 700, margin: "0 0 4px" }}>{q.title}</h2>
           <p style={{ color: "#334155", fontFamily: "monospace", fontSize: 11, margin: 0 }}>{evaluation.url}</p>
@@ -219,9 +230,10 @@ const QualityDetail: React.FC<QualityDetailProps> = ({ evaluation }) => {
       </div>
 
       <div style={{ background: "#0f172a", border: `1px solid ${pc}25`, borderRadius: 10, padding: "16px 20px", marginBottom: 18 }}>
-        {AXES.map((ax) => (
-          <ScoreBar key={ax} label={ax} value={(q.scores as any)[ax] ?? null} />
-        ))}
+        {AXES.map((ax) => {
+          if (ax === "英語品質" && q.lang === "JP") return null;
+          return <ScoreBar key={ax} label={ax} value={(q.scores as any)[ax] ?? null} />;
+        })}
       </div>
 
       <h3 style={{ color: GRN, fontSize: 11, fontFamily: "monospace", letterSpacing: "0.12em", marginBottom: 12 }}>✓ 強み（{q.strengths?.length || 0}件）</h3>
