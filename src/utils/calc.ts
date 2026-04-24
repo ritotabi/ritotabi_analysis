@@ -78,6 +78,15 @@ export function getSeasonalPv(basePv: number, month: number, stream: string): Se
   };
 }
 
+export function scaleBasePv(basePvObj: BasePVRow[], factor: number): BasePVRow[] {
+  return basePvObj.map(row => ({
+    ...row,
+    pv: Object.fromEntries(
+      Object.entries(row.pv).map(([k, v]) => [k, Math.round(v * factor)])
+    )
+  }));
+}
+
 export interface StreamDef {
   key: string;
   label: string;

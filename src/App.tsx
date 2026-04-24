@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BASE_PV_OBJ } from "./data/baseline-pv";
 import { ACTUAL_PV_OBJ } from "./data/actual-pv";
-import { calcData, sumRevDyn, addEvalsToPv } from "./utils/calc";
+import { calcData, sumRevDyn, addEvalsToPv, scaleBasePv } from "./utils/calc";
 import type { PageEvaluation, EvalRegistry } from "./types/evaluation";
 import { TEAL, CYAN, PINK, SLATE } from "./utils/colors";
 
@@ -25,6 +25,7 @@ const evaluationModules = import.meta.glob("./evaluations/*.json");
 const App: React.FC = () => {
   const [tab, setTab] = useState("overview");
   const [scenario, setScenario] = useState<"pessimistic" | "normal" | "optimistic">("normal");
+  const [baselineMode, setBaselineMode] = useState<"standard" | "conservative">("standard");
   const [streams] = useState(registry.streams);
   const [useAccumulated, setUseAccumulated] = useState(true);
   const [evaluations, setEvaluations] = useState<Record<string, PageEvaluation>>({});
@@ -58,10 +59,13 @@ const App: React.FC = () => {
   );
 
   // Derive PV and Revenue Data
-  // Merge Actuals and Baseline
+  // Merge Actuals and Baseline (apply conservative scaling to forecast portion only)
+  const scaledBasePv = baselineMode === "conservative"
+    ? scaleBasePv(BASE_PV_OBJ, 0.7)
+    : BASE_PV_OBJ;
   const mergedBasePv = [
     ...ACTUAL_PV_OBJ.map(row => ({ ...row, isActual: true })),
-    ...BASE_PV_OBJ.map(row => ({ ...row, isActual: false }))
+    ...scaledBasePv.map(row => ({ ...row, isActual: false }))
   ];
 
   const baseData = calcData(mergedBasePv, streams);
@@ -79,11 +83,13 @@ const App: React.FC = () => {
     <div className="app-container" style={{ minHeight: "100vh", background: "#080f1a", color: "#e2e8f0", paddingBottom: 60 }}>
       <Header streamCount={activeStreams.length} evalCount={Object.keys(evaluations).length} />
       
-      <ModeBanner 
-        scenario={scenario} 
-        setScenario={setScenario} 
-        useAccumulated={useAccumulated} 
+      <ModeBanner
+        scenario={scenario}
+        setScenario={setScenario}
+        useAccumulated={useAccumulated}
         setUseAccumulated={setUseAccumulated}
+        baselineMode={baselineMode}
+        setBaselineMode={setBaselineMode}
         totalRevenue={sum.total}
         diffTotal={diffTotal}
         baseTotal={baseSum.total}
