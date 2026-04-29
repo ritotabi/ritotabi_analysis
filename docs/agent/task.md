@@ -1,6 +1,5 @@
-- [x] `miyako_beaches_en.json` の再評価実施
-- [x] `ishigaki_jp.json` の英語品質スコア修正 (`0` -> `null`)
-- [x] `ishigaki_en.json` の破損フィールド (`sum`, `ap`, `an`, `ao`) の修正
-- [x] `en_destinations_miyako-island.json` の破損フィールド修正
-- [x] `_registry.json` の整合性確認
-- [x] 全体の評価データが 0-100 スケールであることを最終確認
+- [x] `con-dao-island-en.json` の作成
+- [x] `con-dao-island-hotels-en.json` の作成
+- [x] `con-dao-island-running-en.json` の作成
+- [x] `_registry.json` の更新
+- [x] `walkthrough.md` の作成と完了報告

@@ -1,27 +1,35 @@
-# 評価データの整合性修正および再評価
+# 実装計画：コンダオ島（英語版）ページ再評価
 
-ユーザーからの指摘に基づき、評価データ（JSON）の不備を修正し、評価の信頼性を向上させます。
+コンダオ島の3つのページ（総合ガイド、ホテルガイド、ランニングガイド）について、ソースコードに基づいた厳格な品質評価を行い、分析システム用の評価データを更新します。
 
-## ユーザー確認事項
-- 石垣島観光ガイド（日本語）の「英語品質」スコアについて：日本語ページにおいて0と表示されるのは、そのページ自体が英語ではないためですが、ユーザーに「欠陥」と誤解される可能性があるため、表示対象外とするか、N/A扱いにする修正案を提示します。
+## ユーザーレビューが必要な項目
+- **スコアの妥当性**: ソースコードの解析結果に基づき、ガイド(98点)、ホテル(98点)、ランニング(94点)と評価しました。これらは前回の評価を維持しつつ、最新のコンポーネント実装状況（NearbySpotOptimizer等）を反映したものです。
+- **PV予測**: `baseline_pv.json` の市場トレンドをベースに、ページタイプ補正（ガイド1.0x, ホテル0.8x, ランニング0.5x）と品質補正を掛け合わせた24ヶ月予測を算出しました。
 
-## 修正内容
+## オープンな質問
+- 特になし（解析により実装状況は確認済み）
 
-### 1. 宮古島ビーチガイド（英語）の再評価
-- **対象**: `miyako_beaches_en.json`
-- **問題**: スコアが0-10スケールになっており、ダッシュボード上で異常に低く表示されている。
-- **対応**: `page_evaluator` スキルを使用して、0-100スケールで再評価を実施する。
+## 変更内容
 
-### 2. 石垣島観光ガイド（日本語）の英語品質スコア修正
-- **対象**: `ishigaki_jp.json`
-- **問題**: 日本語ページなのに「英語品質 0」と表示され、品質不足のように見える。
-- **対応**: `英語品質` スコアを `null` に変更、または日本語ページでは評価対象外であることを明示する。
+### [Component Name] analytics-data
 
-### 3. 破損データの復旧
-- **対象**: `ishigaki_en.json`, `en_destinations_miyako-island.json` 等
-- **問題**: `sum`, `ap`, `an`, `ao` フィールドに説明文ではなく謎の数値が入っている。
-- **対応**: 正しいメタ情報（ページ概要や収益前提の説明）に修正する。
+#### [NEW] [con-dao-island-en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/con-dao-island-en.json)
+- コンダオ島総合ガイドの評価データ。
+
+#### [NEW] [con-dao-island-hotels-en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/con-dao-island-hotels-en.json)
+- コンダオ島ホテルガイドの評価データ。
+
+#### [NEW] [con-dao-island-running-en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/con-dao-island-running-en.json)
+- コンダオ島ランニングガイドの評価データ。
+
+#### [MODIFY] [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
+- 上記3つの新規評価ファイルの登録と、メタデータの更新。
 
 ## 検証計画
-- 修正後のJSONファイルが正しいスキーマに従っているか確認。
-- ダッシュボード（ローカル環境）での表示を確認（可能であれば）。
+
+### 自動テスト
+- `src/evaluations/` 配下のJSONファイルが、分析ダッシュボードの型定義に適合しているか確認。
+
+### 手動確認
+- 生成されたJSON内の `projections.pv` 配列が24要素（24ヶ月分）正しく生成されているか確認。
+- `_registry.json` の `path` が正しいファイル名を指しているか確認。

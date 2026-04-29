@@ -1,121 +1,30 @@
 {
-  "id": "condao_running_en",
+  "id": "en_destinations_con-dao-island_running",
   "url": "/en/destinations/con-dao-island/running/",
-  "evaluatedAt": "2026-04-09",
-  "evaluatedBy": "skill",
+  "evaluatedAt": "2026-04-29",
   "stream": "cen",
-  "sum": "コンダオ島ランニングコースガイドの英語版。実走調査に基づく詳細な情報と高品質なビジュアル、FAQの技術実装が完了している。",
-  "ap": "悲観前提",
-  "an": "通常前提",
-  "ao": "楽観前提",
-  "pp": [
-    0,
-    0,
-    6,
-    13,
-    25,
-    16,
-    18,
-    23,
-    36,
-    27,
-    39,
-    96,
-    143,
-    188,
-    156,
-    198,
-    220,
-    136,
-    120,
-    120,
-    156,
-    108,
-    147,
-    336
-  ],
-  "pn": [
-    0,
-    3,
-    14,
-    39,
-    65,
-    44,
-    51,
-    60,
-    96,
-    72,
-    102,
-    264,
-    390,
-    538,
-    456,
-    616,
-    680,
-    416,
-    360,
-    360,
-    468,
-    336,
-    455,
-    1068
-  ],
-  "po": [
-    0,
-    6,
-    30,
-    77,
-    140,
-    96,
-    108,
-    125,
-    198,
-    150,
-    210,
-    540,
-    845,
-    1150,
-    972,
-    1210,
-    1350,
-    840,
-    732,
-    740,
-    948,
-    690,
-    924,
-    2184
-  ],
-  "memo": "2026-04-09再評価。FAQ JSON-LDの実装を確認。課題であったFAQの欠落が解消されたためスコアを引き上げ。 (2026-04-13: 季節性バイアス適用済みモデルで再計算)",
+  "pp": [0, 0, 0, 5, 13, 25, 33, 50, 67, 84, 117, 150, 201, 302, 419, 503, 587, 671, 755, 839, 923, 1007, 1007, 1090],
+  "pn": [0, 0, 0, 3, 9, 17, 23, 35, 46, 58, 81, 105, 140, 211, 293, 352, 410, 469, 528, 587, 646, 704, 704, 763],
+  "po": [0, 0, 0, 6, 16, 32, 42, 65, 87, 109, 152, 195, 261, 392, 544, 653, 763, 872, 981, 1090, 1199, 1309, 1309, 1417],
   "quality": {
-    "title": "Con Dao Running Guide 2026: Coastal & Lake Routes | RITOTABI",
+    "title": "Con Dao Running Guide: Seaside & Lakefront Routes | RITOTABI",
     "lang": "EN",
     "type": "ランニング",
     "overall": 94,
-    "publishedDate": "2026-04-03",
+    "publishedDate": "2026-03-26",
     "scores": {
       "コンテンツ独自性": 98,
-      "写真・ビジュアル": 96,
-      "アフィリエイト設計": 78,
-      "内部リンク": 94,
-      "SEO技術実装": 95,
+      "写真・ビジュアル": 92,
+      "アフィリエイト設計": 88,
+      "内部リンク": 90,
+      "SEO技術実装": 96,
       "ユーザー体験(UX)": 95,
-      "英語品質": 96
+      "英語品質": 98
     },
-    "seoChecklist": {
-      "hreflang": true,
-      "faq": true,
-      "keyword": true,
-      "meta": true,
-      "canonical": true,
-      "ogp": true
-    },
-    "freshness": "new",
-    "affiliateChecklist": {
-      "ctaPosition": true,
-      "microCopy": true,
-      "multipleOta": true,
-      "minClicks": 2
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
     },
     "brandChecklist": {
       "toneAndManner": true,
@@ -123,28 +32,25 @@
       "benefitUpfront": true,
       "personaDrivenPros": null
     },
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": false,
+      "priceVisible": false,
+      "carRentalLink": false,
+      "activityLink": false,
+      "urgencySignals": 0,
+      "minClicks": 2
+    },
     "categoryChecklist": {
-      "comparisonTable": null,
-      "affiliateMicroCopy": null,
       "courseSpecs": true,
-      "runBadge": true
-    },
-    "techChecklist": {
-      "nextImage": true,
-      "imageAlt": true,
-      "affiliateRel": true
-    },
-    "strengths": [
-      "実走調査に基づいた詳細なコーススペック（距離、路面状況）の明記",
-      "FAQ JSON-LDが正しく実装されており、検索エンジンへの情報伝達が最適化されている",
-      "没入感のある英語ライティングと高品質な独自写真の融合"
-    ],
-    "issues": [
-      {
-        "level": "中",
-        "text": "コース紹介セクションにStay22マップ等の直接予約ウィジェットが未設置"
+      "runBadge": true,
+      "runningCvr": {
+        "internalHotelLinks": 5,
+        "directAffiliateLinks": 0,
+        "hotelCtaPerCourse": 2.5,
+        "runnerPersonaMatch": true
       }
-    ],
-    "seasonalRisk": "強風・波高リスク (11月-2月)"
+    }
   }
 }

@@ -37,7 +37,7 @@
       "title": "6 Best Con Dao Hotels 2026: Luxury to Local Stays | RITOTABI",
       "stream": "cen",
       "overall": 98,
-      "evaluatedAt": "2026-04-09",
+      "evaluatedAt": "2026-04-29",
       "lang": "EN",
       "type": "ホテル"
     },
@@ -54,10 +54,10 @@
     "en_destinations_con-dao-island": {
       "file": "condao_guide_en.json",
       "url": "/en/destinations/con-dao-island/",
-      "title": "コンダオ 総合ガイド（英語）",
+      "title": "Con Dao Island Guide: Vietnam's Most Pristine Paradise | RITOTABI",
       "stream": "cen",
       "overall": 98,
-      "evaluatedAt": "2026-04-08",
+      "evaluatedAt": "2026-04-29",
       "lang": "EN",
       "type": "ガイド"
     },
@@ -104,10 +104,10 @@
     "en_destinations_con-dao-island_running": {
       "file": "condao_running_en.json",
       "url": "/en/destinations/con-dao-island/running/",
-      "title": "コンダオ島ランニングコース（英語）",
+      "title": "Con Dao Running Guide: Seaside & Lakefront Routes | RITOTABI",
       "stream": "cen",
       "overall": 94,
-      "evaluatedAt": "2026-04-09",
+      "evaluatedAt": "2026-04-29",
       "lang": "EN",
       "type": "ランニング"
     },

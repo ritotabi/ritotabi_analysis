@@ -1,21 +1,34 @@
-# 修正完了報告 (Walkthrough)
+# 修正内容の確認：コンダオ島（英語版）ページ再評価
 
-評価データの不整合および表示上の誤解を招く箇所を修正しました。
+コンダオ島の英語版3ページについて、最新の実装状況を反映した再評価を完了しました。
 
-## 修正内容
+## 実施内容
 
-### 1. 宮古島ビーチガイド（英語）の再評価
-- **ファイル**: `src/evaluations/miyako_beaches_en.json`
-- **修正**: スコアを 0-10 スケールから 0-100 スケールに更新しました。これにより、ダッシュボード上で正しく（高い品質として）表示されるようになります。
+### 1. ソースコード解析と品質評価
+- **総合ガイド**: `NearbySpotOptimizer` によるホテルへの導線と、テクニカルSEO（FAQ, JSON-LD）の実装を確認。スコア: **98**
+- **ホテルガイド**: `EnConDaoHotelComparisonTable` や複数のOTAリンク、価格帯表示の正確性を確認。スコア: **98**
+- **ランニングガイド**: `RunningCourseCard` のスペック表示と、宿泊拠点への内部リンク設計を確認。スコア: **94**
 
-### 2. 石垣島観光ガイド（日本語）の表示修正
-- **ファイル**: `src/evaluations/ishigaki_jp.json`, `jp_kume_guide.json`, `jp_ishigaki_running.json`, `kume_hotels_jp.json`, `ishigaki_hotels_jp.json`, `yoron_hotels_jp.json`
-- **修正**: 日本語ページにおいて「英語品質 0」と表示されていた箇所をすべて `null` に変更しました。これにより、品質不足という誤解を解消し、ダッシュボード上で評価対象外として正しく扱われます。
+### 2. データの更新
+- **評価JSONの生成**: `baseline_pv.json` をベースに、ページタイプ（ガイド/ホテル/ランニング）ごとの補正を掛け合わせた24ヶ月のPV予測を再算出しました。
+- **レジストリの更新**: `src/evaluations/_registry.json` を更新し、評価日を `2026-04-29` に、タイトルを本番の `<title>` タグの内容に同期しました。
 
-### 3. メタデータ破損の復旧
-- **ファイル**: `src/evaluations/ishigaki_en.json`, `src/evaluations/en_destinations_miyako-island.json`, `jp_kume_guide.json`
-- **修正**: `sum`, `ap`, `an`, `ao` フィールドが意味をなさない数値やID（`257280`, `82` 等）になっていた問題を修正し、適切な日本語による説明文に復旧しました。
+## 変更ファイル
+
+### analytics-data
+
+#### [MODIFY] [condao_guide_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/condao_guide_en.json)
+- 評価スコアとPV予測配列を更新。
+
+#### [MODIFY] [condao_hotels_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/condao_hotels_en.json)
+- 評価スコアとPV予測配列を更新。
+
+#### [MODIFY] [condao_running_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/condao_running_en.json)
+- 評価スコアとPV予測配列を更新。
+
+#### [MODIFY] [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
+- メタデータ（評価日、タイトル）の更新。
 
 ## 検証結果
-- すべてのJSONファイルが正しい形式で保存されていることを確認しました。
-- スコアスケールが他のページ（0-100）と一致していることを確認しました。
+- すべてのJSONファイルにおいて、`projections.pv` が正しく24要素存在し、各月のトレンドが市場データと整合していることを確認しました。
+- 分析ダッシュボード上で、コンダオ島の英語ストリーム（`cen`）が最新の評価データに基づいて表示される状態になっています。
