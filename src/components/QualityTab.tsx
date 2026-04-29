@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import type { PageEvaluation } from "../types/evaluation";
-import { SLATE, scoreColor, TEAL, AMBER, ROSE, CYAN, GRN, VIOLET, ORANGE } from "../utils/colors";
+import { SLATE, scoreColor, TEAL, AMBER, ROSE, CYAN, GRN, VIOLET, ORANGE, PINK } from "../utils/colors";
 import OverallGauge from "./OverallGauge";
 import ScoreBar from "./ScoreBar";
+import { HelpIcon } from "./Tooltip";
+import { CHECKLIST_LABELS, CHECKLIST_DESCRIPTIONS, GAP_DESCRIPTIONS } from "../utils/checklists";
+import { getPageTypeCvrMultiplier } from "../utils/calc";
+
+interface StreamDef {
+  key: string;
+  label: string;
+  color: string;
+  cvr: number;
+  unit: number;
+}
 
 interface QualityTabProps {
   evaluations: PageEvaluation[];
-  streams: { key: string; label: string; color: string }[];
+  streams: StreamDef[];
 }
 
 const AXES = ["コンテンツ独自性", "写真・ビジュアル", "アフィリエイト設計", "内部リンク", "SEO技術実装", "ユーザー体験(UX)", "英語品質", "キーワード獲得可能性"] as const;
@@ -40,7 +51,7 @@ const QualityTab: React.FC<QualityTabProps> = ({ evaluations, streams }) => {
         >
           ← 一覧に戻る
         </button>
-        <QualityDetail evaluation={selected} />
+        <QualityDetail evaluation={selected} streams={streams} />
       </div>
     );
   }
@@ -71,13 +82,13 @@ const QualityTab: React.FC<QualityTabProps> = ({ evaluations, streams }) => {
 
         return (
           <div key={stream.key} style={{ marginBottom: 40 }}>
-            <div style={{ 
-              display: "flex", 
-              alignItems: "center", 
-              gap: 12, 
-              marginBottom: 16, 
-              borderBottom: "1px solid #1e293b", 
-              paddingBottom: 8 
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              marginBottom: 16,
+              borderBottom: "1px solid #1e293b",
+              paddingBottom: 8
             }}>
               <div style={{ width: 4, height: 18, background: stream.color, borderRadius: 2 }}></div>
               <h3 style={{ fontSize: 15, fontWeight: 700, margin: 0, color: "#f8fafc" }}>{stream.label}</h3>
@@ -180,9 +191,10 @@ const QualityTab: React.FC<QualityTabProps> = ({ evaluations, streams }) => {
 
 interface QualityDetailProps {
   evaluation: PageEvaluation;
+  streams: StreamDef[];
 }
 
-const QualityDetail: React.FC<QualityDetailProps> = ({ evaluation }) => {
+const QualityDetail: React.FC<QualityDetailProps> = ({ evaluation, streams }) => {
   const q = evaluation.quality;
   const pc = scoreColor(q.overall);
 
@@ -194,9 +206,20 @@ const QualityDetail: React.FC<QualityDetailProps> = ({ evaluation }) => {
     daysSince = Math.floor((today.getTime() - d.getTime()) / (86400000));
   }
 
+  // 機会損失計算
+  const sDef = streams.find(s => s.key === evaluation.stream);
+  const pv24m = evaluation.pn.reduce((a, v) => a + v, 0);
+  const cvr = sDef?.cvr ?? 0;
+  const unit = sDef?.unit ?? 0;
+  const qualityMul = (q.overall ?? 0) / 100;
+  const pageTypeMul = getPageTypeCvrMultiplier(q.type ?? "");
+  const totalGap = pv24m * cvr * unit * (1 - qualityMul * pageTypeMul);
+  const qualityGap = pv24m * cvr * unit * pageTypeMul * (1 - qualityMul);
+  const typeGap = pv24m * cvr * unit * (1 - pageTypeMul);
+
   return (
     <div>
-      <div style={{ display: "flex", alignItems: "flex-start", gap: 16, marginBottom: 22 }}>
+      <div style={{ display: "flex", alignItems: "flex-start", gap: 16, marginBottom: 16 }}>
         <OverallGauge score={q.overall} color={pc} size={72} />
         <div>
           <div style={{ display: "flex", gap: 6, marginBottom: 6 }}>
@@ -228,6 +251,41 @@ const QualityDetail: React.FC<QualityDetailProps> = ({ evaluation }) => {
           <p style={{ color: "#334155", fontFamily: "monospace", fontSize: 11, margin: 0 }}>{evaluation.url}</p>
         </div>
       </div>
+
+      {/* 機会損失インパクトカード */}
+      {totalGap > 0 && (
+        <div style={{
+          background: "linear-gradient(135deg, rgba(236,72,153,0.07), rgba(45,212,191,0.04))",
+          border: "1px solid #ec489928",
+          borderLeft: "3px solid #ec4899",
+          borderRadius: 10,
+          padding: "12px 18px",
+          marginBottom: 18,
+          display: "flex",
+          gap: 28,
+          flexWrap: "wrap",
+          alignItems: "flex-end",
+        }}>
+          <div>
+            <p style={{ color: SLATE, fontSize: 9, fontFamily: "monospace", marginBottom: 3 }}>24M 機会損失（合計）</p>
+            <p style={{ color: PINK, fontSize: 20, fontWeight: 700, fontFamily: "monospace", margin: 0 }}>-¥{Math.round(totalGap).toLocaleString()}</p>
+          </div>
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: 3, marginBottom: 3 }}>
+              <p style={{ color: SLATE, fontSize: 9, fontFamily: "monospace", margin: 0 }}>品質改善で回収可能</p>
+              <HelpIcon content={GAP_DESCRIPTIONS.qualityGap} width={220} />
+            </div>
+            <p style={{ color: AMBER, fontSize: 16, fontWeight: 700, fontFamily: "monospace", margin: 0 }}>-¥{Math.round(qualityGap).toLocaleString()}</p>
+          </div>
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: 3, marginBottom: 3 }}>
+              <p style={{ color: SLATE, fontSize: 9, fontFamily: "monospace", margin: 0 }}>ページタイプ補正（構造的）</p>
+              <HelpIcon content={GAP_DESCRIPTIONS.typeGap} width={220} />
+            </div>
+            <p style={{ color: TEAL, fontSize: 16, fontWeight: 700, fontFamily: "monospace", margin: 0 }}>-¥{Math.round(typeGap).toLocaleString()}</p>
+          </div>
+        </div>
+      )}
 
       <div style={{ background: "#0f172a", border: `1px solid ${pc}25`, borderRadius: 10, padding: "16px 20px", marginBottom: 18 }}>
         {AXES.map((ax) => {
@@ -262,39 +320,44 @@ const QualityDetail: React.FC<QualityDetailProps> = ({ evaluation }) => {
         })}
       </div>
 
-      {/* 追加チェックリスト (Vite版拡張機能) */}
+      {/* 追加チェックリスト */}
       {(q.seoChecklist || q.affiliateChecklist || q.brandChecklist || q.categoryChecklist || q.techChecklist) && (
         <div style={{ borderTop: "1px solid #1e293b", paddingTop: 24, marginTop: 24 }}>
           <h3 style={{ color: SLATE, fontSize: 11, fontFamily: "monospace", letterSpacing: "0.12em", marginBottom: 16 }}>— 分析詳細（チェックリスト）</h3>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+
             {q.seoChecklist && (
               <div style={{ background: "#080f1a", padding: 16, borderRadius: 10, border: "1px solid #1e293b50" }}>
                 <h4 style={{ fontSize: 11, color: SLATE, marginBottom: 12, textTransform: "uppercase" }}>SEOチェック状況</h4>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px 16px" }}>
                   {Object.entries(q.seoChecklist).map(([key, val]) => (
-                    <div key={key} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 10.5 }}>
-                      <span style={{ color: val ? GRN : ROSE }}>{val ? "✓" : "×"}</span>
-                      <span style={{ color: val ? "#e2e8f0" : SLATE }}>{key}</span>
+                    <div key={key} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 10.5 }}>
+                      <span style={{ color: val ? GRN : ROSE, flexShrink: 0 }}>{val ? "✓" : "×"}</span>
+                      <span style={{ color: val ? "#e2e8f0" : SLATE }}>{CHECKLIST_LABELS[key] ?? key}</span>
+                      {CHECKLIST_DESCRIPTIONS[key] && <HelpIcon content={CHECKLIST_DESCRIPTIONS[key]} />}
                     </div>
                   ))}
                 </div>
               </div>
             )}
+
             {q.affiliateChecklist && (
               <div style={{ background: "#080f1a", padding: 16, borderRadius: 10, border: "1px solid #1e293b50" }}>
                 <h4 style={{ fontSize: 11, color: SLATE, marginBottom: 12, textTransform: "uppercase" }}>アフィリエイト設計</h4>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px 16px" }}>
                   {Object.entries(q.affiliateChecklist).map(([key, val]) => (
-                    <div key={key} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 10.5 }}>
+                    <div key={key} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 10.5 }}>
                       {typeof val === "boolean" ? (
                         <>
-                          <span style={{ color: val ? GRN : ROSE }}>{val ? "✓" : "×"}</span>
-                          <span style={{ color: val ? "#e2e8f0" : SLATE }}>{key}</span>
+                          <span style={{ color: val ? GRN : ROSE, flexShrink: 0 }}>{val ? "✓" : "×"}</span>
+                          <span style={{ color: val ? "#e2e8f0" : SLATE }}>{CHECKLIST_LABELS[key] ?? key}</span>
+                          {CHECKLIST_DESCRIPTIONS[key] && <HelpIcon content={CHECKLIST_DESCRIPTIONS[key]} />}
                         </>
                       ) : (
                         <>
-                          <span style={{ color: AMBER }}>🖱️</span>
-                          <span style={{ color: "#e2e8f0" }}>{key}: {val}</span>
+                          <span style={{ color: AMBER, flexShrink: 0 }}>■</span>
+                          <span style={{ color: "#e2e8f0" }}>{CHECKLIST_LABELS[key] ?? key}: {val}</span>
+                          {CHECKLIST_DESCRIPTIONS[key] && <HelpIcon content={CHECKLIST_DESCRIPTIONS[key]} />}
                         </>
                       )}
                     </div>
@@ -302,76 +365,63 @@ const QualityDetail: React.FC<QualityDetailProps> = ({ evaluation }) => {
                 </div>
               </div>
             )}
+
             {q.brandChecklist && (
               <div style={{ background: "#080f1a", padding: 16, borderRadius: 10, border: `1px solid ${VIOLET}30` }}>
                 <h4 style={{ fontSize: 11, color: VIOLET, marginBottom: 12, textTransform: "uppercase" }}>ブランド品質</h4>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "8px" }}>
                   {Object.entries(q.brandChecklist).map(([key, val]) => {
                     if (val === null) return null;
-                    const labels: Record<string, string> = {
-                      toneAndManner: "トーン＆マナー",
-                      firstPersonInsight: "一次情報の具体性",
-                      benefitUpfront: "冒頭の結論提示",
-                      personaDrivenPros: "ペルソナ形式のPros",
-                    };
                     return (
-                      <div key={key} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 10.5 }}>
-                        <span style={{ color: val ? GRN : ROSE }}>{val ? "✓" : "×"}</span>
-                        <span style={{ color: val ? "#e2e8f0" : SLATE }}>{labels[key] || key}</span>
+                      <div key={key} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 10.5 }}>
+                        <span style={{ color: val ? GRN : ROSE, flexShrink: 0 }}>{val ? "✓" : "×"}</span>
+                        <span style={{ color: val ? "#e2e8f0" : SLATE }}>{CHECKLIST_LABELS[key] ?? key}</span>
+                        {CHECKLIST_DESCRIPTIONS[key] && <HelpIcon content={CHECKLIST_DESCRIPTIONS[key]} />}
                       </div>
                     );
                   })}
                 </div>
               </div>
             )}
+
             {q.categoryChecklist && (
               <div style={{ background: "#080f1a", padding: 16, borderRadius: 10, border: `1px solid ${ORANGE}30` }}>
                 <h4 style={{ fontSize: 11, color: ORANGE, marginBottom: 12, textTransform: "uppercase" }}>カテゴリ固有チェック</h4>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "8px" }}>
                   {Object.entries(q.categoryChecklist).map(([key, val]) => {
-                    if (val === null) return null;
-                    const labels: Record<string, string> = {
-                      comparisonTable: "比較表の設置",
-                      affiliateMicroCopy: "マイクロコピー",
-                      courseSpecs: "コーススペック明記",
-                      runBadge: "実走評価バッジ",
-                    };
+                    if (val === null || typeof val === "object") return null;
                     return (
-                      <div key={key} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 10.5 }}>
-                        <span style={{ color: val ? GRN : ROSE }}>{val ? "✓" : "×"}</span>
-                        <span style={{ color: val ? "#e2e8f0" : SLATE }}>{labels[key] || key}</span>
+                      <div key={key} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 10.5 }}>
+                        <span style={{ color: val ? GRN : ROSE, flexShrink: 0 }}>{val ? "✓" : "×"}</span>
+                        <span style={{ color: val ? "#e2e8f0" : SLATE }}>{CHECKLIST_LABELS[key] ?? key}</span>
+                        {CHECKLIST_DESCRIPTIONS[key] && <HelpIcon content={CHECKLIST_DESCRIPTIONS[key]} />}
                       </div>
                     );
                   })}
                 </div>
               </div>
             )}
+
             {q.techChecklist && (
               <div style={{ background: "#080f1a", padding: 16, borderRadius: 10, border: "1px solid #1e293b50" }}>
                 <h4 style={{ fontSize: 11, color: SLATE, marginBottom: 12, textTransform: "uppercase" }}>技術実装</h4>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "8px" }}>
-                  {Object.entries(q.techChecklist).map(([key, val]) => {
-                    const labels: Record<string, string> = {
-                      nextImage: "Next.js Image使用",
-                      imageAlt: "画像alt属性",
-                      affiliateRel: "rel属性(sponsored)",
-                    };
-                    return (
-                      <div key={key} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 10.5 }}>
-                        <span style={{ color: val ? GRN : ROSE }}>{val ? "✓" : "×"}</span>
-                        <span style={{ color: val ? "#e2e8f0" : SLATE }}>{labels[key] || key}</span>
-                      </div>
-                    );
-                  })}
+                  {Object.entries(q.techChecklist).map(([key, val]) => (
+                    <div key={key} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 10.5 }}>
+                      <span style={{ color: val ? GRN : ROSE, flexShrink: 0 }}>{val ? "✓" : "×"}</span>
+                      <span style={{ color: val ? "#e2e8f0" : SLATE }}>{CHECKLIST_LABELS[key] ?? key}</span>
+                      {CHECKLIST_DESCRIPTIONS[key] && <HelpIcon content={CHECKLIST_DESCRIPTIONS[key]} />}
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
+
           </div>
         </div>
       )}
     </div>
   );
 };
-
 
 export default QualityTab;
