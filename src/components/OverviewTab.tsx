@@ -142,26 +142,43 @@ const OverviewTab: React.FC<OverviewTabProps> = ({ streams, sum, evaluations }) 
               <p style={{ color: "#475569", fontSize: 10, margin: 0 }}>最大ポテンシャル</p>
             </div>
           </div>
-          <button
-            onClick={() => setShowGapBreakdown(v => !v)}
-            style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}
-          >
-            <span style={{ color: PINK, fontSize: 11, fontWeight: 700, fontFamily: "monospace" }}>
-              Revenue Gap: -¥{((sum.potTotal || 0) - sum.total).toLocaleString()}
-            </span>
-            <span style={{ color: PINK, fontSize: 10, fontFamily: "monospace" }}>{showGapBreakdown ? "▲" : "▼"}</span>
-          </button>
+          <p style={{ color: PINK, fontSize: 11, fontWeight: 700, fontFamily: "monospace", margin: "0 0 4px" }}>
+            機会損失: -¥{((sum.potTotal || 0) - sum.total).toLocaleString()}
+          </p>
           <p style={{ color: GRN, fontSize: 11, fontWeight: 700, fontFamily: "monospace" }}>
             v6比 +¥{(sum.total - V6_STD).toLocaleString()}（+{Math.round(((sum.total - V6_STD) / V6_STD) * 100)}%）
           </p>
         </div>
       </div>
 
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+        <h3 style={{ color: PINK, fontSize: 11, fontFamily: "monospace", letterSpacing: "0.12em", margin: 0 }}>
+          — 機会損失 内訳
+        </h3>
+        <button
+          onClick={() => setShowGapBreakdown(v => !v)}
+          style={{ 
+            background: "none", 
+            border: `1px solid ${PINK}40`, 
+            color: PINK, 
+            borderRadius: 4, 
+            padding: "4px 12px", 
+            cursor: "pointer", 
+            fontSize: 10, 
+            fontWeight: 700, 
+            fontFamily: "monospace",
+            display: "flex",
+            alignItems: "center",
+            gap: 6
+          }}
+        >
+          {showGapBreakdown ? "内訳を隠す ▲" : "内訳を表示 ▼"}
+        </button>
+      </div>
+
       {showGapBreakdown && (
         <div style={{ background: "#0a1628", border: `1px solid ${PINK}30`, borderTop: `2px solid ${PINK}`, borderRadius: 8, padding: "16px 20px", marginBottom: 22 }}>
-          <p style={{ color: PINK, fontSize: 11, fontFamily: "monospace", letterSpacing: "0.12em", marginBottom: 14 }}>
-            — 機会損失 内訳
-          </p>
+
 
           {/* 原因別バー */}
           <div style={{ marginBottom: 18 }}>

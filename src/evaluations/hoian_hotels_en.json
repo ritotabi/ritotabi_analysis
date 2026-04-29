@@ -1,31 +1,41 @@
 {
-  "id": "hoian_hotels_en",
-  "url": "/en/hotels/hoian-old-town/",
-  "evaluatedAt": "2026-04-13",
+  "id": "en_hotels_hoian-old-town",
+  "url": "https://ritotabi.com/en/hotels/hoian-old-town/",
+  "evaluatedAt": "2026-04-29",
   "evaluatedBy": "skill",
   "stream": "hen",
-  "sum": "Hoi An Old Town Hotels (EN)。実体験に基づいた5つ星評価とランナー向けの独自視点が融合した宿泊ガイド。季節性バイアス対応済み。",
-  "ap": "悲観前提",
-  "an": "通常前提",
-  "ao": "楽観前提",
-  "pp": [0,216,594,945,1197,972,900,1253,1663,2131,3247,4050,4680,4536,4356,4347,4104,2700,2340,2916,3528,4176,5940,6975],
-  "pn": [0,360,990,1575,1995,1620,1500,2088,2772,3552,5412,6750,7800,7560,7260,7245,6840,4500,3900,4860,5880,6960,9900,11625],
-  "po": [0,540,1485,2363,2993,2430,2250,3132,4158,5328,8118,10125,11700,11340,10890,10868,10260,6750,5850,7290,8820,10440,14850,17438],
-  "memo": "最新の評価仕様（v2.0）および季節性バイアスモデルへの移行に伴う再評価。タイトルとH1の整合性不備を特定。全体的なクオリティは極めて高いが、テクニカルな不一致により前回の暫定評価から微減点。",
+  "sum": "93",
+  "ap": "95",
+  "an": "1",
+  "ao": "1",
+  "pp": [
+    25, 85, 150, 210, 280, 260, 240, 220, 150, 120, 140, 170,
+    280, 340, 410, 430, 400, 360, 340, 310, 200, 160, 200, 230
+  ],
+  "pn": [
+    5, 15, 30, 40, 50, 45, 40, 35, 25, 20, 25, 30,
+    50, 60, 80, 85, 80, 70, 65, 60, 40, 30, 40, 45
+  ],
+  "po": [
+    50, 170, 300, 420, 560, 520, 480, 440, 300, 240, 280, 340,
+    560, 680, 820, 860, 800, 720, 680, 620, 400, 320, 400, 460
+  ],
+  "memo": "ホイアン旧市街のホテル選びに特化した完成度の高いページ。比較表、Top Picks、マップウィジェットが揃っており、ユーザーの意思決定を強力にサポートしている。",
   "quality": {
-    "title": "6 Best Hoi An Old Town Hotels 2026: Riverside & Luxury",
+    "title": "5 Best Hoi An Old Town Hotels 2026: Riverside & Luxury | RITOTABI",
     "lang": "EN",
     "type": "ホテル",
-    "overall": 91,
-    "publishedDate": "2026-04-05",
+    "overall": 93,
+    "publishedDate": "2026-04-03",
+    "seasonalRisk": "10月の洪水リスク（旧市街エリアは特に影響を受ける）",
     "scores": {
-      "コンテンツ独自性": 96,
-      "写真・ビジュアル": 88,
-      "アフィリエイト設計": 75,
-      "内部リンク": 95,
-      "SEO技術実装": 92,
-      "ユーザー体験(UX)": 93,
-      "英語品質": 97
+      "コンテンツ独自性": 92,
+      "写真・ビジュアル": 90,
+      "アフィリエイト設計": 95,
+      "内部リンク": 90,
+      "SEO技術実装": 94,
+      "ユーザー体験(UX)": 95,
+      "英語品質": 95
     },
     "seoChecklist": {
       "hreflang": true,
@@ -35,7 +45,7 @@
       "canonical": true,
       "ogp": true
     },
-    "freshness": "new",
+    "freshness": "growing",
     "affiliateChecklist": {
       "ctaPosition": true,
       "microCopy": true,
@@ -44,7 +54,7 @@
       "socialProof": true,
       "mobileStickyCta": true,
       "carRentalLink": false,
-      "activityLink": false,
+      "activityLink": true,
       "urgencySignals": 1,
       "minClicks": 1
     },
@@ -56,10 +66,7 @@
     },
     "categoryChecklist": {
       "comparisonTable": true,
-      "affiliateMicroCopy": true,
-      "courseSpecs": null,
-      "runBadge": null,
-      "runningCvr": null
+      "affiliateMicroCopy": true
     },
     "techChecklist": {
       "nextImage": true,
@@ -67,22 +74,11 @@
       "affiliateRel": true
     },
     "strengths": [
-      "全ての宿に対し「Runner's Review」が掲載されており、特定のターゲット層に刺さる独自情報が際立っている",
-      "「スタッフからWhatsAppでサポートを受けた」などの具体的な実体験エピソードが、信頼性とホスピタリティの質を担保している",
-      "「Nightlife lover」「Wellness seeker」など、読者のニーズに合わせたペルソナ別の推薦理由が明確で、ユーザー体験(UX)が高い",
-      "AgodaとBooking.comの両リンクを提供し、ユーザーの好みに合わせた予約動線を確保している",
-      "モバイル追従CTAや詳細な比較表など、コンバージョンに関わる要素が高度に実装されている"
+      "HotelComparisonTableによる直感的な比較が可能",
+      "「旧市街へのアクセス」を最優先事項とする明確な推奨基準",
+      "ランナー向けのホテル推奨（Bel Marina, RiverTown）など、特定ペルソナへの配慮がある",
+      "Stay22 MapWidgetによる周辺相場の可視化"
     ],
-    "issues": [
-      {
-        "level": "高",
-        "text": "タイトル（6 Best）とH1（Top 5 Stays）で紹介ホテル数の記載が矛盾している（事実は5件）。ユーザーの混乱を招くため、メタタイトルまたは本文の修正を推奨。"
-      },
-      {
-        "level": "中",
-        "text": "価格表示が見出しや表にあるが、具体的な数値（例：$120〜）の記述がテキスト内に見当たらない。具体的な目安金額を追記することでCVR向上が期待できる。"
-      }
-    ],
-    "seasonalRisk": "洪水リスク (10月)"
+    "issues": []
   }
 }

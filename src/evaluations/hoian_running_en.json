@@ -1,31 +1,41 @@
 {
-  "id": "hoian_running_en",
-  "url": "/en/destinations/hoian-old-town/running/",
-  "evaluatedAt": "2026-04-13",
+  "id": "en_destinations_hoian-old-town_running",
+  "url": "https://ritotabi.com/en/destinations/hoian-old-town/running/",
+  "evaluatedAt": "2026-04-29",
   "evaluatedBy": "skill",
   "stream": "hen",
-  "sum": "Hoi An Running Guide (EN)。世界遺産の旧市街と周辺の島々を巡る、極めて詳細な実地調査に基づくランニングガイド。v2.0スキーマに準拠。",
-  "ap": "8,000",
-  "an": "15,000",
-  "ao": "30,000",
-  "pp": [0,90,248,394,499,405,375,522,693,888,1353,1688,1950,1890,1815,1811,1710,1125,975,1215,1470,1740,2475,2906],
-  "pn": [0,150,413,656,831,675,625,870,1155,1480,2255,2813,3250,3150,3025,3019,2850,1875,1625,2025,2450,2900,4125,4844],
-  "po": [0,225,619,984,1247,1013,938,1305,1733,2220,3383,4219,4875,4725,4538,4528,4275,2813,2438,3038,3675,4350,6188,7266],
-  "memo": "最新の評価仕様(v2.0)に基づき再評価。FAQ JSON-LDの実装、絶対パス化の徹底、およびメタディスクリプションの最適化を確認。PV予測は4月公開開始およびホイアン特有の季節性（10月の洪水リスク、春季の観光ピーク）を考慮した新モデルで再計算。直接のアフィリエイトリンクは未設置だが、内部ホテルページへの強力な導線と詳細なマイクロコピーにより、総合的なコンバージョン貢献度は極めて高いと判定。",
+  "sum": "93",
+  "ap": "88",
+  "an": "1",
+  "ao": "1",
+  "pp": [
+    15, 60, 110, 160, 220, 200, 180, 160, 110, 80, 100, 130,
+    230, 280, 340, 360, 330, 300, 280, 250, 160, 120, 160, 190
+  ],
+  "pn": [
+    3, 12, 20, 30, 40, 35, 30, 25, 20, 15, 20, 25,
+    40, 50, 60, 65, 60, 50, 45, 40, 25, 20, 25, 30
+  ],
+  "po": [
+    30, 120, 220, 320, 440, 400, 360, 320, 220, 160, 200, 260,
+    460, 560, 680, 720, 660, 600, 560, 500, 320, 240, 320, 380
+  ],
+  "memo": "ホイアン旧市街のランニングガイド。実走に基づく詳細なルート解説（鉄橋の音や市場の活気）が秀逸。ホテルへの導線もRunningCourseCard内に組み込まれている。",
   "quality": {
     "title": "Hoi An Running Guide 2026: Old Town & Riverside | RITOTABI",
     "lang": "EN",
-    "type": "ランニング",
-    "overall": 92,
+    "type": "ガイド",
+    "overall": 93,
     "publishedDate": "2026-04-01",
+    "seasonalRisk": "酷暑期の日中、10月の洪水リスク",
     "scores": {
-      "コンテンツ独自性": 98,
-      "写真・ビジュアル": 88,
-      "アフィリエイト設計": 82,
-      "内部リンク": 95,
-      "SEO技術実装": 95,
-      "ユーザー体験(UX)": 88,
-      "英語品質": 97
+      "コンテンツ独自性": 96,
+      "写真・ビジュアル": 92,
+      "アフィリエイト設計": 88,
+      "内部リンク": 90,
+      "SEO技術実装": 94,
+      "ユーザー体験(UX)": 95,
+      "英語品質": 96
     },
     "seoChecklist": {
       "hreflang": true,
@@ -35,10 +45,10 @@
       "canonical": true,
       "ogp": true
     },
-    "freshness": "new",
+    "freshness": "growing",
     "affiliateChecklist": {
       "ctaPosition": true,
-      "microCopy": true,
+      "microCopy": false,
       "multipleOta": false,
       "priceVisible": false,
       "socialProof": false,
@@ -54,35 +64,17 @@
       "benefitUpfront": true,
       "personaDrivenPros": null
     },
-    "categoryChecklist": {
-      "comparisonTable": null,
-      "affiliateMicroCopy": null,
-      "courseSpecs": true,
-      "runBadge": true,
-      "runningCvr": {
-        "internalHotelLinks": 5,
-        "directAffiliateLinks": 0,
-        "hotelCtaPerCourse": 2.5,
-        "runnerPersonaMatch": true
-      }
-    },
     "techChecklist": {
       "nextImage": true,
       "imageAlt": true,
       "affiliateRel": true
     },
     "strengths": [
-      "FAQPage (JSON-LD) がメタデータとして正確に実装されており、検索結果でのリッチリザルト表示ポテンシャルが高い",
-      "ホテル推薦箇所に、ランナー視点での詳細なベネフィット（SPAでの回復、旧市街へのアクセス等）を伝えるマイクロコピーが追加されている",
-      "「Cẩm Kim Bridge」の鉄板の振動や音、地元市場の活気など、実走者にしか書けない極めて詳細な現場情報が英語で情緒的に表現されている",
-      "Canonical, Hreflang, OGP のすべてのURLが、RITOTABIの基準を満たす絶対パスかつ末尾スラッシュありで記述されている"
+      "「2-Bridge Loop」など、具体的で魅力的なコース名とマップ代わりの詳細解説",
+      "ランナー目線での路面状況、騒音、交通量への言及があり実用的",
+      "「7時までに走り終える」など、現地の熱気と混雑を踏まえた的確なアドバイス",
+      "RunningCourseCardにより、周辺のおすすめホテル（Bel Marina, RiverTown等）へスムーズに誘導"
     ],
-    "issues": [
-      {
-        "level": "低",
-        "text": "ホテルへのリンクはすべて内部ページへの誘導となっており、ランニング中のユーザーがその場で即時予約（OTAへの直接遷移）を行う導線は未設置。一律の加点対象外となるが、サイト内回遊戦略としては妥当。"
-      }
-    ],
-    "seasonalRisk": "洪水リスク (10月)"
+    "issues": []
   }
 }

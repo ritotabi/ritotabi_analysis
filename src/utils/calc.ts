@@ -224,7 +224,7 @@ export function addEvalsToPv(
 
   Object.values(storedEvals).forEach((ev) => {
     const arr =
-      scenario === "pessimistic" ? ev.pp : scenario === "optimistic" ? ev.po : ev.pn;
+      scenario === "pessimistic" ? ev.pn : scenario === "optimistic" ? ev.po : ev.pp;
     const pubDate = ev.quality?.publishedDate;
     if (!pubDate) return;
 

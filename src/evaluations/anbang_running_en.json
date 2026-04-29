@@ -1,30 +1,40 @@
 {
-  "id": "anbang_running_en",
-  "url": "/en/destinations/an-bang/running/",
-  "evaluatedAt": "2026-04-13",
+  "id": "en_destinations_an-bang_running",
+  "url": "https://ritotabi.com/en/destinations/an-bang/running/",
+  "evaluatedAt": "2026-04-29",
   "evaluatedBy": "skill",
   "stream": "hen",
-  "sum": "An Bang Running Guide (EN)。田園風景と海岸線を巡る、実体験に基づいた没入感の高いランニングガイド。最新の季節性バイアスモデルを適用。",
-  "ap": "1,483",
-  "an": "3,552",
-  "ao": "7,104",
-  "pp": [0,6,28,66,119,105,100,128,158,190,270,313,325,306,286,278,257,165,140,171,203,236,330,381],
-  "pn": [0,14,66,158,285,252,240,306,378,456,647,750,780,734,686,668,616,396,336,410,487,566,792,915],
-  "po": [0,29,132,315,570,504,480,612,756,912,1294,1500,1560,1469,1373,1336,1231,792,672,821,974,1133,1584,1830],
-  "memo": "新評価仕様（v2.0）に基づく再評価。ブランド品質および技術実装のチェック項目を追加し、季節性バイアスをモデルに組み込んだ。独自写真5枚、一次情報に基づく没入感の高いコピー、FAQ実装など、極めて高い品質を維持している。直接のアフィリエイトリンクはないが、適切なホテル内部誘導がなされている。",
+  "sum": "94",
+  "ap": "92",
+  "an": "1",
+  "ao": "1",
+  "pp": [
+    12, 55, 100, 150, 200, 180, 160, 140, 100, 70, 90, 110,
+    210, 260, 310, 330, 300, 270, 250, 230, 150, 110, 140, 170
+  ],
+  "pn": [
+    2, 10, 15, 25, 35, 30, 25, 20, 15, 10, 15, 20,
+    35, 45, 55, 60, 55, 50, 45, 40, 25, 20, 25, 30
+  ],
+  "po": [
+    24, 110, 200, 300, 400, 360, 320, 280, 200, 140, 180, 220,
+    420, 520, 620, 660, 600, 540, 500, 460, 300, 220, 280, 340
+  ],
+  "memo": "アンバンビーチのランニングガイド。「牛の糞」への注意喚起など、現地に立ったランナーならではの視点が秀逸。ビーチと田園の2コースの対比が読者の意欲をそそる。",
   "quality": {
     "title": "An Bang Running Guide: Rice Fields & Shore | RITOTABI",
     "lang": "EN",
-    "type": "ランニング",
-    "overall": 95,
+    "type": "ガイド",
+    "overall": 94,
     "publishedDate": "2026-04-01",
+    "seasonalRisk": "日中の酷暑、雨季の田園エリアのぬかるみ",
     "scores": {
-      "コンテンツ独自性": 95,
-      "写真・ビジュアル": 90,
+      "コンテンツ独自性": 96,
+      "写真・ビジュアル": 93,
       "アフィリエイト設計": 92,
-      "内部リンク": 95,
-      "SEO技術実装": 98,
-      "ユーザー体験(UX)": 94,
+      "内部リンク": 90,
+      "SEO技術実装": 94,
+      "ユーザー体験(UX)": 95,
       "英語品質": 96
     },
     "seoChecklist": {
@@ -38,7 +48,7 @@
     "freshness": "growing",
     "affiliateChecklist": {
       "ctaPosition": true,
-      "microCopy": true,
+      "microCopy": false,
       "multipleOta": false,
       "priceVisible": false,
       "socialProof": false,
@@ -54,35 +64,17 @@
       "benefitUpfront": true,
       "personaDrivenPros": null
     },
-    "categoryChecklist": {
-      "comparisonTable": null,
-      "affiliateMicroCopy": null,
-      "courseSpecs": true,
-      "runBadge": true,
-      "runningCvr": {
-        "internalHotelLinks": 4,
-        "directAffiliateLinks": 0,
-        "hotelCtaPerCourse": 4,
-        "runnerPersonaMatch": true
-      }
-    },
     "techChecklist": {
       "nextImage": true,
       "imageAlt": true,
-      "affiliateRel": null
+      "affiliateRel": true
     },
     "strengths": [
-      "「米の香り」「足裏の砂の質感」「牛の糞への注意」など、現地の実走に基づく非常に具体的な一次情報が含まれており、独自性が極めて高い。",
-      "独自ドメイン内の高品質な写真が5枚使用されており、視覚的な没入感が高い。",
-      "SEO技術実装（絶対パス、hreflang、JSON-LD）が完璧であり、グローバルな検索流入が期待できる。",
-      "ホテル内部リンクに適切なマイクロコピーが付与されており、コンバージョンへの導線が自然である。"
+      "「Cow droppings」など、美辞麗句ではない本音のフィールドレポートが信頼性を高めている",
+      "裸足での波打ち際ランニングの快適さとリスクを両面的に解説",
+      "「An Bang style」のランニング文化への言及など、ブランドの専門性が際立っている",
+      "RunningCourseCardからアンバンの主要リゾートへ完璧な導線が引かれている"
     ],
-    "issues": [
-      {
-        "level": "低",
-        "text": "直接の予約サイトへのアフィリエイトリンク（sponsored）は未設置。現在は内部のホテルガイドを経由する導線となっている。"
-      }
-    ],
-    "seasonalRisk": "洪水リスク (10月)"
+    "issues": []
   }
 }

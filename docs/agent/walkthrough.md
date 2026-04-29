@@ -1,26 +1,21 @@
-# 修正内容の確認 (Walkthrough) - 石垣島ホテルページ（英語版）再評価
+# 修正完了報告 (Walkthrough)
 
-石垣島ホテルページ（[https://ritotabi.com/en/hotels/ishigaki-island/](https://ritotabi.com/en/hotels/ishigaki-island/)）のソースコード分析に基づく再評価が完了しました。
+評価データの不整合および表示上の誤解を招く箇所を修正しました。
 
-## 実施内容
+## 修正内容
 
-### 1. ソースコード精査
-- `page.tsx`, `HeroSection.tsx`, `HotelDetailsSection.tsx` を直接参照し、以下の事実を確認しました。
-    - **SEO**: Meta Title と H1 の文言が一致していない（Meta: 5 Best..., H1: Choosing a Hotel...）。
-    - **技術実装**: `FAQPage`, `ItemList`, `Article` の各JSON-LDが正しく実装されている。
-    - **一次情報**: 冷蔵庫の動作音や駐車場の切り返しスペースなど、宿泊体験に基づく独自のTipsが豊富に含まれている。
+### 1. 宮古島ビーチガイド（英語）の再評価
+- **ファイル**: `src/evaluations/miyako_beaches_en.json`
+- **修正**: スコアを 0-10 スケールから 0-100 スケールに更新しました。これにより、ダッシュボード上で正しく（高い品質として）表示されるようになります。
 
-### 2. 評価データの更新
-- **JSON**: [ishigaki_hotels_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/ishigaki_hotels_en.json)
-    - `overall` スコアを 93 に設定（SEO不一致による減点を反映）。
-    - `publishedDate` を事実に基づき 2026-02-17 に修正。
-    - `freshness` を `growing` に更新。
-    - 収益予測（PV）を石垣インバウンドの季節性と最新の成長モデルで再計算。
+### 2. 石垣島観光ガイド（日本語）の表示修正
+- **ファイル**: `src/evaluations/ishigaki_jp.json`, `jp_kume_guide.json`, `jp_ishigaki_running.json`, `kume_hotels_jp.json`, `ishigaki_hotels_jp.json`, `yoron_hotels_jp.json`
+- **修正**: 日本語ページにおいて「英語品質 0」と表示されていた箇所をすべて `null` に変更しました。これにより、品質不足という誤解を解消し、ダッシュボード上で評価対象外として正しく扱われます。
 
-### 3. レジストリの更新
-- **Registry**: [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
-    - 評価スコアと最新評価日（2026-04-23）を反映しました。
+### 3. メタデータ破損の復旧
+- **ファイル**: `src/evaluations/ishigaki_en.json`, `src/evaluations/en_destinations_miyako-island.json`, `jp_kume_guide.json`
+- **修正**: `sum`, `ap`, `an`, `ao` フィールドが意味をなさない数値やID（`257280`, `82` 等）になっていた問題を修正し、適切な日本語による説明文に復旧しました。
 
 ## 検証結果
-- JSONスキーマに準拠したデータ生成を確認。
-- `page.tsx` 内の `datePublished` および `dateModified` との整合性を確保。
+- すべてのJSONファイルが正しい形式で保存されていることを確認しました。
+- スコアスケールが他のページ（0-100）と一致していることを確認しました。

@@ -1,27 +1,27 @@
-# 実装計画：石垣島ホテルページ（英語版）の再評価
+# 評価データの整合性修正および再評価
 
-石垣島ホテルページ（[https://ritotabi.com/en/hotels/ishigaki-island/](https://ritotabi.com/en/hotels/ishigaki-island/)）のソースコードを精査し、評価仕様（`eval_spec.md`）に基づいた品質スコアの算出と収益予測の更新を行います。
+ユーザーからの指摘に基づき、評価データ（JSON）の不備を修正し、評価の信頼性を向上させます。
 
-## ユーザーレビューが必要な項目
-- **H1とMeta Titleの不一致**: `metadata.title` と `HeroSection` の `h1` が一致していないため、SEO技術実装スコアを下方修正（95→90）します。
-- **アフィリエイト設計**: 比較表やマイクロコピーは優秀ですが、レンタカーやアクティビティへの直接導線がないため、スコアを 94 とします。
+## ユーザー確認事項
+- 石垣島観光ガイド（日本語）の「英語品質」スコアについて：日本語ページにおいて0と表示されるのは、そのページ自体が英語ではないためですが、ユーザーに「欠陥」と誤解される可能性があるため、表示対象外とするか、N/A扱いにする修正案を提示します。
 
-## 変更内容
+## 修正内容
 
-### 評価データの更新
+### 1. 宮古島ビーチガイド（英語）の再評価
+- **対象**: `miyako_beaches_en.json`
+- **問題**: スコアが0-10スケールになっており、ダッシュボード上で異常に低く表示されている。
+- **対応**: `page_evaluator` スキルを使用して、0-100スケールで再評価を実施する。
 
-#### [MODIFY] [ishigaki_hotels_en.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/ishigaki_hotels_en.json)
-- `evaluatedAt` を本日の日付（2026-04-23）に更新。
-- `publishedDate` を `page.tsx` の事実に合わせ、2026-02-17 に修正。
-- `freshness` を `new` から `growing` に変更。
-- スコアおよびチェックリストを最新のコード分析結果に基づき更新。
-- 収益予測（pp, pn, po）を 2026-04 以降の季節性を考慮して再計算。
+### 2. 石垣島観光ガイド（日本語）の英語品質スコア修正
+- **対象**: `ishigaki_jp.json`
+- **問題**: 日本語ページなのに「英語品質 0」と表示され、品質不足のように見える。
+- **対応**: `英語品質` スコアを `null` に変更、または日本語ページでは評価対象外であることを明示する。
 
-#### [MODIFY] [_registry.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/evaluations/_registry.json)
-- `en_hotels_ishigaki-island` エントリの `overall` スコアと `evaluatedAt` を更新。
+### 3. 破損データの復旧
+- **対象**: `ishigaki_en.json`, `en_destinations_miyako-island.json` 等
+- **問題**: `sum`, `ap`, `an`, `ao` フィールドに説明文ではなく謎の数値が入っている。
+- **対応**: 正しいメタ情報（ページ概要や収益前提の説明）に修正する。
 
 ## 検証計画
-
-### 手動確認
-- 生成された `ishigaki_hotels_en.json` がスキーマに準拠しているか確認。
-- `_registry.json` のエントリが正しく更新されているか確認。
+- 修正後のJSONファイルが正しいスキーマに従っているか確認。
+- ダッシュボード（ローカル環境）での表示を確認（可能であれば）。
