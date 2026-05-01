@@ -284,6 +284,11 @@ export function addEvalsToPv(
   });
 
   return basePvObj.map((row, i) => {
+    // 実績月には予測データを加算しない（実績値をそのまま保持）
+    if ((row as any).isActual) {
+      return { ...row };
+    }
+
     const newPv = { ...row.pv };
     const newRev = { ...row.rev };
     const newPotRev = { ...row.potRev };

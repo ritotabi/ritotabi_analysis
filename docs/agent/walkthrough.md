@@ -1,63 +1,28 @@
-# 月次レポート生成 & 予測キャリブレーションシステム — 実装ウォークスルー
+# 月次一覧の視認性改善：修正内容の確認
 
-## 変更概要
+月次一覧の文字が小さく読みにくいという課題を解決するため、以下の改善を行いました。
 
-GA4 / Google Search Console / Bing WebMaster の月次データから自動でパフォーマンスレポートを生成し、予測のキャリブレーション（実績反映）を行うシステムを実装しました。予測の履歴を「ビンテージ」として保存し、予測精度の推移を追跡できます。
+## 実施した変更
 
-## 作成・変更ファイル
+### 1. フォントサイズの拡大
+- テーブル全体のベースフォントサイズを `11px` から `13px` に引き上げました。
+- 主要な数値（売上合計、累計）を `14px` 〜 `15px` に強調しました。
+- サブ情報（PV数）を `9px` から `11px` に拡大し、視認性を向上させました。
 
-### 新規ファイル (12件)
+### 2. レイアウトと余白の最適化
+- セルのパディングを増やし（`8px` → `12px`〜`16px`）、各行の間隔を広げることで、データが密集して見えるのを防ぎました。
+- ヘッダー部分に太い境界線を追加し、データ部分との区別を明確にしました。
 
-| ファイル | 内容 |
-|---|---|
-| [report.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/types/report.ts) | MonthlyReport 型定義 |
-| [forecast.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/types/forecast.ts) | ForecastVintage, ForecastHistory 型定義 |
-| [forecast-vintages.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/data/forecast-vintages.json) | 予測履歴（v0初期 + v1キャリブレーション済み） |
-| [202603.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/reports/202603.json) | 3月レポート |
-| [202604.json](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/reports/202604.json) | 4月レポート |
-| [ReportTab.tsx](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/components/ReportTab.tsx) | 月次レポート表示UI |
-| [ForecastTab.tsx](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/components/ForecastTab.tsx) | 予実推移・ビンテージ比較UI |
-| [SKILL.md](file:///home/mune1/dev/ritotabi/ritotabi_analytics/.agent/skills/monthly_report/SKILL.md) | レポート生成SKILL |
-| [report_spec.md](file:///home/mune1/dev/ritotabi/ritotabi_analytics/.agent/skills/monthly_report/resources/report_spec.md) | レポート仕様書 |
-| [stream_mapping.md](file:///home/mune1/dev/ritotabi/ritotabi_analytics/.agent/skills/monthly_report/resources/stream_mapping.md) | ストリームマッピングルール |
-| [calibration_logic.md](file:///home/mune1/dev/ritotabi/ritotabi_analytics/.agent/skills/monthly_report/resources/calibration_logic.md) | キャリブレーション算出ロジック |
-| [monthly_report_system.md](file:///home/mune1/dev/ritotabi/ritotabi_analytics/docs/agent/monthly_report_system.md) | 設計書 |
+### 3. デザインのリファイン
+- **行のホバーエフェクト**: マウスを合わせた行がハイライトされるようになり、横一行のデータを追いやすくなりました。
+- **「実績」ラベルのバッジ化**: 単なるテキストから、背景色と枠線のあるバッジ形式に変更し、予測値との違いを一目で判別できるようにしました。
+- **タイポグラフィの改善**: 数字部分に 'JetBrains Mono' や 'Roboto Mono' を優先的に適用し、桁が揃って読みやすくなるようにしました。
 
-### 変更ファイル (2件)
+## 確認方法
 
-| ファイル | 変更内容 |
-|---|---|
-| [actual-pv.ts](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/data/actual-pv.ts) | 4月の実績データ追加 |
-| [App.tsx](file:///home/mune1/dev/ritotabi/ritotabi_analytics/src/App.tsx) | 月次レポート・予実推移タブ追加 |
+1. Analytics Dashboard を開き、「月次一覧」タブを選択します。
+2. 以前よりも文字が大きく、ゆとりを持って表示されていることを確認してください。
+3. 行にマウスを乗せた際、背景色が変わることを確認してください。
 
-## データ分析結果
-
-### 4月 vs 3月（前月比）
-
-| 指標 | 3月 | 4月 | 変化率 |
-|---|---|---|---|
-| 総PV | 1,437 | 2,679 | **+86.4%** |
-| ユーザー | 329 | 548 | **+66.6%** |
-| キーイベント | 36 | 393 | **+991.7%** |
-| 売上 | ¥0 | ¥0 | — |
-
-### キャリブレーション結果
-
-初期予測（v0）は実績に対して**大幅に過小評価**（全体精度: 1067%）。主な乖離：
-
-| ストリーム | v0予測 | 実績 | 乖離率 |
-|---|---|---|---|
-| jp_yoron | 7 | 185 | 26.4倍 |
-| cjp (コンダオ) | 7 | 147 | 21倍 |
-| jp_aka | 5 | 72 | 14.4倍 |
-| jp_kume | 7 | 56 | 8倍 |
-| jp_miyako | 75 | 352 | 4.7倍 |
-| jp_ishigaki | 84 | 181 | 2.2倍 |
-
-**ダンピング補正**（√factor）適用後のv1予測で、5月以降の予測値をより現実的な水準に更新。
-
-## 検証結果
-
-- ✅ `npx tsc --noEmit` — 型エラーなし
-- ✅ `npm run build` — ビルド成功（422ms）
-- ⏳ ダッシュボード動作確認 — ユーザーによるブラウザ確認待ち
+---
+作業が完了しました。ご確認ください。
