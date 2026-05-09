@@ -1,0 +1,73 @@
+{
+  "id": "japan_en",
+  "url": "https://ritotabi.com/en/japan/",
+  "evaluatedAt": "2026-05-09",
+  "evaluatedBy": "skill",
+  "stream": "en_other",
+  "sum": "A high-converting landing page for inbound travelers. Translates the 'earned on foot' brand value into professional English copy, effectively bridging general interest to specific island guides.",
+  "ap": "Strategic internal linking to localized hotel and destination guides. The layout minimizes friction for international users seeking trusted, first-hand information.",
+  "an": "Excellent semantic structure. The meta description and hero copy use evocative language that resonates with the 'slow travel' and 'adventure' personas.",
+  "ao": "Poised to capture 'hidden gem' and 'off the beaten path' search intent for Japan. Strong technical SEO foundation with correct dual-language mapping.",
+  "pp": [0, 40, 110, 250, 480, 650, 850, 1200, 1400, 1800, 2200, 2800, 3200, 3000, 3500, 3900, 4200, 3800, 4500, 4800, 3600, 3900, 3400, 3600],
+  "pn": [0, 30, 85, 200, 400, 550, 720, 1000, 1150, 1500, 1850, 2400, 2700, 2500, 3000, 3300, 3600, 3200, 3800, 4100, 3100, 3300, 2900, 3100],
+  "po": [0, 55, 150, 350, 650, 850, 1100, 1550, 1850, 2300, 2800, 3500, 4000, 3800, 4400, 4900, 5300, 4800, 5600, 6000, 4500, 4900, 4300, 4500],
+  "memo": "Launched May 2026. Tailored for the inbound market with a focus on 'Field-tested' credibility. Crucial hub for directing traffic to monetization-heavy island pages.",
+  "quality": {
+    "title": "Guide to Japan’s Remote Islands | Miyako, Ishigaki, Amami | RITOTABI",
+    "lang": "EN",
+    "type": "ガイド",
+    "overall": 95,
+    "publishedDate": "2026-05-08",
+    "scores": {
+      "コンテンツ独自性": 95,
+      "写真・ビジュアル": 92,
+      "アフィリエイト設計": 85,
+      "内部リンク": 98,
+      "SEO技術実装": 96,
+      "ユーザー体験(UX)": 95,
+      "英語品質": 96
+    },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "new",
+    "seasonalRisk": "Summer to early autumn typhoons can disrupt travel plans; this should be considered in conversion monitoring.",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": true,
+      "priceVisible": false,
+      "socialProof": false,
+      "mobileStickyCta": true,
+      "carRentalLink": false,
+      "activityLink": false,
+      "urgencySignals": 0,
+      "minClicks": 2
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "strengths": [
+      "High-quality English localization that maintains the brand's 'earned on foot' expertise",
+      "Seamless navigation between language versions via correct hreflang implementation",
+      "Strong visual storytelling using original high-resolution imagery",
+      "Effective FAQ section addressing common inbound traveler concerns"
+    ],
+    "issues": [
+      { "level": "低", "text": "Yoron Island content is currently hidden in the EN version (commented out), which limits the 'complete guide' feel compared to the JP version." }
+    ]
+  }
+}

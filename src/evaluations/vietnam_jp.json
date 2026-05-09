@@ -1,0 +1,72 @@
+{
+  "id": "vietnam_jp",
+  "url": "https://ritotabi.com/vietnam/",
+  "evaluatedAt": "2026-05-09",
+  "evaluatedBy": "skill",
+  "stream": "hjp",
+  "sum": "94",
+  "ap": "85",
+  "an": "95",
+  "ao": "95",
+  "pp": [0, 85, 210, 450, 820, 1200, 1600, 2100, 2500, 2800, 3100, 3400, 3800, 4200, 4500, 4800, 5000, 5200, 5400, 5600, 5800, 6000, 6200, 6400],
+  "pn": [0, 42, 105, 225, 410, 600, 800, 1050, 1250, 1400, 1550, 1700, 1900, 2100, 2250, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200],
+  "po": [0, 120, 320, 650, 1100, 1600, 2200, 2800, 3300, 3800, 4200, 4600, 5200, 5800, 6300, 6800, 7200, 7500, 7800, 8100, 8400, 8700, 9000, 9300],
+  "memo": "ベトナムの主要離島を網羅した総合ランディングページ。コンダオ島の秘境感とホイアンの利便性を対比させ、読者のニーズに応じたエリア選定を助ける構成。実走調査に基づいた一次情報が豊富で、信頼性が高い。",
+  "quality": {
+    "title": "ベトナム離島 完全ガイド｜コンダオ島・チャム島・ホイアン | RITOTABI",
+    "lang": "JP",
+    "type": "ガイド",
+    "overall": 94,
+    "publishedDate": "2026-05-06",
+    "scores": {
+      "コンテンツ独自性": 95,
+      "写真・ビジュアル": 90,
+      "アフィリエイト設計": 85,
+      "内部リンク": 95,
+      "SEO技術実装": 98,
+      "ユーザー体験(UX)": 92
+    },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "new",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": false,
+      "priceVisible": false,
+      "socialProof": false,
+      "mobileStickyCta": false,
+      "carRentalLink": false,
+      "activityLink": false,
+      "urgencySignals": 0,
+      "minClicks": 2
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "strengths": [
+      "「実際に全エリアを走り込み」という一次情報の裏付けが明記されており、ブランドイメージと合致している",
+      "コンダオ島、チャム島、ホイアン周辺のクラスター構造が完璧に整理されている",
+      "FAQ JSON-LD が詳細に実装されており、SERPでのリッチリザルト表示が期待できる",
+      "ヒーロー画像のクオリティが高く、ベトナム離島の「秘境感」を視覚的に伝えられている"
+    ],
+    "issues": [
+      { "level": "低", "text": "アフィリエイト設計において、個別のスポットに対する直接的な予約導線は少なく、ガイドページへの内部リンクが主軸となっている（ランディングページとしての性質上、意図的な設計と判断）。" }
+    ],
+    "seasonalRisk": "10月のホイアン洪水リスク、11-2月のコンダオ島強風リスクがあるが、5月公開のため当面はベストシーズンが続き、順調な初動が期待できる。"
+  }
+}

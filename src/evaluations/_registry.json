@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-01",
+  "lastUpdated": "2026-05-09",
   "streams": [
     { "key": "jp_ishigaki", "label": "石垣島 (日本語)", "color": "#f59e0b", "cvr": 0.0032, "unit": 750 },
     { "key": "en_ishigaki", "label": "石垣島 (英語)", "color": "#10b981", "cvr": 0.008, "unit": 2000 },
@@ -21,6 +21,46 @@
     { "key": "hen", "label": "ホイアン/チャム (英語)", "color": "#ec4899", "cvr": 0.009, "unit": 2000 }
   ],
   "evaluations": {
+    "japan_jp": {
+      "file": "japan_jp.json",
+      "url": "/japan/",
+      "title": "日本の離島ガイド｜宮古・石垣・奄美・沖縄の絶景 | RITOTABI",
+      "stream": "jp_other",
+      "overall": 96,
+      "evaluatedAt": "2026-05-09",
+      "lang": "JP",
+      "type": "ガイド"
+    },
+    "japan_en": {
+      "file": "japan_en.json",
+      "url": "/en/japan/",
+      "title": "Guide to Japan’s Remote Islands | Miyako, Ishigaki, Amami | RITOTABI",
+      "stream": "en_other",
+      "overall": 95,
+      "evaluatedAt": "2026-05-09",
+      "lang": "EN",
+      "type": "ガイド"
+    },
+    "vietnam_jp": {
+      "file": "vietnam_jp.json",
+      "url": "/vietnam/",
+      "title": "ベトナム離島 完全ガイド｜コンダオ島・チャム島・ホイアン | RITOTABI",
+      "stream": "hjp",
+      "overall": 94,
+      "evaluatedAt": "2026-05-09",
+      "lang": "JP",
+      "type": "ガイド"
+    },
+    "vietnam_en": {
+      "file": "vietnam_en.json",
+      "url": "/en/vietnam/",
+      "title": "Vietnam Island Guide: Con Dao, Cham Island & Hoi An | RITOTABI",
+      "stream": "hen",
+      "overall": 95,
+      "evaluatedAt": "2026-05-09",
+      "lang": "EN",
+      "type": "ガイド"
+    },
     "hotels_con-dao-island": {
       "file": "condao_hotels_jp.json",
       "url": "/hotels/con-dao-island/",
@@ -261,7 +301,6 @@
       "lang": "JP",
       "type": "ランニング"
     },
-
     "en_hotels_miyako-island": {
       "file": "miyako_hotels_en.json",
       "url": "/en/hotels/miyako-island/",
@@ -342,7 +381,6 @@
       "lang": "JP",
       "type": "ランニング"
     },
-
     "hotels_yoron-island": {
       "file": "yoron_hotels_jp.json",
       "url": "/hotels/yoron-island/",
@@ -383,7 +421,6 @@
       "lang": "JP",
       "type": "ランニング"
     },
-
     "destinations_amami-island": {
       "file": "amami_guide_jp.json",
       "url": "/destinations/amami-island/",

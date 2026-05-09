@@ -1,0 +1,73 @@
+{
+  "id": "vietnam_en",
+  "url": "https://ritotabi.com/en/vietnam/",
+  "evaluatedAt": "2026-05-09",
+  "evaluatedBy": "skill",
+  "stream": "hen",
+  "sum": "95",
+  "ap": "85",
+  "an": "95",
+  "ao": "95",
+  "pp": [0, 210, 520, 1100, 2000, 3000, 4000, 5200, 6200, 7000, 7800, 8500, 9500, 10500, 11200, 12000, 12500, 13000, 13500, 14000, 14500, 15000, 15500, 16000],
+  "pn": [0, 105, 260, 550, 1000, 1500, 2000, 2600, 3100, 3500, 3900, 4250, 4750, 5250, 5600, 6000, 6250, 6500, 6750, 7000, 7250, 7500, 7750, 8000],
+  "po": [0, 310, 780, 1650, 3000, 4500, 6000, 7800, 9300, 10500, 11700, 12750, 14250, 15750, 16800, 18000, 18750, 19500, 20250, 21000, 21750, 22500, 23250, 24000],
+  "memo": "English localized version of the Vietnam landing page. High-quality copywriting that appeals to inbound travelers seeking 'off the beaten path' experiences. Technical SEO implementation is perfect with bi-directional hreflang and localized FAQ schema.",
+  "quality": {
+    "title": "Vietnam Island Guide: Con Dao, Cham Island & Hoi An | RITOTABI",
+    "lang": "EN",
+    "type": "ガイド",
+    "overall": 95,
+    "publishedDate": "2026-05-06",
+    "scores": {
+      "コンテンツ独自性": 95,
+      "写真・ビジュアル": 90,
+      "アフィリエイト設計": 85,
+      "内部リンク": 95,
+      "SEO技術実装": 98,
+      "ユーザー体験(UX)": 92,
+      "英語品質": 100
+    },
+    "seoChecklist": {
+      "hreflang": true,
+      "faq": true,
+      "keyword": true,
+      "meta": true,
+      "canonical": true,
+      "ogp": true
+    },
+    "freshness": "new",
+    "affiliateChecklist": {
+      "ctaPosition": true,
+      "microCopy": true,
+      "multipleOta": false,
+      "priceVisible": false,
+      "socialProof": false,
+      "mobileStickyCta": false,
+      "carRentalLink": false,
+      "activityLink": false,
+      "urgencySignals": 0,
+      "minClicks": 2
+    },
+    "brandChecklist": {
+      "toneAndManner": true,
+      "firstPersonInsight": true,
+      "benefitUpfront": true,
+      "personaDrivenPros": null
+    },
+    "techChecklist": {
+      "nextImage": true,
+      "imageAlt": true,
+      "affiliateRel": true
+    },
+    "strengths": [
+      "Exceptional English quality with evocative vocabulary ('pristine natural sanctuaries', 'remote sanctuary')",
+      "Perfect implementation of Unicode characters (smart quotes) in JSX and metadata",
+      "Strong cluster structure with all internal links correctly pointing to English versions",
+      "High-value FAQ section that addresses key friction points for international travelers (access, best season)"
+    ],
+    "issues": [
+      { "level": "低", "text": "Similar to the JP version, direct affiliate CTA is minimal on this landing page, which is appropriate for a hub-style navigation page." }
+    ],
+    "seasonalRisk": "High potential for the May launch, aligning with the end of the dry season in Con Dao and the peak season in Hoi An."
+  }
+}
